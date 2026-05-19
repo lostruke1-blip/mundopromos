@@ -32,7 +32,9 @@ exports.handler = async function(event, context) {
         const m = block.match(new RegExp("<" + tag + "[^>]*>([\\s\\S]*?)<\\/" + tag + ">"));
         if (!m) return "";
         let val = m[1].replace(/<!\[CDATA\[([\s\S]*?)\]\]>/, "$1").trim();
-        val = val.replace(/<[^>]+>/g, "").trim();
+        val = val.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const nums = val.match(/[\d,\.]+/);
+if (tag === "OfferValue" && nums) val = nums[0] + " €";
         return val;
       };
       const getRaw = function(tag) {
