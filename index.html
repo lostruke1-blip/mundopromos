@@ -10,104 +10,110 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--teal:#06999a;--teal-dark:#047a7b;--teal-light:#e0f5f5;--bg:#f7fafa;--card:#fff;--text:#1a2424;--muted:#5a7272;--border:#d4e8e8;--radius:12px;--orange:#f97316}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-header{background:var(--teal);padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.logo{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:700;color:#fff;letter-spacing:-.5px}
+header{background:var(--teal);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:-.5px}
 .logo span{opacity:.7;font-weight:400}
-.social-links{display:flex;gap:8px;flex-wrap:wrap}
-.social-links a{color:#fff;text-decoration:none;font-size:12px;padding:4px 10px;border:1px solid rgba(255,255,255,.4);border-radius:20px;transition:background .15s}
-.social-links a:hover{background:rgba(255,255,255,.2)}
-.tabs{background:#fff;border-bottom:1px solid var(--border);display:flex;padding:0 .5rem;position:sticky;top:0;z-index:10;box-shadow:0 1px 4px rgba(6,153,154,.08);overflow-x:auto}
-.tab-btn{padding:.9rem 1rem;font-size:13px;font-weight:500;color:var(--muted);border:none;background:none;cursor:pointer;border-bottom:2.5px solid transparent;transition:all .15s;font-family:'Inter',sans-serif;white-space:nowrap}
+.social-links{display:flex;gap:6px;flex-wrap:wrap}
+.social-links a{color:#fff;text-decoration:none;font-size:11px;padding:4px 9px;border:1px solid rgba(255,255,255,.4);border-radius:20px}
+.tabs{background:#fff;border-bottom:1px solid var(--border);display:flex;padding:0;position:sticky;top:0;z-index:10;box-shadow:0 1px 4px rgba(6,153,154,.08);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab-btn{padding:.85rem 1rem;font-size:13px;font-weight:500;color:var(--muted);border:none;background:none;cursor:pointer;border-bottom:2.5px solid transparent;transition:all .15s;font-family:'Inter',sans-serif;white-space:nowrap;flex-shrink:0}
 .tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
-.tab-btn:hover{color:var(--teal)}
-.tab-btn.highlight{color:#ea580c;font-weight:600}
-.tab-btn.highlight.active{color:#ea580c;border-bottom-color:#ea580c}
-main{max-width:960px;margin:0 auto;padding:2rem 1.25rem}
-.intro{font-size:14px;color:var(--muted);margin-bottom:1.75rem;line-height:1.6;background:var(--teal-light);padding:.75rem 1rem;border-radius:var(--radius);border-left:3px solid var(--teal)}
-.cat{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--teal-dark);margin:2rem 0 .75rem;display:flex;align-items:center;gap:8px}
+.tab-btn.hl{color:#ea580c;font-weight:600}
+.tab-btn.hl.active{color:#ea580c;border-bottom-color:#ea580c}
+main{max-width:960px;margin:0 auto;padding:1.25rem 1rem}
+.intro{font-size:14px;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;background:var(--teal-light);padding:.75rem 1rem;border-radius:var(--radius);border-left:3px solid var(--teal)}
+.cat{font-family:'Syne',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--teal-dark);margin:1.75rem 0 .75rem;display:flex;align-items:center;gap:8px}
 .cat::after{content:'';flex:1;height:1px;background:var(--border)}
-.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}
-.grid4{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:12px}
 
-/* CUMPLEAÑOS CARDS */
-.cumple-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;text-decoration:none}
-.cumple-card:hover{box-shadow:0 4px 16px rgba(6,153,154,.15);transform:translateY(-2px)}
-.cumple-img{width:100%;height:80px;object-fit:contain;background:#f7fafa;padding:10px}
-.cumple-body{padding:.75rem;display:flex;flex-direction:column;gap:4px;flex:1}
-.cumple-name{font-weight:600;font-size:13px;color:var(--text)}
-.cumple-desc{font-size:11.5px;color:var(--muted);line-height:1.4;flex:1}
-.cumple-tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;align-self:flex-start;margin-top:4px}
-.tag-free{color:#047857;background:#d1fae5}
-.tag-disc{color:#1d4ed8;background:#dbeafe}
-.tag-2x1{color:#7c3aed;background:#ede9fe}
+/* GRID MOBILE FIRST */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.g3{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.g4{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:480px){.g2{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}.g3{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}.g4{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}}
+@media(min-width:720px){.g2{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}.g3{grid-template-columns:repeat(auto-fill,minmax(175px,1fr))}.g4{grid-template-columns:repeat(auto-fill,minmax(195px,1fr))}}
 
-/* BANNER */
-.banner{border-radius:var(--radius);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;margin-bottom:1rem;text-decoration:none;transition:transform .15s,opacity .15s;flex-wrap:wrap}
-.banner:hover{transform:translateY(-2px);opacity:.95}
+/* CUMPLEAÑOS */
+.cc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:box-shadow .15s,transform .15s}
+.cc:active{transform:scale(.98)}
+.cc-img{width:100%;height:70px;object-fit:contain;background:#f7fafa;padding:8px}
+.cc-body{padding:.6rem .75rem;display:flex;flex-direction:column;gap:3px;flex:1}
+.cc-name{font-weight:600;font-size:13px;color:var(--text);line-height:1.2}
+.cc-desc{font-size:11px;color:var(--muted);line-height:1.35;flex:1}
+.cc-tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;align-self:flex-start;margin-top:4px}
+.tag-f{color:#047857;background:#d1fae5}
+.tag-d{color:#1d4ed8;background:#dbeafe}
+.tag-x{color:#7c3aed;background:#ede9fe}
+
+/* BANNERS MOBILE */
+.banner{border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;text-decoration:none;transition:transform .15s;min-height:80px}
+.banner:active{transform:scale(.98)}
 .b-orange{background:linear-gradient(135deg,#7c2d12,#ea580c)}
 .b-blue{background:linear-gradient(135deg,#1e3a5f,#2563eb)}
 .b-green{background:linear-gradient(135deg,#14532d,#16a34a)}
-.b-badge{color:#fff;font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;padding:.5rem .9rem;border-radius:10px;background:rgba(255,255,255,.2);white-space:nowrap;min-width:56px;text-align:center}
-.b-text{flex:1;min-width:150px}
-.b-text h3{color:#fff;font-size:15px;font-weight:600;margin-bottom:3px}
-.b-text p{color:rgba(255,255,255,.8);font-size:12px;line-height:1.4}
-.b-arrow{color:#fff;font-size:22px;font-weight:700}
+.b-badge{color:#fff;font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;padding:.4rem .7rem;border-radius:8px;background:rgba(255,255,255,.2);white-space:nowrap;min-width:52px;text-align:center;flex-shrink:0}
+.b-text{flex:1}
+.b-text h3{color:#fff;font-size:14px;font-weight:600;margin-bottom:2px;line-height:1.2}
+.b-text p{color:rgba(255,255,255,.85);font-size:11.5px;line-height:1.35}
+.b-arr{color:#fff;font-size:18px;font-weight:700;flex-shrink:0}
 
 /* TOPCASH LANDING */
-.tc-hero{background:linear-gradient(135deg,#7c2d12 0%,#ea580c 60%,#f97316 100%);border-radius:16px;padding:2.5rem 2rem;text-align:center;margin-bottom:2rem}
-.tc-hero h1{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:.5rem}
-.tc-hero p{color:rgba(255,255,255,.9);font-size:15px;margin-bottom:1.5rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.5}
-.tc-btn{display:inline-block;background:#fff;color:#ea580c;font-family:'Syne',sans-serif;font-weight:700;font-size:16px;padding:.9rem 2rem;border-radius:50px;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 20px rgba(0,0,0,.2)}
-.tc-btn:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(0,0,0,.3)}
-.tc-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:2rem}
-.tc-step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;text-align:center}
-.tc-step-num{width:36px;height:36px;background:var(--orange);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:16px;margin:0 auto .75rem}
-.tc-step h3{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
-.tc-step p{font-size:12px;color:var(--muted);line-height:1.4}
-.tc-stores{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:2rem}
-.tc-store{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:13px;font-weight:500;color:var(--text)}
-.tc-cta{text-align:center;background:var(--teal-light);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border)}
-.tc-cta p{font-size:14px;color:var(--muted);margin-bottom:1rem}
-.tc-cta a{display:inline-block;background:var(--orange);color:#fff;font-weight:600;font-size:15px;padding:.8rem 2rem;border-radius:50px;text-decoration:none;transition:opacity .15s}
-.tc-cta a:hover{opacity:.9}
+.tc-hero{background:linear-gradient(135deg,#7c2d12,#ea580c 60%,#f97316);border-radius:16px;padding:2rem 1.25rem;text-align:center;margin-bottom:1.5rem}
+.tc-hero h1{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+.tc-hero p{color:rgba(255,255,255,.9);font-size:14px;margin-bottom:1.25rem;line-height:1.5}
+.tc-btn{display:inline-block;background:#fff;color:#ea580c;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:.85rem 1.75rem;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.tc-steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem}
+@media(min-width:480px){.tc-steps{grid-template-columns:repeat(4,1fr)}}
+.tc-step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center}
+.tc-num{width:32px;height:32px;background:var(--orange);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;margin:0 auto .5rem}
+.tc-step h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.tc-step p{font-size:11.5px;color:var(--muted);line-height:1.35}
+.tc-stores{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:1.5rem}
+.tc-store{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-size:12px;font-weight:500;color:var(--text)}
+.tc-cta{background:var(--teal-light);border-radius:var(--radius);padding:1.25rem;border:1px solid var(--border);text-align:center}
+.tc-cta p{font-size:13px;color:var(--muted);margin-bottom:.75rem}
+.tc-cta a{display:inline-block;background:var(--orange);color:#fff;font-weight:600;font-size:15px;padding:.75rem 1.75rem;border-radius:50px;text-decoration:none}
 
 /* PRUEBAS */
-.p-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
-.p-card:hover{box-shadow:0 4px 16px rgba(6,153,154,.12);transform:translateY(-1px)}
-.p-img{width:100%;height:95px;object-fit:contain;background:#f7fafa;padding:8px}
-.p-body{padding:.75rem;display:flex;flex-direction:column;gap:6px;flex:1}
-.p-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;padding:2px 8px;border-radius:20px;align-self:flex-start}
-.tag-g{color:#047857;background:#d1fae5}
-.tag-r{color:#b45309;background:#fef3c7}
-.p-name{font-size:12.5px;font-weight:500;color:var(--text);line-height:1.3;flex:1}
-.p-btn{display:block;text-align:center;background:var(--teal);color:#fff;text-decoration:none;font-size:12px;font-weight:500;padding:6px;border-radius:8px;transition:background .15s}
-.p-btn:hover{background:var(--teal-dark)}
-
-/* TELEGRAM */
-.tg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
-.tg-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;display:flex;align-items:center;gap:12px;text-decoration:none;transition:box-shadow .15s,transform .15s}
-.tg-card:hover{box-shadow:0 4px 16px rgba(6,153,154,.12);transform:translateY(-1px)}
-.tg-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.tg-name{font-size:13px;font-weight:500;color:var(--text)}
-.tg-desc{font-size:11.5px;color:var(--muted);margin-top:2px}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s}
+.pc:active{transform:scale(.98)}
+.pc-img{width:100%;height:90px;object-fit:contain;background:#f7fafa;padding:8px}
+.pc-body{padding:.65rem .75rem;display:flex;flex-direction:column;gap:5px;flex:1}
+.ptag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:20px;align-self:flex-start}
+.tg{color:#047857;background:#d1fae5}
+.tr{color:#b45309;background:#fef3c7}
+.pname{font-size:12px;font-weight:500;color:var(--text);line-height:1.3;flex:1}
+.pbtn{display:block;text-align:center;background:var(--teal);color:#fff;text-decoration:none;font-size:12px;font-weight:500;padding:6px;border-radius:8px;margin-top:4px}
 
 /* CUPONES */
 #panel-cupones,#panel-telegram,#panel-pruebas,#panel-topcash{display:none}
-.c-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;display:flex;flex-direction:column;gap:6px;transition:box-shadow .15s}
-.c-card:hover{box-shadow:0 4px 16px rgba(6,153,154,.12)}
-.c-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--teal-dark);background:var(--teal-light);padding:2px 8px;border-radius:20px;align-self:flex-start}
-.c-brand{font-weight:600;font-size:14px;color:var(--text)}
-.c-desc{font-size:12.5px;color:var(--muted);line-height:1.4;flex:1}
-.c-btn{display:block;text-align:center;background:var(--teal);color:#fff;text-decoration:none;font-size:13px;font-weight:500;padding:7px;border-radius:8px;margin-top:6px;transition:background .15s}
-.c-btn:hover{background:var(--teal-dark)}
-.loading{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:15px}
-.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--teal);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1rem}
+.ext-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.5rem}
+@media(min-width:480px){.ext-grid{grid-template-columns:repeat(4,1fr)}}
+.ext-card{background:var(--card);border:2px solid var(--teal-light);border-radius:var(--radius);padding:.75rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;gap:6px;transition:border-color .15s}
+.ext-card:hover{border-color:var(--teal)}
+.ext-card img{height:40px;object-fit:contain;margin:0 auto}
+.ext-card span{font-size:12px;font-weight:500;color:var(--text)}
+.ext-card .ext-btn{background:var(--teal);color:#fff;font-size:11px;padding:4px 8px;border-radius:6px}
+.cc2{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem 1rem;display:flex;flex-direction:column;gap:5px}
+.cc2-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--teal-dark);background:var(--teal-light);padding:2px 8px;border-radius:20px;align-self:flex-start}
+.cc2-brand{font-weight:600;font-size:14px;color:var(--text)}
+.cc2-desc{font-size:12px;color:var(--muted);line-height:1.4;flex:1}
+.cc2-btn{display:block;text-align:center;background:var(--teal);color:#fff;text-decoration:none;font-size:13px;font-weight:500;padding:7px;border-radius:8px;margin-top:4px}
+.loading{text-align:center;padding:2.5rem 1rem;color:var(--muted);font-size:15px}
+.spinner{width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--teal);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto .75rem}
 @keyframes spin{to{transform:rotate(360deg)}}
-.err{background:#fff5f5;border:1px solid #fca5a5;border-radius:var(--radius);padding:1.25rem;text-align:center;color:#b91c1c;font-size:14px;margin-bottom:1rem}
-footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:3rem}
+.err{background:#fff5f5;border:1px solid #fca5a5;border-radius:var(--radius);padding:1rem;text-align:center;color:#b91c1c;font-size:13px;margin-bottom:1rem}
+
+/* TELEGRAM */
+.tg-grid{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:480px){.tg-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}}
+.tg-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem 1rem;display:flex;align-items:center;gap:12px;text-decoration:none}
+.tg-card:active{transform:scale(.98)}
+.tg-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.tg-name{font-size:13px;font-weight:500;color:var(--text)}
+.tg-desc{font-size:11.5px;color:var(--muted);margin-top:1px}
+
+footer{text-align:center;padding:1.5rem 1rem;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:2.5rem}
 footer a{color:var(--teal);text-decoration:none}
-@media(max-width:600px){.tab-btn{padding:.75rem .75rem;font-size:12px}main{padding:1.25rem 1rem}.tc-hero h1{font-size:1.6rem}}
 </style>
 </head>
 <body>
@@ -115,10 +121,10 @@ footer a{color:var(--teal);text-decoration:none}
 <header>
   <div class="logo">Mundo<span>Promos</span></div>
   <div class="social-links">
-    <a href="https://t.me/Mundopromosapp" target="_blank">📢 Telegram</a>
-    <a href="https://instagram.com/mundopromos" target="_blank">📸 Instagram</a>
-    <a href="https://www.tiktok.com/@mundopromos" target="_blank">🎵 TikTok</a>
-    <a href="https://www.facebook.com/mundopromos" target="_blank">👥 Facebook</a>
+    <a href="https://t.me/Mundopromosapp" target="_blank">📢 TG</a>
+    <a href="https://instagram.com/mundopromos" target="_blank">📸 IG</a>
+    <a href="https://www.tiktok.com/@mundopromos" target="_blank">🎵 TK</a>
+    <a href="https://www.facebook.com/mundopromos" target="_blank">👥 FB</a>
   </div>
 </header>
 
@@ -126,7 +132,7 @@ footer a{color:var(--teal);text-decoration:none}
   <button class="tab-btn active" onclick="showTab('cumple',this)">🎂 Cumpleaños</button>
   <button class="tab-btn" onclick="showTab('cupones',this)">🎟️ Cupones</button>
   <button class="tab-btn" onclick="showTab('pruebas',this)">🆓 Pruebas gratis</button>
-  <button class="tab-btn highlight" onclick="showTab('topcash',this)">💰 Bono 10€</button>
+  <button class="tab-btn hl" onclick="showTab('topcash',this)">💰 Bono 10€</button>
   <button class="tab-btn" onclick="showTab('telegram',this)">💬 Telegram</button>
 </div>
 
@@ -134,209 +140,138 @@ footer a{color:var(--teal);text-decoration:none}
 
 <!-- CUMPLEAÑOS -->
 <div id="panel-cumple">
-  <p class="intro">🎉 ¡Regístrate previamente en cada sitio y disfruta de regalos gratis el día de tu cumpleaños!</p>
-
+  <p class="intro">🎉 Regístrate previamente en cada sitio y disfruta de regalos gratis el día de tu cumple.</p>
   <div class="cat">🎬 Cine y ocio</div>
-  <div class="grid2">
-    <a class="cumple-card" href="https://ayuda.cinesa.es/hc/es/articles/9358284994333" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Cinesa_logo.svg/320px-Cinesa_logo.svg.png" alt="Cinesa" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🎬 Cinesa</div><div class="cumple-desc">Entrada gratis el día de tu cumpleaños</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.yelmocines.es/movieyelmo-afiliacion" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Yelmo_Cines_logo.svg/320px-Yelmo_Cines_logo.svg.png" alt="Yelmo" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🎬 Yelmo Cines</div><div class="cumple-desc">Entrada gratis el día de tu cumpleaños</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://kinepolis.es/content/descubre-todas-las-ventajas-de-formar-parte-de-nuestro-grupo-de-amigos" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Kinepolis-logo.svg/320px-Kinepolis-logo.svg.png" alt="Kinepolis" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🎬 Kinepolis</div><div class="cumple-desc">Entrada gratis (debes haber comprado en los últimos 12 meses)</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.neocine.es/w/63/tarjeta-fan-club" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🎬 Neocine</div><div class="cumple-desc">Descuento especial el día de tu cumpleaños</div><span class="cumple-tag tag-disc">Descuento</span></div>
-    </a>
-    <a class="cumple-card" href="https://ilusiona.com/ilusiona-club/" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🎳 Ilusiona centros de ocio</div><div class="cumple-desc">Una partida de bolos gratis</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
+  <div class="g2">
+    <a class="cc" href="https://ayuda.cinesa.es/hc/es/articles/9358284994333" target="_blank"><img class="cc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Cinesa_logo.svg/320px-Cinesa_logo.svg.png" alt="Cinesa" onerror="this.style.display='none'"><div class="cc-body"><div class="cc-name">🎬 Cinesa</div><div class="cc-desc">Entrada gratis</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.yelmocines.es/movieyelmo-afiliacion" target="_blank"><img class="cc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Yelmo_Cines_logo.svg/320px-Yelmo_Cines_logo.svg.png" alt="Yelmo" onerror="this.style.display='none'"><div class="cc-body"><div class="cc-name">🎬 Yelmo Cines</div><div class="cc-desc">Entrada gratis</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://kinepolis.es/content/descubre-todas-las-ventajas-de-formar-parte-de-nuestro-grupo-de-amigos" target="_blank"><img class="cc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Kinepolis-logo.svg/320px-Kinepolis-logo.svg.png" alt="Kinepolis" onerror="this.style.display='none'"><div class="cc-body"><div class="cc-name">🎬 Kinepolis</div><div class="cc-desc">Entrada gratis (compra previa en 12 meses)</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.neocine.es/w/63/tarjeta-fan-club" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🎬 Neocine</div><div class="cc-desc">Descuento especial</div><span class="cc-tag tag-d">Descuento</span></div></a>
+    <a class="cc" href="https://ilusiona.com/ilusiona-club/" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🎳 Ilusiona</div><div class="cc-desc">Una partida de bolos gratis</div><span class="cc-tag tag-f">Gratis</span></div></a>
   </div>
 
   <div class="cat">🍔 Comida y restaurantes</div>
-  <div class="grid2">
-    <a class="cumple-card" href="https://www.burgerking.es/my-burger-king" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Burger_King_logo_%282020%29.svg/320px-Burger_King_logo_%282020%29.svg.png" alt="BK" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🍔 Burger King</div><div class="cumple-desc">Whopper gratis en local o helado a domicilio con código MICUMPLE</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.ikeafamily.net/regalo-de-cumplea%C3%B1os" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ikea_logo.svg/320px-Ikea_logo.svg.png" alt="IKEA" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🎂 IKEA Family</div><div class="cumple-desc">Porción de tarta gratis + 10% de descuento ±2 días</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://theblackturtle.es/turtle-club" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🍔 Black Turtle</div><div class="cumple-desc">Una burger gratis el día de tu cumpleaños</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.dominos.es" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Domino%27s_pizza_logo.svg/320px-Domino%27s_pizza_logo.svg.png" alt="Dominos" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🍕 Domino's Pizza</div><div class="cumple-desc">Menú come y bebe gratis con 3+ amigos y DNI</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://brasaylena.es" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🥩 Brasa y Leña</div><div class="cumple-desc">El cumpleañero come gratis con 3 amigos y DNI</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.llaollaoweb.com/es/club-llaollao/" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Llaoll%C3%A3o_logo.svg/320px-Llaoll%C3%A3o_logo.svg.png" alt="Llaollao" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🍦 Llaollao</div><div class="cumple-desc">2x1 en tarrina pequeña enseñando DNI o correo</div><span class="cumple-tag tag-2x1">2x1</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.malvon.es/pasaportemalvon" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🥟 Empanadas Malvón</div><div class="cumple-desc">2 empanadas gratis el día de tu cumpleaños</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.starbucks.es/rewards" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/320px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">☕ Starbucks</div><div class="cumple-desc">Una bebida gratis por ser socio Rewards</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.latagliatella.es/cumple" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🍝 La Tagliatella</div><div class="cumple-desc">Descuento 10-15€ en compras de 40€+</div><span class="cumple-tag tag-disc">Descuento</span></div>
-    </a>
+  <div class="g2">
+    <a class="cc" href="https://www.burgerking.es/my-burger-king" target="_blank"><img class="cc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Burger_King_logo_%282020%29.svg/240px-Burger_King_logo_%282020%29.svg.png" alt="BK" onerror="this.style.display='none'"><div class="cc-body"><div class="cc-name">🍔 Burger King</div><div class="cc-desc">Whopper gratis. Código MICUMPLE</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.ikeafamily.net/regalo-de-cumplea%C3%B1os" target="_blank"><img class="cc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ikea_logo.svg/240px-Ikea_logo.svg.png" alt="IKEA" onerror="this.style.display='none'"><div class="cc-body"><div class="cc-name">🎂 IKEA Family</div><div class="cc-desc">Tarta gratis + 10% dto ±2 días</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://theblackturtle.es/turtle-club" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🍔 Black Turtle</div><div class="cc-desc">Una burger gratis</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.dominos.es" target="_blank"><img class="cc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Domino%27s_pizza_logo.svg/240px-Domino%27s_pizza_logo.svg.png" alt="Dominos" onerror="this.style.display='none'"><div class="cc-body"><div class="cc-name">🍕 Domino's</div><div class="cc-desc">Menú gratis con 3+ amigos y DNI</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://brasaylena.es" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🥩 Brasa y Leña</div><div class="cc-desc">Come gratis con 3 amigos y DNI</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.llaollaoweb.com/es/club-llaollao/" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🍦 Llaollao</div><div class="cc-desc">2x1 en tarrina pequeña con DNI</div><span class="cc-tag tag-x">2x1</span></div></a>
+    <a class="cc" href="https://www.malvon.es/pasaportemalvon" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🥟 Empanadas Malvón</div><div class="cc-desc">2 empanadas gratis</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.starbucks.es/rewards" target="_blank"><img class="cc-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/240px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks" onerror="this.style.display='none'"><div class="cc-body"><div class="cc-name">☕ Starbucks</div><div class="cc-desc">Bebida gratis siendo socio</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.latagliatella.es/cumple" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🍝 La Tagliatella</div><div class="cc-desc">10-15€ dto en compras de 40€+</div><span class="cc-tag tag-d">Descuento</span></div></a>
   </div>
 
   <div class="cat">🛍️ Tiendas y regalos</div>
-  <div class="grid2">
-    <a class="cumple-card" href="https://support-es.thebodyshop.com/hc/es-es/articles/4406446222097" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/The_Body_Shop_logo.svg/320px-The_Body_Shop_logo.svg.png" alt="The Body Shop" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🌿 The Body Shop</div><div class="cumple-desc">Obsequio gratis sin compra mínima</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.game.es/tarjeta-de-socio-como-funciona-GAME-te-informa" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Game_logo.svg/320px-Game_logo.svg.png" alt="Game" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🎮 Game</div><div class="cumple-desc">Taza gratis y el doble de puntos ese día</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.rituals.com/es-es/happy-birthday.html" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Rituals_logo.svg/320px-Rituals_logo.svg.png" alt="Rituals" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🕯️ Rituals</div><div class="cumple-desc">Regalo por cualquier compra, sin mínimo</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://clubwow.womensecret.com/regalo-cumple/" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">👙 Women's Secret</div><div class="cumple-desc">Descuento de 6€ en compras de 10€</div><span class="cumple-tag tag-disc">6€ dto</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.yves-rocher.es/regalos/un-regalo-a-elegir-por-tu-cumpleanos" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🌸 Yves Rocher</div><div class="cumple-desc">Regalo gratis solo por acudir a tienda</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.tucasaclub.com/promociones/feliz-cumpleanos.html" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🎁 Tu Casa Club</div><div class="cumple-desc">Sorteo de bombones el mes de tu cumpleaños</div><span class="cumple-tag tag-free">Sorteo</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.tous.com/es-es/loyalty-mytous" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Tous_logo.svg/320px-Tous_logo.svg.png" alt="Tous" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🐻 Tous</div><div class="cumple-desc">Regalo gratis en tienda sin compra mínima</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://es.pandora.net/es/pandora-club/" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Pandora_Logo.svg/320px-Pandora_Logo.svg.png" alt="Pandora" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">💍 Pandora</div><div class="cumple-desc">Regalo o descuento (aleatorio)</div><span class="cumple-tag tag-free">Gratis</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.sephora.es/programa-fidelidad-nivel-gold.html" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Sephora_logo.svg/320px-Sephora_logo.svg.png" alt="Sephora" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">💄 Sephora</div><div class="cumple-desc">Bono 30€ para socios Gold</div><span class="cumple-tag tag-free">30€</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.carrefour.es" target="_blank">
-      <img class="cumple-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Carrefour_logo.svg/320px-Carrefour_logo.svg.png" alt="Carrefour" onerror="this.style.display='none'">
-      <div class="cumple-body"><div class="cumple-name">🛒 Carrefour</div><div class="cumple-desc">5€ al chequeahorro con su app (aleatorio)</div><span class="cumple-tag tag-disc">5€</span></div>
-    </a>
-    <a class="cumple-card" href="https://www.alcampo.es" target="_blank">
-      <div class="cumple-body" style="justify-content:center"><div class="cumple-name">🛒 Alcampo</div><div class="cumple-desc">500 puntos extra por comprar ese día</div><span class="cumple-tag tag-disc">Puntos</span></div>
-    </a>
+  <div class="g2">
+    <a class="cc" href="https://support-es.thebodyshop.com/hc/es-es/articles/4406446222097" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🌿 The Body Shop</div><div class="cc-desc">Obsequio gratis sin compra mínima</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.game.es/tarjeta-de-socio-como-funciona-GAME-te-informa" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🎮 Game</div><div class="cc-desc">Taza gratis + doble puntos</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.rituals.com/es-es/happy-birthday.html" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🕯️ Rituals</div><div class="cc-desc">Regalo sin compra mínima</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://clubwow.womensecret.com/regalo-cumple/" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">👙 Women's Secret</div><div class="cc-desc">6€ dto en compras de 10€</div><span class="cc-tag tag-d">6€ dto</span></div></a>
+    <a class="cc" href="https://www.yves-rocher.es/regalos/un-regalo-a-elegir-por-tu-cumpleanos" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🌸 Yves Rocher</div><div class="cc-desc">Regalo gratis en tienda</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.tucasaclub.com/promociones/feliz-cumpleanos.html" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🎁 Tu Casa Club</div><div class="cc-desc">Sorteo bombones en tu mes</div><span class="cc-tag tag-f">Sorteo</span></div></a>
+    <a class="cc" href="https://www.tous.com/es-es/loyalty-mytous" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🐻 Tous</div><div class="cc-desc">Regalo gratis sin compra mínima</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://es.pandora.net/es/pandora-club/" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">💍 Pandora</div><div class="cc-desc">Regalo o descuento (aleatorio)</div><span class="cc-tag tag-f">Gratis</span></div></a>
+    <a class="cc" href="https://www.sephora.es/programa-fidelidad-nivel-gold.html" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">💄 Sephora</div><div class="cc-desc">Bono 30€ para socios Gold</div><span class="cc-tag tag-f">30€</span></div></a>
+    <a class="cc" href="https://www.carrefour.es" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🛒 Carrefour</div><div class="cc-desc">5€ al chequeahorro con app</div><span class="cc-tag tag-d">5€</span></div></a>
+    <a class="cc" href="https://www.alcampo.es" target="_blank"><div class="cc-body" style="padding:1rem;justify-content:center"><div class="cc-name">🛒 Alcampo</div><div class="cc-desc">500 puntos extra ese día</div><span class="cc-tag tag-d">Puntos</span></div></a>
   </div>
 </div>
 
 <!-- CUPONES -->
 <div id="panel-cupones">
   <p class="intro">Cupones de supermercado actualizados automáticamente cada hora.</p>
+  <p class="cat">🔗 Ver cupones en otras webs</p>
+  <div class="ext-grid">
+    <a class="ext-card" href="https://valesycupones.es/" target="_blank"><img src="https://valesycupones.es/favicon.ico" alt="Vales y Cupones" onerror="this.style.display='none'"><span>Vales y Cupones</span><span class="ext-btn">Ver →</span></a>
+    <a class="ext-card" href="https://www.tucasaclub.com/promociones/cupones.html" target="_blank"><img src="https://www.tucasaclub.com/favicon.ico" alt="Tu Casa Club" onerror="this.style.display='none'"><span>Tu Casa Club</span><span class="ext-btn">Ver →</span></a>
+    <a class="ext-card" href="https://nestlefamilyclub.es/cupones" target="_blank"><img src="https://nestlefamilyclub.es/favicon.ico" alt="Nestlé Family" onerror="this.style.display='none'"><span>Nestlé Family Club</span><span class="ext-btn">Ver →</span></a>
+    <a class="ext-card" href="https://www.nestlebebe.es/cupones" target="_blank"><img src="https://www.nestlebebe.es/favicon.ico" alt="Nestlé Bebé" onerror="this.style.display='none'"><span>Nestlé Baby & Me</span><span class="ext-btn">Ver →</span></a>
+    <a class="ext-card" href="https://borges.es/club-borges/cupones/" target="_blank"><img src="https://borges.es/favicon.ico" alt="Borges" onerror="this.style.display='none'"><span>Borges</span><span class="ext-btn">Ver →</span></a>
+  </div>
+  <p class="cat">🎟️ Cupones disponibles ahora</p>
   <div id="cupones-container"><div class="loading"><div class="spinner"></div>Cargando cupones...</div></div>
 </div>
 
 <!-- PRUEBAS GRATIS -->
 <div id="panel-pruebas">
-  <p class="intro">Consigue productos gratis o con reembolso. Regístrate, compra y recupera tu dinero.</p>
-  <a class="banner b-orange" href="https://www.topcashback.es/munpromos/" target="_blank">
-    <div class="b-badge">10€</div>
-    <div class="b-text"><h3>TopCashback — 10€ de bienvenida gratis</h3><p>Regístrate y consigue 10€ al hacer tu primera compra en miles de tiendas.</p></div>
-    <div class="b-arrow">→</div>
-  </a>
-  <a class="banner b-blue" href="https://action.metaffiliation.com/trk.php?mclic=P4F685580B7F2491" target="_blank">
-    <div class="b-badge">2€</div>
-    <div class="b-text"><h3>OCU — 2 meses por solo 2€</h3><p>Hazte socio y llévate un regalo de bienvenida. Cancela cuando quieras.</p></div>
-    <div class="b-arrow">→</div>
-  </a>
-  <a class="banner b-green" href="https://hbr.kst.kwpsurveys.com/?P512F27580B7F131" target="_blank">
-    <div class="b-badge">💰</div>
-    <div class="b-text"><h3>Kantar — Gana dinero con tu opinión</h3><p>Participa en estudios de mercado y recibe remuneración.</p></div>
-    <div class="b-arrow">→</div>
-  </a>
+  <p class="intro">Consigue productos gratis o con reembolso. Compra y recupera tu dinero.</p>
+  <a class="banner b-orange" href="https://www.topcashback.es/munpromos/" target="_blank"><div class="b-badge">10€</div><div class="b-text"><h3>TopCashback — 10€ de bienvenida</h3><p>Regístrate y consigue 10€ al hacer tu primera compra.</p></div><div class="b-arr">→</div></a>
+  <a class="banner b-blue" href="https://action.metaffiliation.com/trk.php?mclic=P4F685580B7F2491" target="_blank"><div class="b-badge">2€</div><div class="b-text"><h3>OCU — 2 meses por solo 2€</h3><p>Hazte socio y llévate un regalo de bienvenida.</p></div><div class="b-arr">→</div></a>
+  <a class="banner b-green" href="https://hbr.kst.kwpsurveys.com/?P512F27580B7F131" target="_blank"><div class="b-badge">💰</div><div class="b-text"><h3>Kantar — Gana con tu opinión</h3><p>Participa en estudios y recibe remuneración.</p></div><div class="b-arr">→</div></a>
+
   <div class="cat">🆓 Prueba gratis</div>
-  <div class="grid3">
-    <div class="p-card"><img class="p-img" src="https://uploads7.ct-assets.com/assets/pictures/f3e0775f87914b32929d5e4629d667b8/content_810x600-Header-Formulario-WCNET-CARBON-ACTIVO-OPCION-2.gif" alt="WC Net" onerror="this.src='https://placehold.co/200x95/e0f5f5/047a7b?text=WC+Net'"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">WC Net Carbon Activo Instant White</div><a class="p-btn" href="https://www.pruebagratiswcnetcarbonactivo.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://www.nutraceutics.es/cdn/shop/products/DINAMIC_PROTEIN_BAR_CHOCO_ORANGE_CAJA.jpg" alt="Dinamic" onerror="this.src='https://placehold.co/200x95/e0f5f5/047a7b?text=Dinamic+Protein'"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Barritas Dinamic Protein</div><a class="p-btn" href="https://www.promodinamicprotein.com" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://www.vileda.com/sites/g/files/oydgjc931/files/styles/product_540/public/2021-06/ProClean_FR_pack.png" alt="Vileda" onerror="this.src='https://placehold.co/200x95/e0f5f5/047a7b?text=Vileda'"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Vileda Pro Clean</div><a class="p-btn" href="https://pruebagratisvileda.com" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Raid" alt="Raid"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Insecticidas Raid Essentials</div><a class="p-btn" href="https://www.raidlighttrappruebagratis.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Danet" alt="Danet"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Danet sabores</div><a class="p-btn" href="https://www.nuevasnatillasdescuento.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://elventero.es/wp-content/uploads/queso-crema-el-ventero-natural-200g.jpg" alt="El Ventero" onerror="this.src='https://placehold.co/200x95/e0f5f5/047a7b?text=El+Ventero'"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Queso crema El Ventero</div><a class="p-btn" href="https://www.ganaconelventerountable.com" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Alpro+Proteina" alt="Alpro"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Alpro Proteína</div><a class="p-btn" href="https://www.plantproteinpruebalogratis.com" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Polil" alt="Polil"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Polil Pastillas Antipolillas</div><a class="p-btn" href="https://www.reembolsopolil.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Pato+WC" alt="Pato WC"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Pato WC</div><a class="p-btn" href="http://pruebapatogratis.gelt.com" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://www.chovi.com/themes/chovi/img/producto-mayonesa-chovi.jpg" alt="Chovi" onerror="this.src='https://placehold.co/200x95/e0f5f5/047a7b?text=Mayonesa+Chovi'"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Mayonesa Choví</div><a class="p-btn" href="https://www.chovi.com/es/mayonesa-chovi-pruebame-gratis" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Colgate" alt="Colgate"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Colgate Total Protección Activa+</div><a class="p-btn" href="https://wa.me/34645774864?text=Empezar" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Syoss" alt="Syoss"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Syoss pruébalo gratis</div><a class="p-btn" href="https://www.tucasaclub.com/exclusivo-para-miembros/promociones/syoss-pruebalo-gratis.html" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Leotron" alt="Leotron"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Leotron Vitamina C</div><a class="p-btn" href="https://promoleotronvitaminac.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Danone+Aquadrinks" alt="Danone"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Aguas Danone Aquadrinks</div><a class="p-btn" href="https://www.promocashbacksavispain.es/promos/pruebalogratisaguas/participations/new" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/e0f5f5/047a7b?text=Prima+Mostaza" alt="Prima"><div class="p-body"><span class="p-tag tag-g">Gratis</span><div class="p-name">Prima Mostaza Intensa</div><a class="p-btn" href="https://www.pruebaprimamostazaintensa.es" target="_blank">Conseguir →</a></div></div>
+  <div class="g3">
+    <div class="pc"><img class="pc-img" src="https://uploads7.ct-assets.com/assets/pictures/f3e0775f87914b32929d5e4629d667b8/content_810x600-Header-Formulario-WCNET-CARBON-ACTIVO-OPCION-2.gif" alt="WC Net" onerror="this.src='https://placehold.co/200x90/e0f5f5/047a7b?text=WC+Net'"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">WC Net Carbon Activo</div><a class="pbtn" href="https://www.pruebagratiswcnetcarbonactivo.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Dinamic+Protein" alt="Dinamic"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Barritas Dinamic Protein</div><a class="pbtn" href="https://www.promodinamicprotein.com" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Vileda+Pro+Clean" alt="Vileda"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Vileda Pro Clean</div><a class="pbtn" href="https://pruebagratisvileda.com" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Raid+Essentials" alt="Raid"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Insecticidas Raid Essentials</div><a class="pbtn" href="https://www.raidlighttrappruebagratis.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Danet+sabores" alt="Danet"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Danet sabores</div><a class="pbtn" href="https://www.nuevasnatillasdescuento.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=El+Ventero" alt="El Ventero"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Queso crema El Ventero</div><a class="pbtn" href="https://www.ganaconelventerountable.com" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Alpro+Proteina" alt="Alpro"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Alpro Proteína</div><a class="pbtn" href="https://www.plantproteinpruebalogratis.com" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Polil" alt="Polil"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Polil Antipolillas</div><a class="pbtn" href="https://www.reembolsopolil.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Pato+WC" alt="Pato WC"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Pato WC</div><a class="pbtn" href="http://pruebapatogratis.gelt.com" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Mayonesa+Chovi" alt="Chovi"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Mayonesa Choví</div><a class="pbtn" href="https://www.chovi.com/es/mayonesa-chovi-pruebame-gratis" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Colgate+Total" alt="Colgate"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Colgate Total Protección Activa+</div><a class="pbtn" href="https://wa.me/34645774864?text=Empezar" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Syoss" alt="Syoss"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Syoss pruébalo gratis</div><a class="pbtn" href="https://www.tucasaclub.com/exclusivo-para-miembros/promociones/syoss-pruebalo-gratis.html" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Leotron+Vit.C" alt="Leotron"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Leotron Vitamina C</div><a class="pbtn" href="https://promoleotronvitaminac.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Danone+Aquadrinks" alt="Danone"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Aguas Danone Aquadrinks</div><a class="pbtn" href="https://www.promocashbacksavispain.es/promos/pruebalogratisaguas/participations/new" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/e0f5f5/047a7b?text=Prima+Mostaza" alt="Prima"><div class="pc-body"><span class="ptag tg">Gratis</span><div class="pname">Prima Mostaza Intensa</div><a class="pbtn" href="https://www.pruebaprimamostazaintensa.es" target="_blank">Conseguir →</a></div></div>
   </div>
+
   <div class="cat">💰 Reembolsos</div>
-  <div class="grid3">
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=Royal+Canin+50%25" alt="Royal Canin"><div class="p-body"><span class="p-tag tag-r">50% reembolso</span><div class="p-name">Royal Canin Cachorros</div><a class="p-btn" href="https://promocrecimiento.com" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=Autan+50%25" alt="Autan"><div class="p-body"><span class="p-tag tag-r">50% reembolso</span><div class="p-name">Productos AUTAN</div><a class="p-btn" href="https://www.reembolsoautan.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=Raid+70%25" alt="Raid"><div class="p-body"><span class="p-tag tag-r">70% reembolso</span><div class="p-name">RAID Líquido</div><a class="p-btn" href="https://www.reembolsoraid.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=Vileda+5%E2%82%AC" alt="Vileda"><div class="p-body"><span class="p-tag tag-r">5€ reembolso</span><div class="p-name">Vileda TurboSmart</div><a class="p-btn" href="https://promocionvileda.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=WD-40" alt="WD40"><div class="p-body"><span class="p-tag tag-r">2-5€ reembolso</span><div class="p-name">WD-40</div><a class="p-btn" href="https://ganaconwd40.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=Vileda+1%E2%82%AC" alt="Vileda"><div class="p-body"><span class="p-tag tag-r">1€ reembolso</span><div class="p-name">Bayetas Vileda</div><a class="p-btn" href="https://www.promobayetavileda.com" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=Vileda+5%E2%82%AC" alt="Vileda plancha"><div class="p-body"><span class="p-tag tag-r">5€ reembolso</span><div class="p-name">Vileda Tiende y Plancha</div><a class="p-btn" href="https://viledatiendeyplancha.es" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=Vileda" alt="Vileda multi"><div class="p-body"><span class="p-tag tag-r">Reembolso</span><div class="p-name">Vileda Multimarca</div><a class="p-btn" href="https://ahorravileda.es/vileda-multimarca/form" target="_blank">Conseguir →</a></div></div>
-    <div class="p-card"><img class="p-img" src="https://placehold.co/200x95/fef3c7/b45309?text=Cannafaes+2%E2%82%AC" alt="Cannafaes"><div class="p-body"><span class="p-tag tag-r">2€ reembolso</span><div class="p-name">Cannafaes</div><a class="p-btn" href="https://promocioncannafaes.es" target="_blank">Conseguir →</a></div></div>
+  <div class="g3">
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=Royal+Canin+50%25" alt="Royal Canin"><div class="pc-body"><span class="ptag tr">50% reembolso</span><div class="pname">Royal Canin Cachorros</div><a class="pbtn" href="https://promocrecimiento.com" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=AUTAN+50%25" alt="Autan"><div class="pc-body"><span class="ptag tr">50% reembolso</span><div class="pname">Productos AUTAN</div><a class="pbtn" href="https://www.reembolsoautan.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=RAID+70%25" alt="Raid"><div class="pc-body"><span class="ptag tr">70% reembolso</span><div class="pname">RAID Líquido</div><a class="pbtn" href="https://www.reembolsoraid.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=Vileda+5%E2%82%AC" alt="Vileda"><div class="pc-body"><span class="ptag tr">5€ reembolso</span><div class="pname">Vileda TurboSmart</div><a class="pbtn" href="https://promocionvileda.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=WD-40" alt="WD40"><div class="pc-body"><span class="ptag tr">2-5€ reembolso</span><div class="pname">WD-40</div><a class="pbtn" href="https://ganaconwd40.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=Bayetas+1%E2%82%AC" alt="Vileda bayetas"><div class="pc-body"><span class="ptag tr">1€ reembolso</span><div class="pname">Bayetas Vileda</div><a class="pbtn" href="https://www.promobayetavileda.com" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=Vileda+5%E2%82%AC" alt="Vileda plancha"><div class="pc-body"><span class="ptag tr">5€ reembolso</span><div class="pname">Vileda Tiende y Plancha</div><a class="pbtn" href="https://viledatiendeyplancha.es" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=Vileda" alt="Vileda multi"><div class="pc-body"><span class="ptag tr">Reembolso</span><div class="pname">Vileda Multimarca</div><a class="pbtn" href="https://ahorravileda.es/vileda-multimarca/form" target="_blank">Conseguir →</a></div></div>
+    <div class="pc"><img class="pc-img" src="https://placehold.co/200x90/fef3c7/b45309?text=Cannafaes+2%E2%82%AC" alt="Cannafaes"><div class="pc-body"><span class="ptag tr">2€ reembolso</span><div class="pname">Cannafaes</div><a class="pbtn" href="https://promocioncannafaes.es" target="_blank">Conseguir →</a></div></div>
   </div>
 </div>
 
-<!-- TOPCASHBACK LANDING -->
+<!-- TOPCASH -->
 <div id="panel-topcash">
   <div class="tc-hero">
     <h1>💰 Gana 10€ gratis</h1>
-    <p>Regístrate en TopCashback con nuestro enlace y consigue <strong>10€ de bono de bienvenida</strong> al hacer tu primera compra. ¡Sin trampa ni cartón!</p>
+    <p>Regístrate en TopCashback con nuestro enlace y consigue <strong>10€ de bono de bienvenida</strong> al hacer tu primera compra.</p>
     <a class="tc-btn" href="https://www.topcashback.es/munpromos/" target="_blank">Registrarme y conseguir 10€ →</a>
   </div>
   <div class="tc-steps">
-    <div class="tc-step"><div class="tc-step-num">1</div><h3>Regístrate gratis</h3><p>Crea tu cuenta en TopCashback usando nuestro enlace exclusivo</p></div>
-    <div class="tc-step"><div class="tc-step-num">2</div><h3>Compra en cualquier tienda</h3><p>Accede a miles de tiendas a través de TopCashback y compra normal</p></div>
-    <div class="tc-step"><div class="tc-step-num">3</div><h3>Recibe tu cashback</h3><p>TopCashback te devuelve parte del dinero de tu compra automáticamente</p></div>
-    <div class="tc-step"><div class="tc-step-num">4</div><h3>¡10€ de bono!</h3><p>Por registrarte con nuestro enlace recibes 10€ extra de bienvenida</p></div>
+    <div class="tc-step"><div class="tc-num">1</div><h3>Regístrate gratis</h3><p>Con nuestro enlace exclusivo</p></div>
+    <div class="tc-step"><div class="tc-num">2</div><h3>Compra en tiendas</h3><p>Miles de tiendas disponibles</p></div>
+    <div class="tc-step"><div class="tc-num">3</div><h3>Recibe cashback</h3><p>Te devuelven parte del dinero</p></div>
+    <div class="tc-step"><div class="tc-num">4</div><h3>+10€ de bono</h3><p>Por registrarte con nuestro enlace</p></div>
   </div>
-  <p class="cat">🏪 Algunas tiendas con cashback</p>
+  <div class="cat">🏪 Tiendas con cashback</div>
   <div class="tc-stores">
     <div class="tc-store">Amazon</div><div class="tc-store">El Corte Inglés</div><div class="tc-store">Zara</div><div class="tc-store">Booking</div><div class="tc-store">AliExpress</div><div class="tc-store">MediaMarkt</div><div class="tc-store">Decathlon</div><div class="tc-store">Privalia</div><div class="tc-store">eBay</div><div class="tc-store">Mango</div><div class="tc-store">Nike</div><div class="tc-store">Asos</div>
   </div>
   <div class="tc-cta">
-    <p>¿A qué esperas? Es completamente gratis registrarse y empezar a ahorrar.</p>
+    <p>Es completamente gratis registrarse. Empieza a ahorrar hoy.</p>
     <a href="https://www.topcashback.es/munpromos/" target="_blank">🎉 Quiero mis 10€ gratis</a>
   </div>
 </div>
 
 <!-- TELEGRAM -->
 <div id="panel-telegram">
-  <p class="intro">Únete a nuestros canales para recibir las mejores ofertas en tiempo real.</p>
-  <div class="cat">📢 Canales de Telegram</div>
+  <p class="intro">Únete a nuestros canales para recibir ofertas en tiempo real en tu móvil.</p>
+  <div class="cat">📢 Telegram</div>
   <div class="tg-grid">
     <a class="tg-card" href="https://t.me/Mundopromosapp" target="_blank"><div class="tg-icon" style="background:#2AABEE">✈️</div><div><div class="tg-name">Muestras Gratis España</div><div class="tg-desc">Muestras, chollos y cosas gratis</div></div></a>
-    <a class="tg-card" href="https://t.me/OfertasSupermercadosES" target="_blank"><div class="tg-icon" style="background:#2AABEE">🛒</div><div><div class="tg-name">Ofertas Supermercados</div><div class="tg-desc">La Cuponera, Gelt, cupones y combinaciones</div></div></a>
+    <a class="tg-card" href="https://t.me/OfertasSupermercadosES" target="_blank"><div class="tg-icon" style="background:#2AABEE">🛒</div><div><div class="tg-name">Ofertas Supermercados</div><div class="tg-desc">Cupones, Gelt, combinaciones</div></div></a>
   </div>
-  <div class="cat" style="margin-top:2rem">🌐 Redes sociales</div>
+  <div class="cat" style="margin-top:1.5rem">🌐 Redes</div>
   <div class="tg-grid">
     <a class="tg-card" href="https://instagram.com/mundopromos" target="_blank"><div class="tg-icon" style="background:#E1306C">📸</div><div><div class="tg-name">Instagram</div><div class="tg-desc">@mundopromos</div></div></a>
     <a class="tg-card" href="https://www.tiktok.com/@mundopromos" target="_blank"><div class="tg-icon" style="background:#000">🎵</div><div><div class="tg-name">TikTok</div><div class="tg-desc">@mundopromos</div></div></a>
     <a class="tg-card" href="https://www.facebook.com/mundopromos" target="_blank"><div class="tg-icon" style="background:#1877F2">👥</div><div><div class="tg-name">Facebook</div><div class="tg-desc">MundoPromos</div></div></a>
   </div>
-  <a class="banner b-orange" href="https://www.topcashback.es/munpromos/" target="_blank" style="margin-top:2rem">
-    <div class="b-badge">10€</div>
-    <div class="b-text"><h3>TopCashback — 10€ de bienvenida gratis</h3><p>Regístrate y consigue 10€ al hacer tu primera compra.</p></div>
-    <div class="b-arrow">→</div>
-  </a>
+  <a class="banner b-orange" href="https://www.topcashback.es/munpromos/" target="_blank" style="margin-top:1.5rem"><div class="b-badge">10€</div><div class="b-text"><h3>TopCashback — 10€ gratis</h3><p>Regístrate y consigue 10€ al hacer tu primera compra.</p></div><div class="b-arr">→</div></a>
 </div>
 
 </main>
@@ -367,19 +302,19 @@ async function loadCupones(){
     var cs=d.coupons;
     if(!cs||!cs.length){throw new Error('Sin cupones')}
     var g=document.createElement('div');
-    g.className='grid4';
+    g.className='g4';
     cs.forEach(function(c){
       var div=document.createElement('div');
-      div.className='c-card';
+      div.className='cc2';
       var h='';
       if(c.image){h+='<img src="'+c.image+'" alt="'+(c.brand||'')+'" style="width:100%;height:110px;object-fit:contain;border-radius:8px;margin-bottom:6px;background:#f7fafa">'}
-      if(c.category){h+='<span class="c-tag">'+c.category+'</span>'}
-      h+='<div class="c-brand">'+(c.brand||'Cupon')+'</div>';
-      if(c.value){h+='<div style="font-size:18px;font-weight:600;color:var(--teal);margin:4px 0">'+c.value+'</div>'}
-      if(c.name){h+='<div class="c-desc">'+c.name+'</div>'}
-      if(c.purchase){h+='<div class="c-desc" style="font-size:11px;margin-top:4px">'+c.purchase+'</div>'}
-      if(c.expires){h+='<div style="font-size:11px;color:var(--muted);margin-top:4px">Válido hasta: '+c.expires+'</div>'}
-      h+='<a class="c-btn" href="https://valesycupones.es/" target="_blank">Activar cupón</a>';
+      if(c.category){h+='<span class="cc2-tag">'+c.category+'</span>'}
+      h+='<div class="cc2-brand">'+(c.brand||'Cupon')+'</div>';
+      if(c.value){h+='<div style="font-size:18px;font-weight:600;color:var(--teal);margin:3px 0">'+c.value+'</div>'}
+      if(c.name){h+='<div class="cc2-desc">'+c.name+'</div>'}
+      if(c.purchase){h+='<div class="cc2-desc" style="font-size:11px;margin-top:3px">'+c.purchase+'</div>'}
+      if(c.expires){h+='<div style="font-size:11px;color:var(--muted);margin-top:3px">Válido hasta: '+c.expires+'</div>'}
+      h+='<a class="cc2-btn" href="https://valesycupones.es/" target="_blank">Activar cupón</a>';
       div.innerHTML=h;
       g.appendChild(div);
     });
@@ -390,13 +325,7 @@ async function loadCupones(){
     el.appendChild(g);
     el.appendChild(info);
   }catch(e){
-    el.innerHTML='<div class="err">No se pudieron cargar los cupones.<br><small>'+e.message+'</small></div>'
-    +'<div class="grid4" style="margin-top:1rem">'
-    +'<div class="c-card"><div class="c-brand">Vales y Cupones</div><a class="c-btn" href="https://valesycupones.es/" target="_blank">Ver cupones</a></div>'
-    +'<div class="c-card"><div class="c-brand">Tu Casa Club</div><a class="c-btn" href="https://www.tucasaclub.com/promociones/cupones.html" target="_blank">Ver cupones</a></div>'
-    +'<div class="c-card"><div class="c-brand">Nestlé Family Club</div><a class="c-btn" href="https://nestlefamilyclub.es/cupones" target="_blank">Ver cupones</a></div>'
-    +'<div class="c-card"><div class="c-brand">Nestlé Baby &amp; Me</div><a class="c-btn" href="https://www.nestlebebe.es/cupones" target="_blank">Ver cupones</a></div>'
-    +'</div>';
+    el.innerHTML='<div class="err">No se pudieron cargar los cupones en este momento.</div>';
   }
 }
 </script>
