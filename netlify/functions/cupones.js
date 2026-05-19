@@ -1,5 +1,14 @@
+const CACHE_TTL = 3600000;
+let cache = null;
+let cacheTime = 0;
+
 exports.handler = async function(event, context) {
   const headers = {"Access-Control-Allow-Origin": "*","Content-Type": "application/json"};
+  
+  if (cache && (Date.now() - cacheTime) < CACHE_TTL) {
+    return {statusCode: 200, headers, body: JSON.stringify(cache)};
+  }
+
   const credentials = Buffer.from("es_mundopromos:Q5YbNq63sWcAgk27").toString("base64");
   const auth = "Basic " + credentials;
   try {
@@ -15,7 +24,6 @@ exports.handler = async function(event, context) {
     }
     const synName = syndications[0].name;
     const synUrl = syndications[0].url || syndications[0].synUrl || "";
-
     const feedResp = await fetch("https://coupons.valassis.eu/capi/syndications/" + encodeURIComponent(synName) + "/offers/DeepLinkFeed.xml", {headers: {"Authorization": auth}});
     if (!feedResp.ok) {
       const err = await feedResp.text();
@@ -34,27 +42,4 @@ exports.handler = async function(event, context) {
         val = val.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
         return val;
       };
-      const offerCode = get("OfferCode");
-      const rawValue = get("OfferValue");
-      const nums = rawValue.match(/[\d]+[,\.]?[\d]*/);
-      const cleanValue = nums ? nums[0].replace(".", ",") + " €" : rawValue;
-      const couponUrl = synUrl ? synUrl + "?offer=" + offerCode : "";
-
-      coupons.push({
-        id: offerCode,
-        name: get("OfferDescription"),
-        value: cleanValue,
-        brand: get("Brand"),
-        brandIcon: get("BrandIconUrl"),
-        image: get("CouponImage"),
-        purchase: get("PurchaseDescription"),
-        category: get("Category"),
-        expires: get("SiteExpiryOn").split("T")[0],
-        url: couponUrl
-      });
-    }
-    return {statusCode: 200, headers, body: JSON.stringify({coupons: coupons, synName: synName, total: coupons.length})};
-  } catch(e) {
-    return {statusCode: 500, headers, body: JSON.stringify({error: e.message})};
-  }
-};
+      const off
