@@ -1,45 +1,28 @@
 exports.handler = async function(event, context) {
   const headers = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "Content-Type",
     "Content-Type": "application/json"
   };
 
   try {
-    const authResp = await fetch("https://coupons.valassis.eu/capi/authentications", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ login: "es_mundopromos", password: "Q5YbNq63sWcAgk27" })
-    });
+    const credentials = Buffer.from("es_mundopromos:Q5YbNq63sWcAgk27").toString("base64");
 
-    if (!authResp.ok) {
-      const err = await authResp.text();
-      return { statusCode: 502, headers, body: JSON.stringify({ error: "Auth failed", detail: err }) };
-    }
-
-    const authData = await authResp.json();
-    const token = authData.token || authData.access_token || authData.authToken || authData.sessionToken;
-
-    if (!token) {
-      return { statusCode: 502, headers, body: JSON.stringify({ error: "No token in response", raw: authData }) };
-    }
-
-    const coupResp = await fetch("https://coupons.valassis.eu/capi/coupons?limit=30&status=active", {
+    const resp = await fetch("https://coupons.valassis.eu/capi/coupons", {
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Basic " + credentials,
         "Content-Type": "application/json"
       }
     });
 
-    if (!coupResp.ok) {
-      const err = await coupResp.text();
-      return { statusCode: 502, headers, body: JSON.stringify({ error: "Coupons fetch failed", detail: err }) };
+    if (!resp.ok) {
+      const err = await resp.text();
+      return { statusCode: resp.status, headers, body: JSON.stringify({ error: "API error " + resp.status, detail: err }) };
     }
 
-    const coupData = await coupResp.json();
-    return { statusCode: 200, headers, body: JSON.stringify(coupData) };
+    const data = await resp.json();
+    return { statusCode: 200, headers, body: JSON.stringify(data) };
 
-  } catch (e) {
+  } catch(e) {
     return { statusCode: 500, headers, body: JSON.stringify({ error: e.message }) };
   }
 };
