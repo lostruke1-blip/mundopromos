@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MundoPromos — Chollos, cupones y regalos gratis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #06999a;
+    --teal-dark: #047a7b;
+    --teal-light: #e0f5f5;
+    --bg: #f7fafa;
+    --card: #ffffff;
+    --text: #1a2424;
+    --muted: #5a7272;
+    --border: #d4e8e8;
+    --radius: 12px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--teal);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { opacity: 0.7; font-weight: 400; }
+
+  .social-links { display: flex; gap: 8px; flex-wrap: wrap; }
+  .social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    transition: background 0.15s;
+  }
+  .social-links a:hover { background: rgba(255,255,255,0.2); }
+
+  .tabs {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    padding: 0 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1px 4px rgba(6,153,154,0.08);
+  }
+
+  .tab-btn {
+    padding: 1rem 1.5rem;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--muted);
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 2.5px solid transparent;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .tab-btn.active {
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+  }
+
+  .tab-btn:hover { color: var(--teal); }
+
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem; }
+
+  .section-intro {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+    line-height: 1.6;
+    background: var(--teal-light);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    border-left: 3px solid var(--teal);
+  }
+
+  .category-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--teal-dark);
+    margin: 2rem 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .category-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+
+  .item-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.9rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+
+  .item-card:hover { box-shadow: 0 4px 16px rgba(6,153,154,0.12); transform: translateY(-1px); }
+
+  .item-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .item-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.45;
+    flex: 1;
+  }
+
+  .item-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid var(--teal);
+    padding: 3px 10px;
+    border-radius: 20px;
+    align-self: flex-start;
+    transition: all 0.15s;
+  }
+
+  .item-link:hover { background: var(--teal); color: white; }
+
+  /* Cupones */
+  #panel-cupones { display: none; }
+
+  .cupones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .cupon-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: box-shadow 0.15s;
+  }
+
+  .cupon-card:hover { box-shadow: 0 4px 16px rgba(6,153,154,0.12); }
+
+  .cupon-tag {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--teal-dark);
+    background: var(--teal-light);
+    padding: 2px 8px;
+    border-radius: 20px;
+    align-self: flex-start;
+  }
+
+  .cupon-brand { font-weight: 600; font-size: 14px; color: var(--text); }
+  .cupon-desc { font-size: 12.5px; color: var(--muted); line-height: 1.4; flex: 1; }
+
+  .cupon-btn {
+    display: block;
+    text-align: center;
+    background: var(--teal);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px;
+    border-radius: 8px;
+    margin-top: 6px;
+    transition: background 0.15s;
+  }
+
+  .cupon-btn:hover { background: var(--teal-dark); }
+
+  .loading-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .loading-state .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border);
+    border-top-color: var(--teal);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1rem;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error-state {
+    background: #fff5f5;
+    border: 1px solid #fca5a5;
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    text-align: center;
+    color: #b91c1c;
+    font-size: 14px;
+  }
+
+  .fallback-title {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 1.5rem 0 0.75rem;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  footer a { color: var(--teal); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .tab-btn { padding: 0.75rem 1rem; font-size: 14px; }
+    main { padding: 1.25rem 1rem; }
+    .items-grid, .cupones-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Mundo<span>Promos</span></div>
+  <div class="social-links">
+    <a href="https://t.me/Mundopromosapp" target="_blank">📢 Telegram</a>
+    <a href="https://instagram.com/mundopromos" target="_blank">📸 Instagram</a>
+    <a href="https://www.tiktok.com/@mundopromos" target="_blank">🎵 TikTok</a>
+    <a href="https://www.facebook.com/mundopromos" target="_blank">👥 Facebook</a>
+  </div>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('cumple', this)">🎂 Regalos de cumpleaños</button>
+  <button class="tab-btn" onclick="showTab('cupones', this)">🎟️ Cupones supermercado</button>
+</div>
+
+<main>
+
+  <!-- PANEL CUMPLEAÑOS -->
+  <div id="panel-cumple">
+    <p class="section-intro">
+      ¡Hay un montón de sitios en España que te regalan cosas el día de tu cumpleaños! Regístrate previamente en cada uno para poder beneficiarte cuando llegue tu día.
+    </p>
+
+    <div class="category-title">🎬 Cine y ocio</div>
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="item-name">Cinesa</div>
+        <div class="item-desc">Entrada gratis el día de tu cumpleaños</div>
+        <a class="item-link" href="https://ayuda.cinesa.es/hc/es/articles/9358284994333" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Yelmo Cines</div>
+        <div class="item-desc">Entrada gratis el día de tu cumpleaños</div>
+        <a class="item-link" href="https://www.yelmocines.es/movieyelmo-afiliacion" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Kinepolis</div>
+        <div class="item-desc">Entrada gratis (debes haber comprado una entrada en los últimos 12 meses)</div>
+        <a class="item-link" href="https://kinepolis.es/content/descubre-todas-las-ventajas-de-formar-parte-de-nuestro-grupo-de-amigos" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Neocine</div>
+        <div class="item-desc">Descuento especial el día de tu cumpleaños</div>
+        <a class="item-link" href="https://www.neocine.es/w/63/tarjeta-fan-club" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Ilusiona centros de ocio</div>
+        <div class="item-desc">Una partida de bolos gratis</div>
+        <a class="item-link" href="https://ilusiona.com/ilusiona-club/" target="_blank">Ver oferta →</a>
+      </div>
+    </div>
+
+    <div class="category-title">🍔 Comida y restaurantes</div>
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="item-name">Burger King</div>
+        <div class="item-desc">Whopper gratis en local o helado a domicilio con código <strong>MICUMPLE</strong> en la app</div>
+        <a class="item-link" href="https://www.burgerking.es/my-burger-king" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">IKEA</div>
+        <div class="item-desc">Porción de tarta gratis + 10% de descuento los 2 días antes y después de tu cumple</div>
+        <a class="item-link" href="https://www.ikeafamily.net/regalo-de-cumplea%C3%B1os" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Black Turtle</div>
+        <div class="item-desc">Una burger gratis el día de tu cumpleaños</div>
+        <a class="item-link" href="https://theblackturtle.es/turtle-club" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Domino's Pizza</div>
+        <div class="item-desc">Menú come y bebe gratis si vas con 3 o más amigos y presentas el DNI</div>
+        <a class="item-link" href="https://www.dominos.es" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Brasa y Leña</div>
+        <div class="item-desc">El cumpleañero come gratis con 3 amigos enseñando el DNI</div>
+        <a class="item-link" href="https://brasaylena.es" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Llaollao</div>
+        <div class="item-desc">2x1 en tarrina pequeña enseñando DNI o correo</div>
+        <a class="item-link" href="https://www.llaollaoweb.com/es/club-llaollao/" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Empanadas Malvón</div>
+        <div class="item-desc">2 empanadas gratis el día de tu cumpleaños</div>
+        <a class="item-link" href="https://www.malvon.es/pasaportemalvon" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Starbucks</div>
+        <div class="item-desc">Una bebida gratis por ser socio Starbucks Rewards</div>
+        <a class="item-link" href="https://www.starbucks.es/rewards" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">La Tagliatella</div>
+        <div class="item-desc">Descuento de 10€ o 15€ en compras de 40€ o más</div>
+        <a class="item-link" href="https://www.latagliatella.es/cumple" target="_blank">Ver oferta →</a>
+      </div>
+    </div>
+
+    <div class="category-title">🛍️ Tiendas y descuentos</div>
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="item-name">The Body Shop</div>
+        <div class="item-desc">Obsequio gratis sin compra mínima</div>
+        <a class="item-link" href="https://support-es.thebodyshop.com/hc/es-es/articles/4406446222097" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Game</div>
+        <div class="item-desc">Taza gratis y el doble de puntos solo por acudir ese día</div>
+        <a class="item-link" href="https://www.game.es/tarjeta-de-socio-como-funciona-GAME-te-informa" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Rituals</div>
+        <div class="item-desc">Regalo por cualquier compra, sin mínimo</div>
+        <a class="item-link" href="https://www.rituals.com/es-es/happy-birthday.html" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Women's Secret</div>
+        <div class="item-desc">Descuento de 6€ en compras de 10€ ese día</div>
+        <a class="item-link" href="https://clubwow.womensecret.com/regalo-cumple/" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Yves Rocher</div>
+        <div class="item-desc">Regalo gratis solo por acudir a tienda</div>
+        <a class="item-link" href="https://www.yves-rocher.es/regalos/un-regalo-a-elegir-por-tu-cumpleanos" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Tu Casa Club</div>
+        <div class="item-desc">Sorteo de una caja de bombones el mes de tu cumpleaños</div>
+        <a class="item-link" href="https://www.tucasaclub.com/promociones/feliz-cumpleanos.html" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Tous</div>
+        <div class="item-desc">Regalo gratis en tienda sin compra mínima</div>
+        <a class="item-link" href="https://www.tous.com/es-es/loyalty-mytous" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Pandora</div>
+        <div class="item-desc">Regalo o descuento por tu cumpleaños (aleatorio)</div>
+        <a class="item-link" href="https://es.pandora.net/es/pandora-club/" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Sephora</div>
+        <div class="item-desc">Bono de 30€ para gastar en tienda, solo para socios Gold</div>
+        <a class="item-link" href="https://www.sephora.es/programa-fidelidad-nivel-gold.html" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Carrefour</div>
+        <div class="item-desc">5€ al chequeahorro ese día con su app (puede ser aleatorio)</div>
+        <a class="item-link" href="https://www.carrefour.es" target="_blank">Ver oferta →</a>
+      </div>
+      <div class="item-card">
+        <div class="item-name">Alcampo</div>
+        <div class="item-desc">500 puntos extra por comprar el día de tu cumpleaños</div>
+        <a class="item-link" href="https://www.alcampo.es" target="_blank">Ver oferta →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL CUPONES -->
+  <div id="panel-cupones">
+    <p class="section-intro">
+      Cupones de supermercado actualizados automáticamente. Haz clic en "Activar cupón" para canjearlos.
+    </p>
+
+    <div id="cupones-container">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        Cargando cupones...
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  MundoPromos &copy; 2026 &nbsp;·&nbsp;
+  <a href="https://t.me/Mundopromosapp">Telegram</a> &nbsp;·&nbsp;
+  <a href="https://instagram.com/mundopromos">Instagram</a> &nbsp;·&nbsp;
+  <a href="https://www.tiktok.com/@mundopromos">TikTok</a>
+</footer>
+
+<script>
+  function showTab(tab, btn) {
+    document.getElementById('panel-cumple').style.display = 'none';
+    document.getElementById('panel-cupones').style.display = 'none';
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + tab).style.display = 'block';
+    btn.classList.add('active');
+    if (tab === 'cupones' && !window.couponsLoaded) loadCoupons();
+  }
+
+  async function loadCoupons() {
+    window.couponsLoaded = true;
+    const container = document.getElementById('cupones-container');
+    try {
+      const resp = await fetch('/.netlify/functions/cupones');
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const data = await resp.json();
+      if (data.error) throw new Error(data.error + (data.detail ? ': ' + data.detail : ''));
+
+      const coupons = data.coupons || data.data || data.items || (Array.isArray(data) ? data : null);
+      if (!coupons || !coupons.length) throw new Error('Sin cupones disponibles');
+
+      const grid = document.createElement('div');
+      grid.className = 'cupones-grid';
+
+      coupons.forEach(c => {
+        const brand = c.brand_name || c.brandName || c.brand || c.retailer || c.publisher || 'Cupón';
+        const desc = c.description || c.title || c.name || c.summary || '';
+        const url = c.url || c.redirect_url || c.link || c.coupon_url || '#';
+        const cat = c.category || c.type || '';
+
+        const card = document.createElement('div');
+        card.className = 'cupon-card';
+        card.innerHTML = `
+          ${cat ? `<span class="cupon-tag">${cat}</span>` : ''}
+          <div class="cupon-brand">${brand}</div>
+          ${desc ? `<div class="cupon-desc">${desc}</div>` : ''}
+          <a class="cupon-btn" href="${url}" target="_blank">Activar cupón →</a>
+        `;
+        grid.appendChild(card);
+      });
+
+      container.innerHTML = '';
+      container.appendChild(grid);
+
+    } catch(e) {
+      container.innerHTML = `
+        <div class="error-state">
+          No se pudieron cargar los cupones en este momento.<br>
+          <small style="color:#ef4444;opacity:0.7;font-size:11px;">${e.message}</small>
+        </div>
+        <p class="fallback-title">Puedes ver cupones directamente aquí:</p>
+        <div class="cupones-grid">
+          <div class="cupon-card"><div class="cupon-brand">Tu Casa Club</div><a class="cupon-btn" href="https://www.tucasaclub.com/promociones/cupones.html" target="_blank">Ver cupones →</a></div>
+          <div class="cupon-card"><div class="cupon-brand">Borges</div><a class="cupon-btn" href="https://borges.es/club-borges/cupones/" target="_blank">Ver cupones →</a></div>
+          <div class="cupon-card"><div class="cupon-brand">Nestlé Family Club</div><a class="cupon-btn" href="https://nestlefamilyclub.es/cupones" target="_blank">Ver cupones →</a></div>
+          <div class="cupon-card"><div class="cupon-brand">Nestlé Baby &amp; Me</div><a class="cupon-btn" href="https://www.nestlebebe.es/cupones" target="_blank">Ver cupones →</a></div>
+        </div>
+      `;
+    }
+  }
+</script>
+</body>
+</html>
