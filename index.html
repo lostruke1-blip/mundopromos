@@ -484,31 +484,44 @@
       const data = await resp.json();
       if (data.error) throw new Error(data.error + (data.detail ? ': ' + data.detail : ''));
 
-      const coupons = data.coupons || data.data || data.items || (Array.isArray(data) ? data : null);
+      const coupons = data.coupons;
       if (!coupons || !coupons.length) throw new Error('Sin cupones disponibles');
 
       const grid = document.createElement('div');
       grid.className = 'cupones-grid';
 
       coupons.forEach(c => {
-        const brand = c.brand_name || c.brandName || c.brand || c.retailer || c.publisher || 'Cupón';
-        const desc = c.description || c.title || c.name || c.summary || '';
-        const url = c.url || c.redirect_url || c.link || c.coupon_url || '#';
-        const cat = c.category || c.type || '';
-
         const card = document.createElement('div');
         card.className = 'cupon-card';
+
+        const img = c.image ? `<img src="${c.image}" alt="${c.brand}" style="width:100%;height:120px;object-fit:contain;border-radius:8px;margin-bottom:8px;background:#f7fafa;">` : '';
+        const brandIcon = c.brandIcon ? `<img src="${c.brandIcon}" alt="${c.brand}" style="height:24px;object-fit:contain;margin-bottom:4px;">` : '';
+        const cat = c.category ? `<span class="cupon-tag">${c.category}</span>` : '';
+        const value = c.value ? `<div style="font-size:18px;font-weight:600;color:var(--teal);margin:4px 0;">${c.value}</div>` : '';
+        const expires = c.expires ? `<div style="font-size:11px;color:var(--muted);margin-top:4px;">Válido hasta: ${c.expires.split('T')[0]}</div>` : '';
+
         card.innerHTML = `
-          ${cat ? `<span class="cupon-tag">${cat}</span>` : ''}
-          <div class="cupon-brand">${brand}</div>
-          ${desc ? `<div class="cupon-desc">${desc}</div>` : ''}
-          <a class="cupon-btn" href="${url}" target="_blank">Activar cupón →</a>
+          ${img}
+          ${cat}
+          ${brandIcon}
+          <div class="cupon-brand">${c.brand || 'Cupón'}</div>
+          ${value}
+          ${c.name ? `<div class="cupon-desc">${c.name}</div>` : ''}
+          ${c.purchase ? `<div class="cupon-desc" style="font-size:11px;margin-top:4px;">${c.purchase}</div>` : ''}
+          ${expires}
+          <a class="cupon-btn" href="https://mundopromos.netlify.app" target="_blank">Activar cupón →</a>
         `;
         grid.appendChild(card);
       });
 
+      const info = document.createElement('p');
+      info.className = 'coupon-status';
+      info.style.cssText = 'text-align:center;font-size:12px;color:var(--muted);margin-top:1rem;';
+      info.textContent = `${coupons.length} cupones disponibles · Actualizado ahora`;
+
       container.innerHTML = '';
       container.appendChild(grid);
+      container.appendChild(info);
 
     } catch(e) {
       container.innerHTML = `
