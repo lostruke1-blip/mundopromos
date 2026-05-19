@@ -6,12 +6,10 @@ exports.handler = async function(event, context) {
 
   try {
     const credentials = Buffer.from("es_mundopromos:Q5YbNq63sWcAgk27").toString("base64");
+    const auth = "Basic " + credentials;
 
-    const resp = await fetch("https://coupons.valassis.eu/capi/coupons", {
-      headers: {
-        "Authorization": "Basic " + credentials,
-        "Content-Type": "application/json"
-      }
+    const resp = await fetch("https://coupons.valassis.eu/capi/offers?count=30&fields=id,displayName,offerValue,offerCurrency,validUntil,products,brands", {
+      headers: { "Authorization": auth, "Content-Type": "application/json" }
     });
 
     if (!resp.ok) {
