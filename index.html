@@ -152,8 +152,7 @@ h2.sec::after{content:'';flex:1;height:2px;background:var(--line);border-radius:
 footer{text-align:center;padding:1.5rem 1rem;color:var(--muted);font-size:12px;border-top:1px solid var(--line);background:var(--card)}
 footer a{color:var(--teal);text-decoration:none;font-weight:500}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-.hilite{background:linear-gradient(135deg,#06999a,#04747a);border-radius:14px;padding:1.35rem 1.4rem;margin-bottom:1.6rem;color:#fff;box-shadow:0 3px 14px rgba(6,153,154,.28)}.hilite h2{font-family:'Bricolage Grotesque',sans-serif;font-size:1.2rem;font-weight:800;line-height:1.25;margin-bottom:.4rem;letter-spacing:-.3px;color:#fff}.hilite p{font-size:14px;line-height:1.55;color:rgba(255,255,255,.93)}.hilite b{color:#fff;font-weight:600}
-</style>
+.hero{background:linear-gradient(140deg,#04565c 0%,#06999a 55%,#0bb3ad 100%);border-radius:18px;padding:1.9rem 1.5rem 1.6rem;margin-bottom:1.9rem;color:#fff;box-shadow:0 8px 28px rgba(4,86,92,.32);position:relative;overflow:hidden}.hero::after{content:"";position:absolute;right:-60px;top:-70px;width:210px;height:210px;border-radius:50%;background:rgba(255,255,255,.07)}.hero-kicker{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;background:rgba(255,255,255,.18);padding:5px 11px;border-radius:20px;margin-bottom:.85rem}.hero-t{font-family:'Bricolage Grotesque',sans-serif;font-size:1.85rem;font-weight:800;line-height:1.12;letter-spacing:-.9px;margin-bottom:.6rem;max-width:16ch;position:relative}.hero-p{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.94);max-width:52ch;margin-bottom:1.35rem;position:relative}.hero-p b{font-weight:600;color:#fff;border-bottom:2px solid rgba(255,255,255,.5)}.hero-steps{display:grid;grid-template-columns:1fr;gap:8px;position:relative}.hs{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.13);border-radius:11px;padding:.65rem .8rem}.hs-n{width:22px;height:22px;flex-shrink:0;border-radius:50%;background:#fff;color:#04747a;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px}.hs b{display:block;font-size:13px;font-weight:600;line-height:1.3}.hs span{display:block;font-size:11.5px;color:rgba(255,255,255,.82);line-height:1.35;margin-top:1px}@media(min-width:620px){.hero{padding:2.4rem 2rem 2rem}.hero-t{font-size:2.5rem;max-width:19ch}.hero-steps{grid-template-columns:repeat(3,1fr)}}</style>
 </head>
 <body>
 
@@ -178,7 +177,16 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 <main>
 
 <section id="p-cumple">
-  <div class="hilite"><h2>Apúntate antes de que llegue el día</h2><p>Casi todas estas marcas piden que <b>ya estés registrado</b> para darte el regalo. Hazte socio ahora en las que te interesen y el día de tu cumple solo tendrás que enseñar el DNI o la app.</p></div>
+  <section class="hero">
+    <span class="hero-kicker">Recopilación MundoPromos</span>
+    <h1 class="hero-t">Todo lo que te regalan por tu cumpleaños en España</h1>
+    <p class="hero-p">Hemos reunido <b>25 sitios</b> que te dan comida, entradas o vales de descuento solo por cumplir años. Toca cualquier tarjeta y te lleva directo a la web de la marca para que te registres.</p>
+    <div class="hero-steps">
+      <div class="hs"><span class="hs-n">1</span><div><b>Regístrate antes</b><span>Casi todas exigen ser socio previamente</span></div></div>
+      <div class="hs"><span class="hs-n">2</span><div><b>Espera a tu día</b><span>Te avisan por email o en su app</span></div></div>
+      <div class="hs"><span class="hs-n">3</span><div><b>Enseña el DNI</b><span>O el cupón desde el móvil, y listo</span></div></div>
+    </div>
+  </section>
 
   <h2 class="sec"><em>🎬</em> Cine y ocio</h2>
   <div class="tickets">
@@ -194,12 +202,13 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
     <a class="tk" href="https://www.burgerking.es/es/mybk" target="_blank"><div class="tk-stub s-food">🍔</div><div class="tk-body"><div class="tk-name">Burger King</div><div class="tk-desc">Whopper en local o helado a domicilio con el código MICUMPLE</div><span class="tk-val v-free">Whopper gratis</span></div></a>
     <a class="tk" href="https://www.ikeafamily.net/regalo-de-cumplea%C3%B1os" target="_blank"><div class="tk-stub s-food">🎂</div><div class="tk-body"><div class="tk-name">IKEA Family</div><div class="tk-desc">Porción de tarta y 10% de descuento los 2 días antes y después</div><span class="tk-val v-free">Tarta + 10%</span></div></a>
     <a class="tk" href="https://theblackturtle.es/turtle-club" target="_blank"><div class="tk-stub s-food">🍔</div><div class="tk-body"><div class="tk-name">Black Turtle</div><div class="tk-desc">Una hamburguesa a elegir de la carta</div><span class="tk-val v-free">Burger gratis</span></div></a>
-    <a class="tk" href="https://www.dominospizza.es" target="_blank"><div class="tk-stub s-food">🍕</div><div class="tk-body"><div class="tk-name">Domino's Pizza</div><div class="tk-desc">La promoción de cumpleaños varía según el restaurante, consúltala en tu local</div><span class="tk-val v-disc">Consultar</span></div></a>
+    <a class="tk" href="https://www.dominospizza.es" target="_blank"><div class="tk-stub s-food">🍕</div><div class="tk-body"><div class="tk-name">Domino's Pizza</div><div class="tk-desc">Come y bebe gratis si vas con 3 amigos o más y llevas el DNI</div><span class="tk-val v-free">Menú gratis</span></div></a>
     <a class="tk" href="https://brasaylena.com/promociones/" target="_blank"><div class="tk-stub s-food">🥩</div><div class="tk-body"><div class="tk-name">Brasa y Leña</div><div class="tk-desc">El cumpleañero no paga si va acompañado de 3 personas</div><span class="tk-val v-free">Comes gratis</span></div></a>
     <a class="tk" href="https://www.llaollaoweb.com/es/llaollaoclub/club-llaollao/" target="_blank"><div class="tk-stub s-food">🍦</div><div class="tk-body"><div class="tk-name">Llaollao</div><div class="tk-desc">Dos tarrinas pequeñas al precio de una</div><span class="tk-val v-2x1">2x1</span></div></a>
     <a class="tk" href="https://www.malvon.es/es/club" target="_blank"><div class="tk-stub s-food">🥟</div><div class="tk-body"><div class="tk-name">Empanadas Malvón</div><div class="tk-desc">Dos empanadas a elegir con el Pasaporte Malvón</div><span class="tk-val v-free">2 empanadas</span></div></a>
     <a class="tk" href="https://www.starbucks.es/rewards" target="_blank"><div class="tk-stub s-food">☕</div><div class="tk-body"><div class="tk-name">Starbucks</div><div class="tk-desc">Una bebida gratis, solo para socios de nivel Gold</div><span class="tk-val v-free">Bebida gratis</span></div></a>
     <a class="tk" href="https://www.latagliatella.es/cumple" target="_blank"><div class="tk-stub s-food">🍝</div><div class="tk-body"><div class="tk-name">La Tagliatella</div><div class="tk-desc">Hasta 10€ de regalo registrándote en su app Amici</div><span class="tk-val v-disc">Hasta 10€</span></div></a>
+    <a class="tk" href="https://www.clubby.es/" target="_blank"><div class="tk-stub s-food">🍽️</div><div class="tk-body"><div class="tk-name">Club·by</div><div class="tk-desc">Un 20% de descuento en VIPS, Ginos, Foster's Hollywood y TGI Fridays</div><span class="tk-val v-disc">20% dto</span></div></a>
   </div>
 
   <h2 class="sec"><em>🛍️</em> Tiendas y regalos</h2>
@@ -209,7 +218,6 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
     <a class="tk" href="https://www.rituals.com/es-es/happy-birthday.html" target="_blank"><div class="tk-stub s-shop">🕯️</div><div class="tk-body"><div class="tk-name">Rituals</div><div class="tk-desc">Regalo con cualquier compra, sin importe mínimo</div><span class="tk-val v-free">Regalo</span></div></a>
     <a class="tk" href="https://womensecret.com/es/es/club-wow" target="_blank"><div class="tk-stub s-shop">👙</div><div class="tk-body"><div class="tk-name">Women's Secret</div><div class="tk-desc">Cheque de cumpleaños para socias del Club WOW</div><span class="tk-val v-disc">Cheque regalo</span></div></a>
     <a class="tk" href="https://www.yves-rocher.es/ventajas-del-club-yves-rocher" target="_blank"><div class="tk-stub s-shop">🌸</div><div class="tk-body"><div class="tk-name">Yves Rocher</div><div class="tk-desc">Regalo a elegir solo por pasarte por la tienda</div><span class="tk-val v-free">Regalo</span></div></a>
-    <a class="tk" href="https://www.tucasaclub.com/exclusivo-para-miembros/promociones.html" target="_blank"><div class="tk-stub s-shop">🍫</div><div class="tk-body"><div class="tk-name">Tu Casa Club</div><div class="tk-desc">Promociones y sorteos exclusivos para miembros del club</div><span class="tk-val v-disc">Consultar</span></div></a>
     <a class="tk" href="https://www.tous.com/es-es/loyalty-mytous.html" target="_blank"><div class="tk-stub s-shop">🐻</div><div class="tk-body"><div class="tk-name">Tous</div><div class="tk-desc">Detalle en tienda para miembros de MyTous</div><span class="tk-val v-free">Regalo</span></div></a>
     <a class="tk" href="https://es.pandora.net/es/mypandora/" target="_blank"><div class="tk-stub s-shop">💍</div><div class="tk-body"><div class="tk-name">Pandora</div><div class="tk-desc">10% de descuento por tu cumpleaños, un 15% si eres socio Gold</div><span class="tk-val v-disc">10% dto</span></div></a>
     <a class="tk" href="https://www.sephora.es/programa-fidelidad-nivel-gold.html" target="_blank"><div class="tk-stub s-shop">💄</div><div class="tk-body"><div class="tk-name">Sephora</div><div class="tk-desc">Ventajas del nivel Gold al acumular 1.000 puntos en un año</div><span class="tk-val v-disc">Consultar</span></div></a>
