@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /aviso-legal.html
+Disallow: /privacidad.html
+Disallow: /cookies.html
+
+Sitemap: https://mundopromos.com/sitemap.xml
