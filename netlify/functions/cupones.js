@@ -9,16 +9,21 @@ exports.handler = async function(event, context) {
     return {statusCode: 200, headers: headers, body: JSON.stringify(cache)};
   }
 
-  const credentials = Buffer.from("es_mundopromos:Q5YbNq63sWcAgk27").toString("base64");
-  const auth = "Basic " + credentials;
+  const user = process.env.SAVI_USER;
+  const pass = process.env.SAVI_PASS;
+
+  if (!user || !pass) {
+    return {statusCode: 500, headers: headers, body: JSON.stringify({error: "Faltan las variables de entorno SAVI_USER y SAVI_PASS en Netlify"})};
+  }
+
+  const auth = "Basic " + Buffer.from(user + ":" + pass).toString("base64");
 
   try {
     const synResp = await fetch("https://coupons.valassis.eu/capi/syndications", {
       headers: {"Authorization": auth}
     });
     if (!synResp.ok) {
-      const err = await synResp.text();
-      return {statusCode: synResp.status, headers: headers, body: JSON.stringify({error: "Syndications error", detail: err})};
+      return {statusCode: synResp.status, headers: headers, body: JSON.stringify({error: "No se pudo conectar con Savi"})};
     }
     const synData = await synResp.json();
     const syndications = synData.syndication || [];
@@ -30,8 +35,7 @@ exports.handler = async function(event, context) {
       headers: {"Authorization": auth}
     });
     if (!feedResp.ok) {
-      const err = await feedResp.text();
-      return {statusCode: feedResp.status, headers: headers, body: JSON.stringify({error: "Feed error", detail: err})};
+      return {statusCode: feedResp.status, headers: headers, body: JSON.stringify({error: "No se pudo leer el feed de cupones"})};
     }
     const xml = await feedResp.text();
     const coupons = [];
@@ -48,7 +52,7 @@ exports.handler = async function(event, context) {
       };
       const rawValue = get("OfferValue");
       const nums = rawValue.match(/[\d]+[,.]?[\d]*/);
-      const cleanValue = nums ? nums[0].replace(".", ",") + " €" : rawValue;
+      const cleanValue = nums ? nums[0].replace(".", ",") + " \u20ac" : rawValue;
       coupons.push({
         id: get("OfferCode"),
         name: get("OfferDescription"),
@@ -63,7 +67,7 @@ exports.handler = async function(event, context) {
     cache = {coupons: coupons, total: coupons.length};
     cacheTime = Date.now();
     return {statusCode: 200, headers: headers, body: JSON.stringify(cache)};
-  } catch(e) {
+  } catch (e) {
     return {statusCode: 500, headers: headers, body: JSON.stringify({error: e.message})};
   }
 };
