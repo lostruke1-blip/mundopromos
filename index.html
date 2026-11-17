@@ -174,7 +174,7 @@ h2.sec::after{content:'';flex:1;height:2px;background:var(--line);border-radius:
 .cat-sorteo{background:#f0e7fe;color:#6d28d9}
 .cat-chollo{background:#ffe4e6;color:#be123c}
 .up-sinnada{grid-column:1/-1;background:#fff;border:1px dashed var(--line);border-radius:var(--r);padding:2rem 1.2rem;text-align:center;color:var(--muted);font-size:14px}
-#p-cumple,#p-cupones,#p-cash,#p-telegram{display:none}
+#p-muestras,#p-cumple,#p-cupones,#p-cash,#p-telegram{display:none}
 footer{text-align:center;padding:1.5rem 1rem;color:var(--muted);font-size:12px;border-top:1px solid var(--line);background:var(--card)}
 footer a{color:var(--teal);text-decoration:none;font-weight:500}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -182,6 +182,7 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 
 /* Variantes de la cabecera: misma forma en todas las pestanas, color propio */
 #p-nuevas .bhero{--hero:linear-gradient(140deg,#04565c 0%,#06999a 52%,#12b886 100%)}
+#p-muestras .bhero{--hero:linear-gradient(140deg,#5a2a86 0%,#8b5cf6 58%,#b388f5 100%);box-shadow:0 8px 28px rgba(90,42,134,.3)}
 #p-cupones .bhero{--hero:linear-gradient(140deg,#0a5544 0%,#12734a 55%,#1aa06a 100%);box-shadow:0 8px 28px rgba(10,85,68,.3)}
 #p-telegram .bhero{--hero:linear-gradient(140deg,#1b4b73 0%,#2481cc 60%,#39a7e8 100%);box-shadow:0 8px 28px rgba(27,75,115,.3)}
 /* El bono de TopCashback conserva su naranja, pero con la misma forma */
@@ -198,6 +199,16 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 .bhero-b.ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.35)}
 .bhero-b.ghost:hover{background:rgba(255,255,255,.26)}
 @media(prefers-reduced-motion:reduce){.bhero-punto{animation:none}}
+
+.bhero-buscar{position:relative;display:flex;gap:8px;margin-bottom:1rem;max-width:460px}
+.bhero-buscar input{flex:1;min-width:0;font-family:inherit;font-size:14.5px;color:#11262b;background:#fff;border:0;border-radius:11px;padding:.72rem .95rem}
+.bhero-buscar input:focus{outline:2px solid #fff;outline-offset:2px}
+.bhero-buscar input::placeholder{color:#8aa3a5}
+.bhero-buscar button{font-family:inherit;font-size:14px;font-weight:600;color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);border-radius:11px;padding:.72rem 1.15rem;cursor:pointer;white-space:nowrap}
+.bhero-buscar button:hover{background:rgba(255,255,255,.3)}
+/* El menu de pestanas se queda sin sitio al crecer: aviso de que hay mas */
+.tabs{-webkit-overflow-scrolling:touch;mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+@media(min-width:1040px){.tabs{mask-image:none}}
 </style>
 </head>
 <body>
@@ -214,6 +225,7 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 
 <nav class="tabs">
   <button class="tab on" onclick="go('nuevas',this)"><em>🔥</em> Lo último</button>
+  <button class="tab" onclick="go('muestras',this)"><em>🎁</em> Muestras gratis</button>
   <button class="tab" onclick="go('cumple',this)"><em>🎂</em> Cumpleaños</button>
   <button class="tab" onclick="go('cupones',this)"><em>🎟️</em> Cupones</button>
   <a class="tab tab-ig" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDc4NTQ4OTc4NDk2NTcx?story_media_id=3818738160998580763_51084582026&igsi=MTM1cjA0czY5OHF1Nw==" target="_blank"><em>🆓</em> Pruébalo gratis (Reembolsos)</a>
@@ -228,6 +240,10 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
     <span class="bhero-vivo"><span class="bhero-punto"></span> <!--CUENTA:INICIO-->Actualizado a diario<!--CUENTA:FIN--></span>
     <h1 class="bhero-t">Muestras gratis y chollos, antes que nadie</h1>
     <p class="bhero-p">Rastreamos marcas y supermercados todos los días y publicamos solo lo que funciona de verdad: muestras que llegan a casa, reembolsos del 100% y cupones de súper. <b>Sin registros ni letra pequeña.</b></p>
+    <form class="bhero-buscar" action="/promos.html" method="get" role="search">
+      <input type="search" name="q" placeholder="Buscar: Nestlé, champú, Carrefour…" aria-label="Buscar promociones" autocomplete="off">
+      <button type="submit">Buscar</button>
+    </form>
     <div class="bhero-acciones">
       <a class="bhero-b" href="https://t.me/Mundopromosapp" target="_blank" rel="noopener">Avisadme en Telegram</a>
       <a class="bhero-b ghost" href="/promos.html">Ver todas las promos</a>
@@ -245,6 +261,27 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
       <a class="tarjeta" href="/promo/muestra-gratis-del-perfume-one-million-black-de-rabanne-1779.html"><img src="/img/promos/muestra-gratis-del-perfume-one-million-black-de-rabanne-1779.jpg" alt="Muestra gratis del perfume One Million Black de Rabanne" loading="lazy"><div class="cuerpo"><span class="etiqueta cat-muestra">Muestra gratis</span><h3>Muestra gratis del perfume One Million Black de Rabanne</h3><p>Muestras gratis del perfume One Million Black de Rabanne con envío a casa. Esta vez no hay enlace directo: la oferta aparece como publicidad en las cuentas oficiales de la marca.</p><span class="pie">29 de octubre de 2026</span></div></a>
       <!--ULTIMAS:FIN-->
   </div>
+</section>
+
+<section id="p-muestras">
+  <section class="bhero">
+    <span class="bhero-kicker">Canal de muestras</span>
+    <h2 class="bhero-t">Muestras gratis que llegan a tu casa</h2>
+    <p class="bhero-p">Cremas, perfumes, café, comida para tu mascota… Marcas que reparten producto de verdad para que lo pruebes. <b>Sin pagar el envío y sin compromiso.</b></p>
+    <div class="bhero-acciones">
+      <a class="bhero-b" href="https://t.me/Mundopromosapp" target="_blank" rel="noopener">Avisadme de cada muestra</a>
+      <a class="bhero-b ghost" href="/promos-muestra.html">Ver el histórico</a>
+    </div>
+  </section>
+
+  <h2 class="sec"><em>🎁</em> Pídelas ahora</h2>
+  <div class="rejilla">
+      <!--MUESTRAS:INICIO-->
+      <div class="up-sinnada">En cuanto saquemos muestras nuevas en el canal, aparecen aquí solas.</div>
+      <!--MUESTRAS:FIN-->
+  </div>
+
+  <p class="lead" style="margin-top:1.4rem">Las muestras vuelan: muchas marcas reparten un número limitado y se acaban el mismo día. Lo publicamos primero en Telegram y de ahí pasa solo a esta web.</p>
 </section>
 
 <section id="p-cumple">
@@ -404,7 +441,7 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 
 <script>
 function go(id,el){
-  ['nuevas','cumple','cupones','cash','telegram'].forEach(function(s){
+  ['nuevas','muestras','cumple','cupones','cash','telegram'].forEach(function(s){
     document.getElementById('p-'+s).style.display='none';
   });
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});

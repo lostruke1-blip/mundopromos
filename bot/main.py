@@ -20,6 +20,7 @@ Opcionales:
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import os
@@ -27,7 +28,7 @@ import time
 from datetime import datetime, timezone
 
 import canales
-from generador import Generador
+from generador import RUTA_PLANTILLAS, Generador
 from redactor import Redactor, generar_slug
 from repositorio import Repositorio, descargar_imagen
 
@@ -39,6 +40,7 @@ logging.basicConfig(
 log = logging.getLogger("mundopromos")
 
 RUTA_DATOS = "promos/datos.json"
+RUTA_HUELLA = "promos/plantillas.txt"
 
 # Huecos de la portada que rellena el bot. Cada uno dice que promos lleva
 # y cuantas caben. Si un hueco no existe en index.html, se ignora.
@@ -53,6 +55,14 @@ BLOQUES = [
         "cuantas": 6,
         "filtro": lambda p: p.get("categoria") in ("cupon", "chollo")
         or p.get("canal") == "OfertasSupermercadosES",
+    },
+    {
+        # Todo lo del canal grande de muestras, mas cualquier muestra o
+        # regalo que llegue por el otro canal
+        "nombre": "muestras",
+        "cuantas": 9,
+        "filtro": lambda p: p.get("canal") == "Mundopromosapp"
+        or p.get("categoria") in ("muestra", "gratis"),
     },
 ]
 
@@ -177,12 +187,34 @@ class Publicador:
 
         return {} if portada == original else {"index.html": portada}
 
-    def _estaticos_desfasados(self, promos: list[dict]) -> dict[str, str]:
-        """Archivos fijos de la web que ya no coinciden con lo que toca.
+    def _huella_plantillas(self) -> str:
+        """Resumen de las plantillas con las que se generan las paginas.
 
-        Sin esto, cambiar API_COMENTARIOS o retocar los estilos no llegaba
-        nunca a la web si no habia ninguna promo nueva ese dia.
+        Si cambia, hay que rehacer todas las paginas aunque no haya ninguna
+        promo nueva. Sin esto, un retoque en el disenyo se quedaba esperando
+        a que alguien publicara algo en Telegram.
         """
+        trozos = []
+        for archivo in sorted(RUTA_PLANTILLAS.iterdir()):
+            if archivo.is_file():
+                trozos.append(archivo.name.encode())
+                trozos.append(archivo.read_bytes())
+        trozos.append(self.sitio.encode())
+        trozos.append(self.generador.api_comentarios.encode())
+        return hashlib.sha256(b"|".join(trozos)).hexdigest()[:16]
+
+    def _estaticos_desfasados(self, promos: list[dict]) -> dict[str, str]:
+        """Lo que hay que rehacer aunque no haya promos nuevas."""
+        huella = self._huella_plantillas()
+        guardada = (self.repo.leer_texto(RUTA_HUELLA) or "").strip()
+
+        if guardada != huella:
+            log.info("Las plantillas han cambiado, rehago todas las paginas")
+            archivos: dict[str, str] = dict(self.generador.construir(promos))
+            archivos[RUTA_HUELLA] = huella + "\n"
+            return archivos
+
+        # Mismas plantillas: solo comprobamos los archivos sueltos
         generados = self.generador.construir(promos)
         desfasados = {}
         for ruta in ("comentarios.js", "promos.css", "instagram.js"):
@@ -251,6 +283,7 @@ class Publicador:
             sorted(publicables, key=lambda p: p.get("fecha") or "", reverse=True)
         ))
         # guardamos tambien las descartadas para no reprocesarlas
+        archivos[RUTA_HUELLA] = self._huella_plantillas() + "\n"
         archivos[RUTA_DATOS] = json.dumps(
             {
                 "actualizado": datetime.now(timezone.utc).isoformat(),

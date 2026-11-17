@@ -90,20 +90,32 @@
     return { el: el, texto: limpiar(el.dataset.busca || el.textContent) };
   });
 
+  function filtrar() {
+    var palabras = limpiar(campo.value).split(/\s+/).filter(Boolean);
+    var visibles = 0;
+    tarjetas.forEach(function (t) {
+      var vale = palabras.every(function (p) { return t.texto.indexOf(p) !== -1; });
+      t.el.hidden = !vale;
+      if (vale) visibles++;
+    });
+    aviso.hidden = visibles > 0;
+  }
+
   var espera;
   campo.addEventListener("input", function () {
     clearTimeout(espera);
-    espera = setTimeout(function () {
-      var palabras = limpiar(campo.value).split(/\s+/).filter(Boolean);
-      var visibles = 0;
-      tarjetas.forEach(function (t) {
-        var vale = palabras.every(function (p) { return t.texto.indexOf(p) !== -1; });
-        t.el.hidden = !vale;
-        if (vale) visibles++;
-      });
-      aviso.hidden = visibles > 0;
-    }, 120);
+    espera = setTimeout(filtrar, 120);
   });
+
+  // Si llega buscando desde la portada (/promos.html?q=...), filtramos ya
+  try {
+    var q = new URLSearchParams(location.search).get("q");
+    if (q) {
+      campo.value = q;
+      filtrar();
+      campo.focus();
+    }
+  } catch (e) { /* navegador antiguo: se queda el listado entero */ }
 })();
 </script>
 <script src="/instagram.js" defer></script>
