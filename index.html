@@ -148,7 +148,33 @@ h2.sec::after{content:'';flex:1;height:2px;background:var(--line);border-radius:
 .chan-nm{font-size:13.5px;font-weight:600;color:var(--ink)}
 .chan-ds{font-size:11.5px;color:var(--muted);margin-top:1px}
 
-#p-cupones,#p-cash,#p-telegram{display:none}
+#p-nuevas .up-cab{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.1rem}
+#p-nuevas .up-vivo{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--teal-dk);text-transform:uppercase;letter-spacing:.07em}
+#p-nuevas .up-punto{width:8px;height:8px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 0 rgba(22,163,74,.6);animation:latido 2.2s infinite}
+@keyframes latido{70%{box-shadow:0 0 0 9px rgba(22,163,74,0)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}}
+#p-nuevas .up-tit{font-family:'Bricolage Grotesque',sans-serif;font-size:1.6rem;font-weight:800;letter-spacing:-.6px;margin:.25rem 0 .15rem}
+#p-nuevas .up-sub{font-size:13.5px;color:var(--muted);max-width:60ch}
+#p-nuevas .up-todas{font-size:13px;font-weight:600;color:var(--teal-dk);text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:20px;padding:.5rem 1rem;white-space:nowrap}
+#p-nuevas .up-todas:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+#p-nuevas .rejilla{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:560px){#p-nuevas .rejilla{grid-template-columns:1fr 1fr}}
+@media(min-width:860px){#p-nuevas .rejilla{grid-template-columns:repeat(3,1fr)}}
+#p-nuevas .tarjeta{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:box-shadow .18s,transform .18s}
+#p-nuevas .tarjeta:hover{box-shadow:0 8px 24px rgba(6,153,154,.16);transform:translateY(-2px)}
+#p-nuevas .tarjeta img{width:100%;height:168px;object-fit:cover;background:#f6fafa;display:block}
+#p-nuevas .tarjeta .sinfoto{width:100%;height:168px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));display:flex;align-items:center;justify-content:center;font-size:2.6rem}
+#p-nuevas .tarjeta .cuerpo{padding:.85rem .95rem 1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+#p-nuevas .tarjeta h3{font-family:'Bricolage Grotesque',sans-serif;font-size:15.5px;font-weight:800;line-height:1.25;color:var(--ink);letter-spacing:-.2px}
+#p-nuevas .tarjeta p{font-size:13px;color:var(--muted);line-height:1.45;flex:1}
+#p-nuevas .tarjeta .pie{font-size:11.5px;color:#8aa3a5}
+#p-nuevas .etiqueta{display:inline-block;align-self:flex-start;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:4px 10px;border-radius:20px}
+#p-nuevas .cat-muestra,#p-nuevas .cat-gratis{background:#dcf5e6;color:#12734a}
+#p-nuevas .cat-reembolso{background:#fef3c7;color:#b45309}
+#p-nuevas .cat-cupon{background:var(--teal-lt);color:var(--teal-dk)}
+#p-nuevas .cat-sorteo{background:#f0e7fe;color:#6d28d9}
+#p-nuevas .cat-chollo{background:#ffe4e6;color:#be123c}
+#p-nuevas .up-sinnada{grid-column:1/-1;background:#fff;border:1px dashed var(--line);border-radius:var(--r);padding:2rem 1.2rem;text-align:center;color:var(--muted);font-size:14px}
+#p-cumple,#p-cupones,#p-cash,#p-telegram{display:none}
 footer{text-align:center;padding:1.5rem 1rem;color:var(--muted);font-size:12px;border-top:1px solid var(--line);background:var(--card)}
 footer a{color:var(--teal);text-decoration:none;font-weight:500}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -168,7 +194,8 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 </header>
 
 <nav class="tabs">
-  <button class="tab on" onclick="go('cumple',this)"><em>🎂</em> Cumpleaños</button>
+  <button class="tab on" onclick="go('nuevas',this)"><em>🔥</em> Lo último</button>
+  <button class="tab" onclick="go('cumple',this)"><em>🎂</em> Cumpleaños</button>
   <button class="tab" onclick="go('cupones',this)"><em>🎟️</em> Cupones</button>
   <a class="tab tab-ig" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDc4NTQ4OTc4NDk2NTcx?story_media_id=3818738160998580763_51084582026&igsi=MTM1cjA0czY5OHF1Nw==" target="_blank"><em>🆓</em> Pruébalo gratis (Reembolsos)</a>
   <button class="tab tab-cash" onclick="go('cash',this)"><em>💰</em> Bono 10€</button>
@@ -176,6 +203,22 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 </nav>
 
 <main>
+
+<section id="p-nuevas">
+  <div class="up-cab">
+    <div>
+      <span class="up-vivo"><span class="up-punto"></span> Recién publicado</span>
+      <h1 class="up-tit">Lo último que hemos encontrado</h1>
+      <p class="up-sub">Muestras gratis, reembolsos y chollos de supermercado. Se publica aquí solo, en cuanto lo sacamos en Telegram.</p>
+    </div>
+    <a class="up-todas" href="/promos.html">Ver todas →</a>
+  </div>
+  <div class="rejilla">
+      <!--ULTIMAS:INICIO-->
+      <div class="up-sinnada">Estamos publicando las primeras promociones. Vuelve en un rato o <a href="https://t.me/Mundopromosapp" target="_blank">únete al canal de Telegram</a>.</div>
+      <!--ULTIMAS:FIN-->
+  </div>
+</section>
 
 <section id="p-cumple">
   <section class="bhero">
@@ -325,7 +368,7 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 
 <script>
 function go(id,el){
-  ['cumple','cupones','cash','telegram'].forEach(function(s){
+  ['nuevas','cumple','cupones','cash','telegram'].forEach(function(s){
     document.getElementById('p-'+s).style.display='none';
   });
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});

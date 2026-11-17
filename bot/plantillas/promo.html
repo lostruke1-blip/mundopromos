@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ p.titulo_seo }} · MundoPromos</title>
+<meta name="description" content="{{ p.descripcion }}">
+<link rel="canonical" href="{{ sitio }}/promo/{{ p.slug }}.html">
+<meta name="theme-color" content="#06999a">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MundoPromos">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="{{ sitio }}/promo/{{ p.slug }}.html">
+<meta property="og:title" content="{{ p.titulo }}">
+<meta property="og:description" content="{{ p.descripcion }}">
+<meta property="og:image" content="{{ sitio }}{{ p.imagen or '/og.png' }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306999a'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EMP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/promos.css">
+<script type="application/ld+json">
+{{ datos_estructurados }}
+</script>
+</head>
+<body>
+
+<header class="sitio">
+  <a class="logo" href="/">Mundo<span>Promos</span></a>
+  <nav>
+    <a href="/promos.html">Todas las promos</a>
+    <a href="/">Cumpleaños</a>
+    <a href="https://t.me/{{ canal_telegram }}" target="_blank" rel="noopener">Telegram</a>
+  </nav>
+</header>
+
+<main>
+  <p class="miga"><a href="/">Inicio</a> › <a href="/promos.html">Promociones</a> › {{ p.categoria|capitalize }}</p>
+
+  {% if p.estado == 'agotada' %}
+  <div class="agotada-aviso">Esta promoción ya no está disponible. La dejamos publicada para que veas de qué iba, pero ya no se puede participar.</div>
+  {% endif %}
+
+  <article>
+    <span class="etiqueta cat-{{ p.categoria }}">{{ etiqueta_categoria }}</span>
+    <h1>{{ p.titulo }}</h1>
+    <p class="meta">Publicado el {{ fecha_legible }}{% if p.marca %} · {{ p.marca }}{% endif %}</p>
+
+    {% if p.imagen %}
+    <img class="portada" src="{{ p.imagen }}" alt="{{ p.titulo }}" width="1200" loading="eager">
+    {% endif %}
+
+    {{ p.cuerpo_html }}
+
+    {% if p.enlace and p.estado != 'agotada' %}
+    <a class="boton" href="{{ p.enlace }}" target="_blank" rel="noopener nofollow">Ir a la promoción</a>
+    {% elif p.estado == 'agotada' %}
+    <span class="boton apagado">Promoción finalizada</span>
+    {% endif %}
+
+    {% for extra in p.enlaces_extra %}
+    <a class="boton-sec" href="{{ extra }}" target="_blank" rel="noopener nofollow">{{ extra|replace('https://','')|replace('http://','')|truncate(45, true) }}</a>
+    {% endfor %}
+
+    <div class="avisocanal">
+      <strong>No te quedes sin la próxima</strong>
+      Estas promociones vuelan. Las publicamos primero en Telegram, así que si quieres enterarte a tiempo, únete al canal.
+      <a class="boton-sec" style="margin-top:.7rem" href="https://t.me/{{ canal_telegram }}" target="_blank" rel="noopener">Unirme al canal de Telegram</a>
+    </div>
+
+    <section id="comentarios" data-promo="{{ p.slug }}"></section>
+  </article>
+
+  {% if relacionadas %}
+  <h2 class="titulosec" style="margin-top:2.5rem">Más promociones</h2>
+  <div class="rejilla">
+    {% for r in relacionadas %}
+    <a class="tarjeta{% if r.estado == 'agotada' %} caducada{% endif %}" href="/promo/{{ r.slug }}.html">
+      {% if r.imagen %}<img src="{{ r.imagen }}" alt="{{ r.titulo }}" loading="lazy">{% else %}<div class="sinfoto">🎁</div>{% endif %}
+      <div class="cuerpo">
+        <span class="etiqueta cat-{{ r.categoria }}">{{ r.etiqueta }}</span>
+        <h3>{{ r.titulo }}</h3>
+        <p>{{ r.resumen }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</main>
+
+<footer class="sitio">
+  MundoPromos {{ anio }} &nbsp;·&nbsp;
+  <a href="/">Inicio</a> &nbsp;·&nbsp;
+  <a href="/promos.html">Promociones</a> &nbsp;·&nbsp;
+  <a href="/aviso-legal.html">Aviso legal</a> &nbsp;·&nbsp;
+  <a href="/privacidad.html">Privacidad</a>
+  <p class="aviso">Algunos enlaces de esta web son de afiliado. Si te registras o compras a través de ellos, MundoPromos puede recibir una comisión sin ningún coste adicional para ti. Las condiciones de cada promoción las fija la marca correspondiente y pueden cambiar o agotarse en cualquier momento.</p>
+</footer>
+
+<script src="/comentarios.js" defer></script>
+</body>
+</html>

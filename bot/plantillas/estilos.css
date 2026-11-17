@@ -1,0 +1,110 @@
+/* Estilos de las paginas de promociones de MundoPromos */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#06999a;--teal-dk:#04747a;--teal-lt:#e2f4f4;
+  --ink:#11262b;--muted:#5f7a7d;
+  --bg:#eef5f5;--card:#fff;--line:#cfe6e6;
+  --coral:#e0484d;--amber:#e9930b;--indigo:#5b5bd6;--verde:#12734a;
+  --r:14px;
+}
+body{font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+header.sitio{background:var(--teal);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+header.sitio .logo{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.5rem;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.4px}
+header.sitio .logo span{opacity:.7;font-weight:600}
+header.sitio nav{display:flex;gap:6px;flex-wrap:wrap}
+header.sitio nav a{color:#fff;text-decoration:none;font-size:12px;font-weight:500;padding:5px 11px;border:1px solid rgba(255,255,255,.4);border-radius:20px}
+header.sitio nav a:hover{background:rgba(255,255,255,.18)}
+
+main{max-width:780px;margin:0 auto;padding:1.5rem 1.1rem 3rem}
+main.ancho{max-width:1040px}
+
+.miga{font-size:12.5px;color:var(--muted);margin-bottom:1rem}
+.miga a{color:var(--teal-dk);text-decoration:none}
+
+.etiqueta{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:4px 10px;border-radius:20px}
+.cat-muestra{background:#dcf5e6;color:var(--verde)}
+.cat-reembolso{background:#fef3c7;color:#b45309}
+.cat-cupon{background:var(--teal-lt);color:var(--teal-dk)}
+.cat-sorteo{background:#f0e7fe;color:#6d28d9}
+.cat-chollo{background:#ffe4e6;color:#be123c}
+.cat-gratis{background:#dcf5e6;color:var(--verde)}
+
+.agotada-aviso{background:#fff4f4;border:1px solid #f3c0c0;color:#a52c2c;border-radius:var(--r);padding:.9rem 1.1rem;font-size:14px;font-weight:600;margin-bottom:1.2rem}
+
+article h1{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.9rem;font-weight:800;line-height:1.14;letter-spacing:-.7px;margin:.7rem 0 .5rem}
+article .meta{font-size:12.5px;color:var(--muted);margin-bottom:1.3rem}
+article .portada{width:100%;border-radius:var(--r);border:1px solid var(--line);background:#fff;margin-bottom:1.5rem;display:block}
+article h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.25rem;font-weight:800;letter-spacing:-.3px;margin:1.9rem 0 .6rem}
+article p{margin-bottom:.9rem;font-size:15.5px;color:#28403f}
+article ul,article ol{margin:0 0 1.1rem 0;padding-left:1.3rem}
+article li{margin-bottom:.5rem;font-size:15.5px;color:#28403f;padding-left:.2rem}
+article li::marker{color:var(--teal-dk);font-weight:600}
+article strong{font-weight:600;color:var(--ink)}
+
+.boton{display:block;text-align:center;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:.95rem 1.5rem;border-radius:11px;margin:1.6rem 0 .6rem;box-shadow:0 3px 12px rgba(6,153,154,.28)}
+.boton:hover{background:var(--teal-dk)}
+.boton.apagado{background:#9fb5b6;box-shadow:none;cursor:default}
+.boton-sec{display:block;text-align:center;background:#fff;color:var(--teal-dk);border:1px solid var(--line);text-decoration:none;font-weight:600;font-size:14px;padding:.7rem 1.2rem;border-radius:11px;margin-bottom:.5rem}
+
+.avisocanal{background:var(--teal-lt);border-radius:var(--r);padding:1.1rem 1.2rem;margin:2rem 0;font-size:14px}
+.avisocanal strong{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:15px;margin-bottom:.3rem}
+
+/* Rejilla de tarjetas */
+.rejilla{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:560px){.rejilla{grid-template-columns:1fr 1fr}}
+@media(min-width:860px){.rejilla{grid-template-columns:repeat(3,1fr)}}
+.tarjeta{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:box-shadow .18s,transform .18s}
+.tarjeta:hover{box-shadow:0 8px 24px rgba(6,153,154,.16);transform:translateY(-2px)}
+.tarjeta img{width:100%;height:170px;object-fit:cover;background:#f6fafa;display:block}
+.tarjeta .sinfoto{width:100%;height:170px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));display:flex;align-items:center;justify-content:center;font-size:2.6rem}
+.tarjeta .cuerpo{padding:.85rem .95rem 1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.tarjeta h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:15.5px;font-weight:800;line-height:1.25;color:var(--ink);letter-spacing:-.2px}
+.tarjeta p{font-size:13px;color:var(--muted);line-height:1.45;flex:1}
+.tarjeta .pie{font-size:11.5px;color:#8aa3a5}
+.tarjeta.caducada{opacity:.62}
+.tarjeta.caducada h3::after{content:" · Agotada";color:#a52c2c;font-weight:700}
+
+.titulosec{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-.5px;margin:0 0 .3rem}
+.subtitulosec{font-size:14px;color:var(--muted);margin-bottom:1.4rem}
+
+.filtros{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:1.5rem}
+.filtros a{font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:20px;text-decoration:none;background:#fff;border:1px solid var(--line);color:var(--muted)}
+.filtros a.activo{background:var(--teal);border-color:var(--teal);color:#fff}
+
+footer.sitio{text-align:center;padding:1.6rem 1rem;color:var(--muted);font-size:12px;border-top:1px solid var(--line);background:#fff;margin-top:2.5rem}
+footer.sitio a{color:var(--teal);text-decoration:none;font-weight:500}
+footer.sitio .aviso{max-width:58ch;margin:.8rem auto 0;line-height:1.5;font-size:11.5px}
+
+/* Comentarios */
+#comentarios{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.6rem}
+.co-titulo{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-.4px}
+.co-cuenta{color:var(--muted);font-weight:600;font-size:1rem}
+.co-intro{font-size:14px;color:var(--muted);margin:.35rem 0 1.1rem}
+.co-form{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1rem}
+.co-nombre,.co-texto{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:#fbfdfd;border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem;margin-bottom:.6rem}
+.co-texto{resize:vertical;min-height:84px;line-height:1.5}
+.co-nombre:focus,.co-texto:focus{outline:2px solid var(--teal);outline-offset:1px;background:#fff}
+.co-nombre::placeholder,.co-texto::placeholder{color:#9bb3b5}
+.co-pieform{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+.co-restante{font-size:12px;color:var(--muted)}
+.co-enviar{margin-left:auto;font-family:inherit;font-size:14.5px;font-weight:600;color:#fff;background:var(--teal);border:0;border-radius:10px;padding:.65rem 1.25rem;cursor:pointer}
+.co-enviar:hover{background:var(--teal-dk)}
+.co-enviar:disabled{background:#9fb5b6;cursor:default}
+.co-trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.co-aviso{font-size:11.5px;color:var(--muted);margin:.8rem 0 0;line-height:1.45}
+.co-aviso a{color:var(--teal-dk)}
+.co-estado{font-size:13.5px;font-weight:600;margin:.6rem 0 0}
+.co-estado.bien{color:var(--verde)}
+.co-estado.mal{color:var(--coral)}
+.co-lista{margin-top:1.4rem;display:flex;flex-direction:column;gap:1rem}
+.co-cargando,.co-vacio{font-size:14px;color:var(--muted)}
+.co-item{display:flex;gap:.8rem;align-items:flex-start}
+.co-avatar{flex:0 0 36px;width:36px;height:36px;border-radius:50%;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.co-cuerpo{flex:1;min-width:0}
+.co-meta{font-size:12.5px;color:var(--muted);margin-bottom:.15rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.co-meta strong{color:var(--ink);font-weight:600;font-size:13.5px}
+.co-autor{background:var(--teal-lt);color:var(--teal-dk);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:20px}
+.co-mensaje{font-size:14.5px;color:#28403f;line-height:1.55;word-wrap:break-word;overflow-wrap:anywhere}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

@@ -5,3 +5,6 @@ Disallow: /privacidad.html
 Disallow: /cookies.html
 
 Sitemap: https://mundopromos.com/sitemap.xml
+
+# El servicio de publicacion no es parte de la web
+Disallow: /bot/
