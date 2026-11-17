@@ -1,6 +1,44 @@
 {
- "actualizado": "2026-11-17T14:35:00.299665+00:00",
+ "actualizado": "2026-11-17T14:36:17.601457+00:00",
  "promos": [
+  {
+   "id": "OfertasSupermercadosES/2176",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2176,
+   "fecha": "2026-11-17T08:48:50+00:00",
+   "actualizado": "2026-11-17T14:36:17.442888+00:00",
+   "slug": "ariel-pods-o-liquido-2-de-reembolso-con-la-2176",
+   "titulo": "Ariel PODS o líquido: 2€ de reembolso con La Cuponera",
+   "titulo_seo": "Reembolso de 2€ en Ariel PODS o líquido con La Cuponera",
+   "descripcion": "Reembolso de 2€ por una unidad de Ariel líquido o Ariel PODS con la app La Cuponera. Válido hasta el 31/01/2027 o hasta agotar los reembolsos.",
+   "resumen": "Con la app La Cuponera, un Ariel PODS o un Ariel líquido te sale 2€ más barato. En Mercadona, el pack de PODS se queda en 2,85€ tras el reembolso.",
+   "cuerpo_html": "<p>La app La Cuponera tiene una nueva promoción de Ariel: si compras una unidad de <strong>Ariel líquido</strong> o de <strong>Ariel PODS</strong>, te reembolsan <strong>2€</strong>. Es una oferta pensada para ahorrar en el detergente de siempre sin cambiar de producto.</p><p>La promoción es válida para compras realizadas entre el <strong>01/10/2026</strong> y el <strong>31/01/2027</strong>, o hasta un máximo de <strong>22.000 tickets</strong> o <strong>44.000€</strong> en reembolsos, lo que ocurra antes. Además, es acumulable con otras ofertas o promociones.</p><p>Si haces la compra en Mercadona, la caja de 19 cápsulas Ariel PODS frescor floral (463,6g) está a 4,85€ por unidad. Con el reembolso de 2€, se queda en <strong>2,85€</strong>.</p><h2>Cómo participar</h2><p>Solo tienes que seguir estos pasos para conseguir el reembolso.</p><ul><li>Compra una unidad de Ariel líquido o de Ariel PODS dentro de las fechas de la promoción.</li><li>Guarda el ticket de compra, que te hará falta para la solicitud.</li><li>Entra en la app La Cuponera y busca la promoción de Ariel PODS y Líquido.</li><li>Sigue los pasos que te indique la app para solicitar el reembolso de 2€.</li></ul>",
+   "categoria": "reembolso",
+   "marca": "Ariel",
+   "imagen": "/img/promos/ariel-pods-o-liquido-2-de-reembolso-con-la-2176.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2175",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2175,
+   "fecha": "2026-11-16T20:34:34+00:00",
+   "actualizado": "2026-11-17T14:36:07.861663+00:00",
+   "slug": "licores-del-mono-botella-gratis-al-comprar-2-2175",
+   "titulo": "Licores del Mono: botella gratis al comprar 2",
+   "titulo_seo": "Licores del Mono: botella gratis al comprar 2",
+   "descripcion": "Compra 2 botellas de cualquier sabor de Licores del Mono y llévate una tercera gratis. Te contamos también la oferta con cupón del 50% en Carrefour.",
+   "resumen": "Por la compra de dos botellas de cualquier sabor de Licores del Mono, te llevas una gratis. Además, en Carrefour hay un cupón del 50% sobre el licor de verbena de limón.",
+   "cuerpo_html": "<p>Licores del Mono tiene en marcha una promoción con la que, al comprar dos botellas de <strong>cualquier sabor</strong> de su gama, te llevas <strong>una botella más gratis</strong>. La oferta es válida para todos los sabores de la marca, así que puedes combinarlos como quieras.</p><p>Si compras en Carrefour, también aparece el licor de verbena de limón de 70 cl con un <strong>cupón del 50%</strong>, lo que hace que dos botellas salgan prácticamente gratis. Con la tarjeta Club Carrefour, además, se acumula el 1% de cada compra en ChequeAhorro.</p><h2>Cómo participar</h2><p>Solo tienes que seguir estos pasos para aprovechar la oferta:</p><ul><li>Elige dos botellas de cualquier sabor de Licores del Mono.</li><li>Añádelas a tu compra, ya sea en tienda física o en la web de la marca.</li><li>La tercera botella se aplica como gratuita según las condiciones de la promoción.</li><li>Consulta las bases completas en la web oficial de la promoción antes de comprar, para conocer las fechas y los requisitos.</li></ul>",
+   "categoria": "chollo",
+   "marca": "Licores del Mono",
+   "imagen": "/img/promos/licores-del-mono-botella-gratis-al-comprar-2-2175.jpg",
+   "enlace": "https://promociones.licoresdelmono.com/",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
   {
    "id": "Mundopromosapp/1788",
    "canal": "Mundopromosapp",
@@ -20,6 +58,25 @@
    "enlaces_extra": [
     "https://instagram.com/hermes?igshid=YmMyMTA2M2Y="
    ],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2174",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2174,
+   "fecha": "2026-11-15T18:31:25+00:00",
+   "actualizado": "2026-11-17T14:35:58.006925+00:00",
+   "slug": "muestras-gratis-de-productos-carrefour-con-fans-5-estrellas-2174",
+   "titulo": "Muestras gratis de productos Carrefour con Fans 5 estrellas",
+   "titulo_seo": "Muestras gratis en Carrefour: Fans 5 estrellas",
+   "descripcion": "Apúntate gratis para probar productos de Carrefour en la promoción Fans 5 estrellas. Sin compra mínima y con plazo hasta el 15/11/2026.",
+   "resumen": "Carrefour lanza una nueva oportunidad para probar productos gratis con Fans 5 estrellas. No hace falta comprar nada, pero hay que apuntarse antes del 15/11/2026.",
+   "cuerpo_html": "<p>Carrefour tiene una nueva oportunidad para probar productos gratis con la promoción <strong>Fans 5 estrellas</strong>. Para participar no hace falta hacer ninguna compra mínima: basta con apuntarse antes del <strong>15/11/2026</strong>.</p><p>Si ya tienes la tarjeta Club Carrefour, recuerda que con ella se acumula el 1% de cada compra en ChequeAhorro, así que también puedes aprovechar tus compras habituales.</p><h2>Cómo participar</h2><p>Estos son los pasos para apuntarte a la promoción, que puedes completar desde el botón de esta entrada:</p><ul><li>Abre el formulario de inscripción desde el botón de esta entrada.</li><li>Rellena tus datos y envía la solicitud antes del 15/11/2026.</li><li>Consulta las bases o la web de la promoción para conocer las condiciones completas antes de apuntarte.</li></ul>",
+   "categoria": "muestra",
+   "marca": "Carrefour",
+   "imagen": null,
+   "enlace": "https://docs.google.com/forms/d/e/1FAIpQLSc3ZDu_VwSA3ol0xO2Hrsv359i9slOArQNzsloLzi8rd5pwAQ/viewform?",
+   "enlaces_extra": [],
    "estado": "activa"
   },
   {
@@ -582,18 +639,6 @@
    "id": "OfertasSupermercadosES/2164",
    "descartada": true,
    "version": 2
-  },
-  {
-   "id": "OfertasSupermercadosES/2174",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2175",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2176",
-   "descartada": true
   }
  ]
 }
