@@ -1,6 +1,25 @@
 {
- "actualizado": "2026-11-17T14:36:17.601457+00:00",
+ "actualizado": "2026-11-17T17:07:23.208380+00:00",
  "promos": [
+  {
+   "id": "OfertasSupermercadosES/2177",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2177,
+   "fecha": "2026-11-17T17:04:01+00:00",
+   "actualizado": "2026-11-17T17:07:23.036508+00:00",
+   "slug": "productos-gratis-para-socios-de-el-club-carrefour-desde-2177",
+   "titulo": "Productos gratis para socios de El Club Carrefour desde el 18/11",
+   "titulo_seo": "Productos gratis con El Club Carrefour desde el 18/11",
+   "descripcion": "Los socios de El Club Carrefour ya tienen cupones gratis en la app. Sin mínimo de compra a partir del 18/11 en hipermercados Carrefour.",
+   "resumen": "Si eres socio de El Club Carrefour, revisa la app: ya han aparecido cupones para llevarte productos gratis en hipermercados Carrefour, sin mínimo de compra a partir del 18/11.",
+   "cuerpo_html": "<p>Si eres socio de El Club Carrefour, ya tienes disponibles en la app de Carrefour varios cupones para conseguir productos gratis en los hipermercados Carrefour. Entre ellos hay snacks como patatas fritas de sabores variados y otros productos de la tienda.</p><p>Los cupones no piden un mínimo de compra a partir del 18/11, así que puedes usarlos aunque tu ticket sea pequeño. Además, con la tarjeta Club Carrefour se acumula el 1% de cada compra en ChequeAhorro.</p><h2>Cómo participar</h2><p>Estos son los pasos para aprovechar los cupones:</p><ul><li>Comprueba que eres socio de El Club Carrefour y que tienes la app de Carrefour instalada.</li><li>Abre la app y revisa la sección de cupones, donde ya han aparecido las ofertas.</li><li>Acude a un hipermercado Carrefour a partir del 18/11 y presenta el cupón al pagar.</li><li>Consulta las bases de la promoción en la web de Carrefour para conocer las condiciones completas.</li></ul>",
+   "categoria": "cupon",
+   "marca": "Carrefour",
+   "imagen": "/img/promos/productos-gratis-para-socios-de-el-club-carrefour-desde-2177.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
   {
    "id": "OfertasSupermercadosES/2176",
    "canal": "OfertasSupermercadosES",
