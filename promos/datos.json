@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T11:05:12.823918+00:00",
+ "actualizado": "2026-11-17T11:07:09.323014+00:00",
  "promos": [
   {
    "id": "Mundopromosapp/1788",
@@ -80,6 +80,25 @@
    "estado": "agotada"
   },
   {
+   "id": "Mundopromosapp/1783",
+   "canal": "Mundopromosapp",
+   "numero": 1783,
+   "fecha": "2026-11-06T17:05:03+00:00",
+   "actualizado": "2026-11-17T11:06:14.549144+00:00",
+   "slug": "muestra-gratis-de-la-nueva-renergie-collagen-lift-xtend-1783",
+   "titulo": "Muestra gratis de la nueva Rénergie Collagen Lift-Xtend Cream de Lancôme",
+   "titulo_seo": "Muestra gratis Rénergie Collagen Lift-Xtend de Lancôme",
+   "descripcion": "Pide gratis una muestra de la nueva crema Rénergie Collagen Lift-Xtend Cream de Lancôme. Solo para las 1.500 primeras personas, así que date prisa.",
+   "resumen": "Lancôme regala muestras gratis de su nueva crema Rénergie Collagen Lift-Xtend Cream, pero solo para las 1.500 primeras personas que las pidan.",
+   "cuerpo_html": "<p>Lancôme ha lanzado su nueva <strong>Rénergie Collagen Lift-Xtend Cream</strong> y, para que la pruebes sin gastar nada, reparte muestras gratuitas de este producto.</p><p>Eso sí, el reparto es limitado: solo hay <strong>1.500 muestras</strong>, así que conviene pedirla cuanto antes.</p><h2>Cómo participar</h2><ul><li>Pulsa el botón de la campaña para acceder a la página de Lancôme.</li><li>Completa el cuestionario que aparece en la web.</li><li>Si todavía quedan muestras disponibles, recibirás tu muestra gratis.</li></ul>",
+   "categoria": "muestra",
+   "marca": "Lancôme",
+   "imagen": "/img/promos/muestra-gratis-de-la-nueva-renergie-collagen-lift-xtend-1783.jpg",
+   "enlace": "https://lancome-es.beauty-campaigns.com/quiz/1862918_1221/ES_LLD_LAC_Renergie_MujerHoy.html?fbclid=IwVERDUAVa5Z5leHRuA2FlbQIxMABwZG9mBXNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABH5UdBYwy2jLXWDHeiitRA1os0FyTQkZ0YOb9y_WDFJwBgcPT4gBJb8iDelr9_aem_9afJ5YIC7lIR_o7kKLOu1Q",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
    "id": "Mundopromosapp/1781",
    "canal": "Mundopromosapp",
    "numero": 1781,
@@ -97,6 +116,25 @@
    "enlace": "https://member.basic-fit.com/language-country?redirectPath=%2Fsignup%2FBlackFriday_FitTogether",
    "enlaces_extra": [],
    "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2162",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2162,
+   "fecha": "2026-10-29T18:36:20+00:00",
+   "actualizado": "2026-11-17T11:06:25.722091+00:00",
+   "slug": "nescafe-roastery-pruebalo-gratis-con-reembolso-promocion-finalizada-2162",
+   "titulo": "Nescafé Roastery pruébalo gratis con reembolso: promoción finalizada",
+   "titulo_seo": "Nescafé Roastery pruébalo gratis (promoción finalizada)",
+   "descripcion": "La promo Pruébalo gratis de Nescafé Roastery, con reembolso de 10 o 20 cápsulas, ya ha finalizado. Te contamos qué ofrecía y cómo estar atento a nuevas.",
+   "resumen": "La promoción de reembolso Pruébalo gratis de Nescafé Roastery, de 10 o 20 cápsulas, ya ha terminado. Te explicamos qué era y dónde seguir de cerca las próximas.",
+   "cuerpo_html": "<p>Nescafé Roastery lanzó una nueva promoción de tipo <strong>pruébalo gratis con reembolso</strong> para sus cápsulas, con packs de <strong>10 o 20 cápsulas</strong>. Se trataba de probar el café con reembolso del importe, como indica la propia mecánica de la campaña.</p><p>Por desgracia, la promoción <strong>ya está finalizada</strong>, así que ya no es posible participar. Si quieres seguir a la marca, la web oficial de Nestlé Family Club es el sitio donde se anuncian las promociones vigentes.</p><h2>Cómo participar</h2><ul><li>Esta promoción ya no está activa, por lo que no hay pasos vigentes que seguir.</li><li>Entra en la página oficial de la promoción para comprobar su estado y las condiciones que se publicaron.</li><li>Si la marca lanza una nueva campaña similar, la publicaremos en MundoPromos para que no te la pierdas.</li></ul>",
+   "categoria": "reembolso",
+   "marca": "Nescafé",
+   "imagen": "/img/promos/nescafe-roastery-pruebalo-gratis-con-reembolso-promocion-finalizada-2162.jpg",
+   "enlace": "https://www.nestlefamilyclub.es/promociones/nescafe-roastery-pruebalo-gratis",
+   "enlaces_extra": [],
+   "estado": "agotada"
   },
   {
    "id": "Mundopromosapp/1780",
@@ -175,6 +213,25 @@
    "estado": "activa"
   },
   {
+   "id": "Mundopromosapp/1778",
+   "canal": "Mundopromosapp",
+   "numero": 1778,
+   "fecha": "2026-10-15T13:37:05+00:00",
+   "actualizado": "2026-11-17T11:06:00.228501+00:00",
+   "slug": "dos-snacks-de-schar-sin-gluten-gratis-para-los-1778",
+   "titulo": "Dos snacks de Schär sin gluten gratis para los primeros 5.000",
+   "titulo_seo": "Muestra gratis de snacks Schär sin gluten",
+   "descripcion": "Consigue gratis dos snacks de Schär sin gluten. Promoción para los primeros 5.000 participantes. Te explicamos cómo solicitarlos paso a paso.",
+   "resumen": "Schär regala dos snacks sin gluten a las primeras 5.000 personas que participen. Te contamos cómo apuntarte.",
+   "cuerpo_html": "<p>Schär tiene en marcha una promoción con la que puedes recibir <strong>dos snacks sin gluten gratis en casa</strong>. La oferta es para las primeras 5.000 personas que se apunten, así que conviene no dejarlo para más tarde.</p><p>Si la página va lenta en el móvil, la web funciona mejor en modo de vista de escritorio u ordenador.</p><h2>Cómo participar</h2><ul><li>Pulsa el botón de esta entrada para acceder a la promoción.</li><li>Si la web carga lenta, cambia a la vista de escritorio u ordenador desde el menú de tu navegador.</li><li>Sigue los pasos que te indique la página para completar la solicitud.</li></ul>",
+   "categoria": "muestra",
+   "marca": "Schär",
+   "imagen": "/img/promos/dos-snacks-de-schar-sin-gluten-gratis-para-los-1778.jpg",
+   "enlace": "https://pruebaschar.gelt.com/?fbclid=PAdGRleAU9sy5leHRuA2FlbQIxMQBwZG9mAmZkaWQWUQXXag1SX14zegNKxrQLkAd1MZ1Ep3NydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp_eAlQpDt3S5csStgTafwa_cQF2RKsJvquP-9tSLFhvG1Wl9RT1KlakaF6ow_aem_rhU7J7JulJpdEGu_jTlKMg",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
    "id": "Mundopromosapp/1777",
    "canal": "Mundopromosapp",
    "numero": 1777,
@@ -229,6 +286,46 @@
    "imagen": "/img/promos/taco-supreme-gratis-en-taco-bell-este-6-de-1775.jpg",
    "enlace": "?q=%23Gratis",
    "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "Mundopromosapp/1774",
+   "canal": "Mundopromosapp",
+   "numero": 1774,
+   "fecha": "2026-09-24T17:37:25+00:00",
+   "actualizado": "2026-11-17T11:05:54.051954+00:00",
+   "slug": "entradas-gratis-para-el-preestreno-de-la-nueva-pelicula-1774",
+   "titulo": "Entradas gratis para el preestreno de la nueva película de José Mota",
+   "titulo_seo": "Entradas gratis preestreno José Mota: 1 de octubre",
+   "descripcion": "Entradas gratis para el preestreno de la nueva película de José Mota el 1 de octubre. Hay pases en muchas ciudades, hasta agotar aforo.",
+   "resumen": "Hay entradas gratis para el preestreno de la nueva película de José Mota el 1 de octubre. No hay sesiones en todas las ciudades, pero sí en muchas, y se reparten hasta agotar aforo.",
+   "cuerpo_html": "<p>Si te apetece ver la nueva película de José Mota antes de que llegue a los cines, tienes una buena oportunidad. Se han preparado entradas gratis para su preestreno, con pases para el 1 de octubre.</p><p>No hay sesiones en todas las ciudades, aunque sí en muchas de ellas. Las entradas son limitadas y se entregan hasta agotar aforo, así que conviene no dejarlo para más tarde.</p><h2>Cómo participar</h2><ul><li>Pulsa el botón de la web oficial de la película para acceder a la información del preestreno.</li><li>Comprueba si hay pases disponibles en tu ciudad, porque no todas tienen sesión.</li><li>Reserva tu entrada gratis para el 1 de octubre mientras queden plazas.</li></ul>",
+   "categoria": "gratis",
+   "marca": "Acontracorriente Films",
+   "imagen": "/img/promos/entradas-gratis-para-el-preestreno-de-la-nueva-pelicula-1774.jpg",
+   "enlace": "https://acontracorrientefilms.ac-page.com/arribatutto",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "Mundopromosapp/1773",
+   "canal": "Mundopromosapp",
+   "numero": 1773,
+   "fecha": "2026-09-24T16:31:10+00:00",
+   "actualizado": "2026-11-17T11:05:47.484397+00:00",
+   "slug": "muestra-gratis-de-crema-facial-rituals-homme-1773",
+   "titulo": "Muestra gratis de crema facial Rituals Homme",
+   "titulo_seo": "Muestra gratis crema facial Rituals Homme",
+   "descripcion": "Pide gratis una muestra de la crema facial Rituals Homme a través de un anuncio en Instagram o Facebook. Te explicamos cómo localizarlo y registrarte.",
+   "resumen": "Rituals está ofreciendo una muestra gratis de su crema facial Rituals Homme mediante un anuncio que aparece en Instagram y Facebook.",
+   "cuerpo_html": "<p>Mundopromer, Rituals está promocionando una <strong>muestra gratis de su crema facial Rituals Homme</strong>. La oferta no se publica como enlace directo, sino como anuncio en Instagram y Facebook, así que hay que dar con él dentro de las propias redes.</p><p>Para que el anuncio aparezca, lo más práctico es interactuar con las cuentas oficiales de Rituals en ambas plataformas. Tras comprobarlo, el anuncio ha aparecido navegando por Instagram y Facebook, así que conviene revisar también anuncios e historias.</p><h2>Cómo participar</h2><ul><li>Localiza el anuncio de Rituals en Instagram o Facebook. Si no te aparece, prueba a interactuar con sus cuentas oficiales.</li><li>Pulsa en «Registrarse».</li><li>Rellena el formulario y revisa tu correo electrónico para completar el proceso.</li><li>Una vez registrado, recibirás también un enlace por correo para invitar a otra persona a pedir la muestra.</li></ul>",
+   "categoria": "muestra",
+   "marca": "Rituals",
+   "imagen": "/img/promos/muestra-gratis-de-crema-facial-rituals-homme-1773.jpg",
+   "enlace": "https://www.instagram.com/ritualscosmeticsspain?stkn=MWR2NDBncXdld3Jhag==",
+   "enlaces_extra": [
+    "https://www.facebook.com/RitualsCosmeticsES"
+   ],
    "estado": "activa"
   },
   {
@@ -328,6 +425,54 @@
    "enlace": "https://www.tiktok.com/@jeanpaulgaultier?_r=1&_t=ZN-99iqc5WV5PD",
    "enlaces_extra": [],
    "estado": "activa"
+  },
+  {
+   "id": "Mundopromosapp/1782",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2158",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2161",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2163",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2164",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2165",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2166",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2171",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2173",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2174",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2175",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2176",
+   "descartada": true
   }
  ]
 }
