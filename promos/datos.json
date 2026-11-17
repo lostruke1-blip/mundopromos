@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T10:24:52.403004+00:00",
+ "actualizado": "2026-11-17T10:25:48.255173+00:00",
  "promos": [
   {
    "id": "Mundopromosapp/1788",
@@ -20,6 +20,25 @@
    "enlaces_extra": [
     "https://instagram.com/hermes?igshid=YmMyMTA2M2Y="
    ],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2168",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2168,
+   "fecha": "2026-11-13T08:18:10+00:00",
+   "actualizado": "2026-11-17T10:25:30.762992+00:00",
+   "slug": "pre-black-friday-en-carrefour-sets-adidas-y-cofres-2168",
+   "titulo": "Pre Black Friday en Carrefour: sets Adidas y cofres de maquillaje",
+   "titulo_seo": "Pre Black Friday en Carrefour: sets Adidas y maquillaje",
+   "descripcion": "Vuelven las ofertas de pre Black Friday en Carrefour: sets de Adidas, cofres de maquillaje y cuidado corporal a precios rebajados, en tienda y en web.",
+   "resumen": "Carrefour lanza su pre Black Friday con sets de Adidas, cofres de maquillaje y productos de cuidado corporal a precios rebajados.",
+   "cuerpo_html": "<p>Carrefour vuelve a poner en marcha sus ofertas de pre Black Friday, con descuentos en <strong>sets de Adidas</strong>, <strong>cofres de maquillaje</strong> y <strong>productos de cuidado corporal</strong>.</p><p>Las rebajas están disponibles tanto en el Centro Carrefour como en la web, así que puedes mirar lo que te interese desde casa o acercarte a la tienda física.</p><h2>Como participar</h2><ul><li>Entra en la web de Carrefour y revisa la sección de ofertas de pre Black Friday.</li><li>Si prefieres comprar en persona, consulta las promociones en tu Centro Carrefour más cercano.</li><li>Si tienes la tarjeta Club Carrefour, recuerda que se acumula el <strong>1%</strong> de cada compra en ChequeAhorro.</li></ul>",
+   "categoria": "chollo",
+   "marca": "Carrefour",
+   "imagen": "/img/promos/pre-black-friday-en-carrefour-sets-adidas-y-cofres-2168.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
    "estado": "activa"
   },
   {
@@ -340,7 +359,9 @@
   },
   {
    "id": "OfertasSupermercadosES/2162",
-   "descartada": true
+   "descartada": true,
+   "estado": "agotada",
+   "actualizado": "2026-11-17T10:25:24.253454+00:00"
   },
   {
    "id": "OfertasSupermercadosES/2163",
@@ -356,6 +377,26 @@
   },
   {
    "id": "OfertasSupermercadosES/2166",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2171",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2173",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2174",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2175",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2176",
    "descartada": true
   }
  ]
