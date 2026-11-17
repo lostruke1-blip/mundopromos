@@ -1,6 +1,160 @@
 {
- "actualizado": "2026-11-17T10:22:28.444690+00:00",
+ "actualizado": "2026-11-17T10:24:52.403004+00:00",
  "promos": [
+  {
+   "id": "Mundopromosapp/1788",
+   "canal": "Mundopromosapp",
+   "numero": 1788,
+   "fecha": "2026-11-16T19:04:38+00:00",
+   "actualizado": "2026-11-17T10:23:54.260336+00:00",
+   "slug": "muestra-gratis-del-perfume-terre-d-hermes-en-redes-1788",
+   "titulo": "Muestra gratis del perfume Terre d'Hermès en redes sociales",
+   "titulo_seo": "Muestra gratis perfume Terre d'Hermès",
+   "descripcion": "Muestra gratis del perfume Terre d'Hermès que sale como anuncio en las redes oficiales de la marca. Te contamos cómo participar.",
+   "resumen": "Muestra gratis de Terre d'Hermès sin enlace directo: aparece como publicidad en Facebook e Instagram de la marca si interactúas con sus cuentas oficiales.",
+   "cuerpo_html": "<p>Hermès está ofreciendo muestras gratis de su perfume <strong>Terre d'Hermès</strong>. En esta ocasión no hay un enlace directo para pedirla. La muestra aparece como publicidad en las cuentas oficiales de la marca en Facebook e Instagram, así que hay que llegar a ella a través de esas redes.</p><p>Ojo, no es una garantía: aparecerá o no según cómo uses las cuentas, pero interactuar con la marca aumenta las probabilidades de que el anuncio te salga en tu muro o en tus historias.</p><h2>Como participar</h2><p>Lo que tienes que hacer es interactuar con las cuentas oficiales de Hermès:</p><ul><li><strong>Sigue</strong> las cuentas oficiales de Hermès en Facebook e Instagram. Si ya las sigues, tienes más probabilidades.</li><li><strong>Interactúa</strong> con sus publicaciones: dales me gusta, comenta o compártelas.</li><li><strong>Revisa</strong> de vez en cuando tu muro y tus historias por si aparece el anuncio de la muestra.</li></ul>",
+   "categoria": "muestra",
+   "marca": "Hermès",
+   "imagen": "/img/promos/muestra-gratis-del-perfume-terre-d-hermes-en-redes-1788.jpg",
+   "enlace": "https://www.facebook.com/hermes/",
+   "enlaces_extra": [
+    "https://instagram.com/hermes?igshid=YmMyMTA2M2Y="
+   ],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2167",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2167,
+   "fecha": "2026-11-11T17:35:55+00:00",
+   "actualizado": "2026-11-17T10:24:51.954823+00:00",
+   "slug": "nueva-tirada-de-la-ruleta-en-la-app-de-2167",
+   "titulo": "Nueva tirada de la ruleta en la app de DIA",
+   "titulo_seo": "Nueva tirada de la ruleta en la app de DIA",
+   "descripcion": "Ya hay una nueva tirada de la ruleta en la app de DIA. Te contamos cómo participar y qué tener en cuenta antes de girar la ruleta.",
+   "resumen": "DIA ha activado una nueva tirada de su ruleta en la app, así que Mundopromer ya puede probar suerte.",
+   "cuerpo_html": "<p>DIA ha habilitado una nueva tirada de la ruleta en su aplicación móvil. Es una oportunidad para probar suerte sin salir de casa, y el aviso no detalla los premios disponibles, así que lo mejor es revisar la ruleta directamente en la app para ver qué puedes ganar.</p><h2>Como participar</h2><ul><li>Abre la app de DIA en tu móvil.</li><li>Localiza la ruleta dentro de la aplicación.</li><li>Haz tu tirada y revisa el resultado en la propia app.</li></ul>",
+   "categoria": "gratis",
+   "marca": "DIA",
+   "imagen": "/img/promos/nueva-tirada-de-la-ruleta-en-la-app-de-2167.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "Mundopromosapp/1784",
+   "canal": "Mundopromosapp",
+   "numero": 1784,
+   "fecha": "2026-11-07T14:13:03+00:00",
+   "actualizado": "2026-11-17T10:23:46.799143+00:00",
+   "slug": "mcflurry-gratis-en-la-app-de-mcdonald-s-con-1784",
+   "titulo": "McFlurry gratis en la App de McDonald's con código",
+   "titulo_seo": "McFlurry gratis en la App de McDonald's con código",
+   "descripcion": "Código para un McFlurry gratis en la App de McDonald's y cómo canjearlo paso a paso. Solo 1.500 cupones, y el aviso indica que pueden estar agotados.",
+   "resumen": "McDonald's regala un McFlurry en su App con un código promocional, pero solo hay 1.500 cupones y el aviso indica que los códigos pueden estar agotados.",
+   "cuerpo_html": "<p>McDonald's ofrece un <strong>McFlurry gratis</strong> a través de su App mediante un código promocional. La promoción está limitada a 1.500 cupones.</p><p>El aviso original indica que los códigos aparecen como agotados, así que conviene comprobar si todavía se puede canjear antes de dedicarle tiempo.</p><h2>Como participar</h2><ul><li>Abre la App de McDonald's en tu móvil.</li><li>Pulsa en la opción \"Más\".</li><li>Selecciona \"Canjear código promocional\".</li><li>Introduce el código <strong>P1ST4CH0</strong> y confirma el canje.</li></ul>",
+   "categoria": "cupon",
+   "marca": "McDonald's",
+   "imagen": "/img/promos/mcflurry-gratis-en-la-app-de-mcdonald-s-con-1784.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "agotada"
+  },
+  {
+   "id": "Mundopromosapp/1781",
+   "canal": "Mundopromosapp",
+   "numero": 1781,
+   "fecha": "2026-11-03T16:30:51+00:00",
+   "actualizado": "2026-11-17T10:23:26.236581+00:00",
+   "slug": "2-semanas-de-gimnasio-gratis-en-basic-fit-1781",
+   "titulo": "2 semanas de gimnasio gratis en Basic-Fit",
+   "titulo_seo": "2 semanas de gimnasio gratis en Basic-Fit",
+   "descripcion": "Consigue 2 semanas de gimnasio gratis en Basic-Fit en toda España con un QR de acceso. Te explicamos qué incluye la promoción y cómo conseguirla.",
+   "resumen": "Basic-Fit ofrece 2 semanas de gimnasio sin pagar en toda España. Con un QR puedes entrar a las instalaciones durante ese periodo.",
+   "cuerpo_html": "<p>Basic-Fit tiene una promoción para que pruebes sus gimnasios sin coste durante <strong>2 semanas</strong>, válida en <strong>toda España</strong>.</p><p>La clave es el <strong>QR</strong> que se obtiene al completar el registro de la oferta. Con ese código pasas por la puerta de acceso sin pagar durante el periodo de prueba.</p><p>Si te interesa conocer el gimnasio antes de decidirte a apuntarte, es una buena forma de hacerlo, Mundopromer.</p><h2>Como participar</h2><ul><li>Entra en la página de la promoción desde el botón de esta entrada.</li><li>Completa el registro siguiendo los pasos que te indique la web de Basic-Fit.</li><li>Guarda el QR que recibas y preséntalo en la entrada del gimnasio para acceder durante las 2 semanas gratuitas.</li></ul>",
+   "categoria": "gratis",
+   "marca": "Basic-Fit",
+   "imagen": "/img/promos/2-semanas-de-gimnasio-gratis-en-basic-fit-1781.jpg",
+   "enlace": "https://member.basic-fit.com/language-country?redirectPath=%2Fsignup%2FBlackFriday_FitTogether",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "Mundopromosapp/1780",
+   "canal": "Mundopromosapp",
+   "numero": 1780,
+   "fecha": "2026-10-29T10:57:47+00:00",
+   "actualizado": "2026-11-17T10:23:19.856120+00:00",
+   "slug": "muestra-gratis-de-serum-skinceuticals-a-casa-1780",
+   "titulo": "Muestra gratis de sérum SkinCeuticals a casa",
+   "titulo_seo": "Muestra gratis de sérum SkinCeuticals a casa",
+   "descripcion": "Pide una muestra gratis de sérum SkinCeuticals que te llega a casa. Solo para los 400 primeros que completen el formulario. Consulta cómo participar.",
+   "resumen": "SkinCeuticals regala muestras de su sérum a casa, pero solo para los 400 primeros que completen el formulario.",
+   "cuerpo_html": "<p>SkinCeuticals ofrece una muestra gratis de su sérum para enviártela a casa. La promoción es limitada: solo son 400 unidades, así que conviene no dejarlo para más tarde.</p><p>Es una buena forma de probar el producto antes de decidirte a comprarlo.</p><h2>Como participar</h2><p>Te lo ponemos fácil, Mundopromer:</p><ul><li>Pulsa el botón de la promoción para acceder al formulario.</li><li>Responde al quiz y rellena tus datos con cuidado para que el envío llegue bien.</li><li>Si estás entre los 400 primeros, la muestra te llegará a casa.</li></ul>",
+   "categoria": "muestra",
+   "marca": "SkinCeuticals",
+   "imagen": "/img/promos/muestra-gratis-de-serum-skinceuticals-a-casa-1780.jpg",
+   "enlace": "https://skinceuticals-es.beauty-campaigns.com/quiz/1865696_1221/ES_LDB_SKC_20261101_SMPLPDRNPTIOX_DIG_AC_X_ALL_ALL_X_OS_FORM_META_MD_SMPL_SMPL_A.html",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "Mundopromosapp/1779",
+   "canal": "Mundopromosapp",
+   "numero": 1779,
+   "fecha": "2026-10-29T08:36:43+00:00",
+   "actualizado": "2026-11-17T10:23:12.710066+00:00",
+   "slug": "muestra-gratis-del-perfume-one-million-black-de-rabanne-1779",
+   "titulo": "Muestra gratis del perfume One Million Black de Rabanne",
+   "titulo_seo": "Muestra gratis One Million Black de Rabanne",
+   "descripcion": "Consigue una muestra gratis del perfume One Million Black de Rabanne. No hay enlace directo: te explicamos cómo interactuar con la cuenta oficial para que aparezca el anuncio.",
+   "resumen": "Muestras gratis del perfume One Million Black de Rabanne con envío a casa. Esta vez no hay enlace directo: la oferta aparece como publicidad en las cuentas oficiales de la marca.",
+   "cuerpo_html": "<p>Rabanne tiene en marcha una promoción de muestras gratis de su perfume <strong>One Million Black</strong>, con envío a casa.</p><p>Esta vez no hay enlace directo. La oferta aparece como publicidad en las cuentas oficiales de Rabanne en Instagram, así que tendrás que interactuar con ellas para que el anuncio llegue a tu feed. Interactuar con la cuenta puede ayudar a que Instagram te muestre su publicidad.</p><h2>Como participar</h2><p>Para que el anuncio te aparezca, sigue estos pasos en el perfil oficial de la marca:</p><ul><li>Entra en la cuenta oficial de Rabanne en Instagram, usando el botón de esta entrada.</li><li>Síguela.</li><li>Dale me gusta a sus publicaciones.</li><li>Comenta en alguna de sus publicaciones.</li><li>Visita sus publicaciones e historias.</li></ul>",
+   "categoria": "muestra",
+   "marca": "Rabanne",
+   "imagen": "/img/promos/muestra-gratis-del-perfume-one-million-black-de-rabanne-1779.jpg",
+   "enlace": "https://www.instagram.com/rabanne?igsh=cWg5ejZ4cWF5YWZy",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2160",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2160,
+   "fecha": "2026-10-26T20:52:17+00:00",
+   "actualizado": "2026-11-17T10:24:07.820266+00:00",
+   "slug": "pruebalo-gratis-reembolso-de-crema-de-untar-president-chili-2160",
+   "titulo": "Pruébalo gratis: reembolso de crema de untar President Chili",
+   "titulo_seo": "Reembolso crema de untar President Chili: hasta 2,10€",
+   "descripcion": "Pruébala gratis con el reembolso de la crema de untar President Chili: hasta 2,10€ de devolución. Te contamos cómo participar paso a paso.",
+   "resumen": "President lanza un reembolso para su crema de untar Chili de hasta 2,10€. Una forma sencilla de probarla sin gastar de más.",
+   "cuerpo_html": "<p>Si te apetece probar la nueva <strong>crema de untar President Chili</strong> sin que te suponga un desembolso extra, esta promoción te interesa. Se trata de un reembolso de hasta <strong>2,10€</strong>, gestionado por la empresa GELT.</p><p>Es una buena excusa, Mundopromer, para hacerte con el producto y ver si te gusta el sabor picante antes de volver a comprarlo.</p><h2>Como participar</h2><ul><li>Entra en la web de la campaña con el botón de abajo.</li><li>Lee las bases y los requisitos de la promoción antes de registrarte.</li><li>Sigue los pasos que indique la web para solicitar el reembolso.</li></ul>",
+   "categoria": "reembolso",
+   "marca": "President",
+   "imagen": "/img/promos/pruebalo-gratis-reembolso-de-crema-de-untar-president-chili-2160.jpg",
+   "enlace": "https://pruebachili.president.es/",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2154",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2154,
+   "fecha": "2026-10-26T09:03:53+00:00",
+   "actualizado": "2026-11-17T10:24:01.414169+00:00",
+   "slug": "mas-de-100-productos-a-1-en-dia-hasta-2154",
+   "titulo": "Más de 100 productos a 1€ en DIA hasta el 03/11",
+   "titulo_seo": "Más de 100 productos a 1€ en DIA hasta el 03/11",
+   "descripcion": "En DIA tienes más de 100 productos a 1€ hasta el 03/11. Te contamos cómo aprovechar esta oferta de supermercado antes de que acabe el plazo en tu tienda.",
+   "resumen": "DIA tiene más de 100 productos a 1€ hasta el 03/11. Una buena ocasión para llenar la cesta sin gastar de más.",
+   "cuerpo_html": "<p>Mundopromer, si estás pensando en hacer la compra, DIA tiene más de 100 productos a 1€ hasta el 03/11. Es una promoción de supermercado y su objetivo es que compres productos habituales a precio reducido mientras dure la oferta.</p><p>El texto original no detalla qué artículos entran exactamente ni si hay límite por cliente, así que conviene revisar los carteles de la tienda para ver el listado completo.</p><h2>Como participar</h2><ul><li>Acude a tu tienda DIA antes del 03/11.</li><li>Localiza los productos marcados con el precio de 1€.</li><li>Compara el precio que aparece en la etiqueta antes de pagar en caja.</li></ul>",
+   "categoria": "chollo",
+   "marca": "DIA",
+   "imagen": "/img/promos/mas-de-100-productos-a-1-en-dia-hasta-2154.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
   {
    "id": "Mundopromosapp/1777",
    "canal": "Mundopromosapp",
@@ -162,6 +316,46 @@
   },
   {
    "id": "Mundopromosapp/1774",
+   "descartada": true
+  },
+  {
+   "id": "Mundopromosapp/1778",
+   "descartada": true
+  },
+  {
+   "id": "Mundopromosapp/1782",
+   "descartada": true
+  },
+  {
+   "id": "Mundopromosapp/1783",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2158",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2161",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2162",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2163",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2164",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2165",
+   "descartada": true
+  },
+  {
+   "id": "OfertasSupermercadosES/2166",
    "descartada": true
   }
  ]
