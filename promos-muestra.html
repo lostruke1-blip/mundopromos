@@ -36,6 +36,12 @@
   <h1 class="titulosec">Lo último que hemos encontrado</h1>
   <p class="subtitulosec">10 promociones activas ahora mismo. Se actualiza solo cada vez que publicamos algo en nuestros canales.</p>
 
+  <div class="buscador">
+    <input type="search" id="buscar" placeholder="Buscar: Nestlé, champú, Carrefour…" autocomplete="off" aria-label="Buscar promociones">
+    <span class="buscador-ico" aria-hidden="true">🔍</span>
+  </div>
+  <p class="sinresultados" id="sinresultados" hidden>No hay nada con esa búsqueda. Prueba con el nombre de la marca o del producto.</p>
+
   <div class="filtros">
     <a href="/promos.html" class="activo">Todas</a>
     <a href="/promos-muestra.html">Muestras gratis</a>
@@ -44,10 +50,10 @@
     <a href="/promos-chollo.html">Chollos</a>
   </div>
 
-  <div class="rejilla">
+  <div class="rejilla" id="rejilla">
     
-    <a class="tarjeta" href="/promo/muestra-gratis-del-perfume-terre-d-hermes-en-redes-1788.html">
-      <img src="/img/promos/muestra-gratis-del-perfume-terre-d-hermes-en-redes-1788.jpg" alt="Muestra gratis del perfume Terre d'Hermès en redes sociales" loading="lazy">
+    <a class="tarjeta" href="/promo/muestra-gratis-del-perfume-terre-d-hermes-en-redes-1788.html" data-busca="muestra gratis del perfume terre d'hermès en redes sociales muestra gratis de terre d'hermès sin enlace directo: aparece como publicidad en facebook e instagram de la marca si interactúas con sus cuentas oficiales. hermès muestra gratis">
+      <div class="foto"><img src="/img/promos/muestra-gratis-del-perfume-terre-d-hermes-en-redes-1788.jpg" alt="Muestra gratis del perfume Terre d'Hermès en redes sociales" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Muestra gratis del perfume Terre d'Hermès en redes sociales</h3>
@@ -56,8 +62,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/muestra-gratis-de-serum-skinceuticals-a-casa-1780.html">
-      <img src="/img/promos/muestra-gratis-de-serum-skinceuticals-a-casa-1780.jpg" alt="Muestra gratis de sérum SkinCeuticals a casa" loading="lazy">
+    <a class="tarjeta" href="/promo/muestra-gratis-de-serum-skinceuticals-a-casa-1780.html" data-busca="muestra gratis de sérum skinceuticals a casa skinceuticals regala muestras de su sérum a casa, pero solo para los 400 primeros que completen el formulario. skinceuticals muestra gratis">
+      <div class="foto"><img src="/img/promos/muestra-gratis-de-serum-skinceuticals-a-casa-1780.jpg" alt="Muestra gratis de sérum SkinCeuticals a casa" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Muestra gratis de sérum SkinCeuticals a casa</h3>
@@ -66,8 +72,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/muestra-gratis-del-perfume-one-million-black-de-rabanne-1779.html">
-      <img src="/img/promos/muestra-gratis-del-perfume-one-million-black-de-rabanne-1779.jpg" alt="Muestra gratis del perfume One Million Black de Rabanne" loading="lazy">
+    <a class="tarjeta" href="/promo/muestra-gratis-del-perfume-one-million-black-de-rabanne-1779.html" data-busca="muestra gratis del perfume one million black de rabanne muestras gratis del perfume one million black de rabanne con envío a casa. esta vez no hay enlace directo: la oferta aparece como publicidad en las cuentas oficiales de la marca. rabanne muestra gratis">
+      <div class="foto"><img src="/img/promos/muestra-gratis-del-perfume-one-million-black-de-rabanne-1779.jpg" alt="Muestra gratis del perfume One Million Black de Rabanne" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Muestra gratis del perfume One Million Black de Rabanne</h3>
@@ -76,8 +82,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/champu-y-acondicionador-nuniq-gratis-solo-pagas-el-envio-1777.html">
-      <img src="/img/promos/champu-y-acondicionador-nuniq-gratis-solo-pagas-el-envio-1777.jpg" alt="Champú y acondicionador Nuniq gratis: solo pagas el envío de 5,50€" loading="lazy">
+    <a class="tarjeta" href="/promo/champu-y-acondicionador-nuniq-gratis-solo-pagas-el-envio-1777.html" data-busca="champú y acondicionador nuniq gratis: solo pagas el envío de 5,50€ nuniq regala su dúo detox mini, champú y acondicionador de 10 ml, valorado en 8,50€. solo tienes que pagar 5,50€ de envío. nuniq muestra gratis">
+      <div class="foto"><img src="/img/promos/champu-y-acondicionador-nuniq-gratis-solo-pagas-el-envio-1777.jpg" alt="Champú y acondicionador Nuniq gratis: solo pagas el envío de 5,50€" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Champú y acondicionador Nuniq gratis: solo pagas el envío de 5,50€</h3>
@@ -86,8 +92,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/muestra-gratis-de-mascarilla-keratin-alpha-sleek-de-l-1776.html">
-      <img src="/img/promos/muestra-gratis-de-mascarilla-keratin-alpha-sleek-de-l-1776.jpg" alt="Muestra gratis de mascarilla Keratin Alpha Sleek de L'Oréal" loading="lazy">
+    <a class="tarjeta" href="/promo/muestra-gratis-de-mascarilla-keratin-alpha-sleek-de-l-1776.html" data-busca="muestra gratis de mascarilla keratin alpha sleek de l'oréal l'oréal professionnel regala muestras de su mascarilla keratin alpha sleek para controlar el encrespamiento y suavizar el cabello. las muestras son limitadas y la campaña arranca el 9 de octubre. l'oréal professionnel muestra gratis">
+      <div class="foto"><img src="/img/promos/muestra-gratis-de-mascarilla-keratin-alpha-sleek-de-l-1776.jpg" alt="Muestra gratis de mascarilla Keratin Alpha Sleek de L'Oréal" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Muestra gratis de mascarilla Keratin Alpha Sleek de L'Oréal</h3>
@@ -96,8 +102,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/pruebas-gratis-de-fairy-ultra-y-fairy-spray-con-1772.html">
-      <img src="/img/promos/pruebas-gratis-de-fairy-ultra-y-fairy-spray-con-1772.jpg" alt="Pruebas gratis de Fairy Ultra y Fairy Spray con TRND" loading="lazy">
+    <a class="tarjeta" href="/promo/pruebas-gratis-de-fairy-ultra-y-fairy-spray-con-1772.html" data-busca="pruebas gratis de fairy ultra y fairy spray con trnd trnd busca 10.000 personas para probar gratis fairy ultra original y fairy spray. si te seleccionan, recibes los cuatro productos en casa. fairy muestra gratis">
+      <div class="foto"><img src="/img/promos/pruebas-gratis-de-fairy-ultra-y-fairy-spray-con-1772.jpg" alt="Pruebas gratis de Fairy Ultra y Fairy Spray con TRND" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Pruebas gratis de Fairy Ultra y Fairy Spray con TRND</h3>
@@ -106,8 +112,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/1-000-muestras-gratis-de-comida-humeda-para-gato-1770.html">
-      <img src="/img/promos/1-000-muestras-gratis-de-comida-humeda-para-gato-1770.jpg" alt="1.000 muestras gratis de comida húmeda para gato Purina" loading="lazy">
+    <a class="tarjeta" href="/promo/1-000-muestras-gratis-de-comida-humeda-para-gato-1770.html" data-busca="1.000 muestras gratis de comida húmeda para gato purina purina regala 1.000 muestras de comida húmeda para gato que se envían a domicilio. solo hay que rellenar un formulario, y las muestras son limitadas. purina muestra gratis">
+      <div class="foto"><img src="/img/promos/1-000-muestras-gratis-de-comida-humeda-para-gato-1770.jpg" alt="1.000 muestras gratis de comida húmeda para gato Purina" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>1.000 muestras gratis de comida húmeda para gato Purina</h3>
@@ -116,8 +122,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/muestra-gratis-de-carolina-herrera-la-bomba-1769.html">
-      <img src="/img/promos/muestra-gratis-de-carolina-herrera-la-bomba-1769.jpg" alt="Muestra gratis de Carolina Herrera La Bomba" loading="lazy">
+    <a class="tarjeta" href="/promo/muestra-gratis-de-carolina-herrera-la-bomba-1769.html" data-busca="muestra gratis de carolina herrera la bomba carolina herrera reparte muestras gratis de la bomba, aunque no hay enlace directo para pedirla. te contamos cómo intentar que aparezca el formulario a través de sus redes sociales. carolina herrera muestra gratis">
+      <div class="foto"><img src="/img/promos/muestra-gratis-de-carolina-herrera-la-bomba-1769.jpg" alt="Muestra gratis de Carolina Herrera La Bomba" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Muestra gratis de Carolina Herrera La Bomba</h3>
@@ -126,8 +132,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/busca-10-000-probadores-para-el-nuevo-aceite-glowtox-1768.html">
-      <img src="/img/promos/busca-10-000-probadores-para-el-nuevo-aceite-glowtox-1768.jpg" alt="Busca 10.000 probadores para el nuevo Aceite Glowtox de Pantene" loading="lazy">
+    <a class="tarjeta" href="/promo/busca-10-000-probadores-para-el-nuevo-aceite-glowtox-1768.html" data-busca="busca 10.000 probadores para el nuevo aceite glowtox de pantene trnd busca 10.000 personas para probar el nuevo aceite glowtox de pantene y crear contenido en redes sociales. pantene muestra gratis">
+      <div class="foto"><img src="/img/promos/busca-10-000-probadores-para-el-nuevo-aceite-glowtox-1768.jpg" alt="Busca 10.000 probadores para el nuevo Aceite Glowtox de Pantene" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Busca 10.000 probadores para el nuevo Aceite Glowtox de Pantene</h3>
@@ -136,8 +142,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/muestra-gratis-de-la-favorite-de-jean-paul-gaultier-1765.html">
-      <img src="/img/promos/muestra-gratis-de-la-favorite-de-jean-paul-gaultier-1765.jpg" alt="Muestra gratis de La Favorite de Jean Paul Gaultier" loading="lazy">
+    <a class="tarjeta" href="/promo/muestra-gratis-de-la-favorite-de-jean-paul-gaultier-1765.html" data-busca="muestra gratis de la favorite de jean paul gaultier nueva muestra gratis de la favorite de jean paul gaultier con envío a casa. no hay enlace directo: la campaña aparece como anuncio en tiktok. jean paul gaultier muestra gratis">
+      <div class="foto"><img src="/img/promos/muestra-gratis-de-la-favorite-de-jean-paul-gaultier-1765.jpg" alt="Muestra gratis de La Favorite de Jean Paul Gaultier" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-muestra">Muestra gratis</span>
         <h3>Muestra gratis de La Favorite de Jean Paul Gaultier</h3>
@@ -156,5 +162,52 @@
   <a href="/privacidad.html">Privacidad</a>
   <p class="aviso">Algunos enlaces de esta web son de afiliado. Si te registras o compras a través de ellos, MundoPromos puede recibir una comisión sin ningún coste adicional para ti. Las condiciones de cada promoción las fija la marca correspondiente y pueden cambiar o agotarse en cualquier momento.</p>
 </footer>
+
+<script>
+/* Buscador: filtra las tarjetas ya pintadas, sin pedir nada al servidor.
+   Quien llegue sin JavaScript ve el listado completo igualmente. */
+(function () {
+  var campo = document.getElementById("buscar");
+  var rejilla = document.getElementById("rejilla");
+  var aviso = document.getElementById("sinresultados");
+  if (!campo || !rejilla) return;
+
+  function limpiar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+  }
+
+  var tarjetas = [].slice.call(rejilla.querySelectorAll(".tarjeta")).map(function (el) {
+    return { el: el, texto: limpiar(el.dataset.busca || el.textContent) };
+  });
+
+  function filtrar() {
+    var palabras = limpiar(campo.value).split(/\s+/).filter(Boolean);
+    var visibles = 0;
+    tarjetas.forEach(function (t) {
+      var vale = palabras.every(function (p) { return t.texto.indexOf(p) !== -1; });
+      t.el.hidden = !vale;
+      if (vale) visibles++;
+    });
+    aviso.hidden = visibles > 0;
+  }
+
+  var espera;
+  campo.addEventListener("input", function () {
+    clearTimeout(espera);
+    espera = setTimeout(filtrar, 120);
+  });
+
+  // Si llega buscando desde la portada (/promos.html?q=...), filtramos ya
+  try {
+    var q = new URLSearchParams(location.search).get("q");
+    if (q) {
+      campo.value = q;
+      filtrar();
+      campo.focus();
+    }
+  } catch (e) { /* navegador antiguo: se queda el listado entero */ }
+})();
+</script>
+<script src="/instagram.js" defer></script>
 </body>
 </html>

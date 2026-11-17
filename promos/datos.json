@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T10:25:48.255173+00:00",
+ "actualizado": "2026-11-17T11:05:12.823918+00:00",
  "promos": [
   {
    "id": "Mundopromosapp/1788",
@@ -328,76 +328,6 @@
    "enlace": "https://www.tiktok.com/@jeanpaulgaultier?_r=1&_t=ZN-99iqc5WV5PD",
    "enlaces_extra": [],
    "estado": "activa"
-  },
-  {
-   "id": "Mundopromosapp/1773",
-   "descartada": true
-  },
-  {
-   "id": "Mundopromosapp/1774",
-   "descartada": true
-  },
-  {
-   "id": "Mundopromosapp/1778",
-   "descartada": true
-  },
-  {
-   "id": "Mundopromosapp/1782",
-   "descartada": true
-  },
-  {
-   "id": "Mundopromosapp/1783",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2158",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2161",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2162",
-   "descartada": true,
-   "estado": "agotada",
-   "actualizado": "2026-11-17T10:25:24.253454+00:00"
-  },
-  {
-   "id": "OfertasSupermercadosES/2163",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2164",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2165",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2166",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2171",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2173",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2174",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2175",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2176",
-   "descartada": true
   }
  ]
 }

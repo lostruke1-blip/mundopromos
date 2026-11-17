@@ -36,6 +36,12 @@
   <h1 class="titulosec">Lo último que hemos encontrado</h1>
   <p class="subtitulosec">3 promociones activas ahora mismo. Se actualiza solo cada vez que publicamos algo en nuestros canales.</p>
 
+  <div class="buscador">
+    <input type="search" id="buscar" placeholder="Buscar: Nestlé, champú, Carrefour…" autocomplete="off" aria-label="Buscar promociones">
+    <span class="buscador-ico" aria-hidden="true">🔍</span>
+  </div>
+  <p class="sinresultados" id="sinresultados" hidden>No hay nada con esa búsqueda. Prueba con el nombre de la marca o del producto.</p>
+
   <div class="filtros">
     <a href="/promos.html" class="activo">Todas</a>
     <a href="/promos-muestra.html">Muestras gratis</a>
@@ -44,10 +50,10 @@
     <a href="/promos-chollo.html">Chollos</a>
   </div>
 
-  <div class="rejilla">
+  <div class="rejilla" id="rejilla">
     
-    <a class="tarjeta" href="/promo/nueva-tirada-de-la-ruleta-en-la-app-de-2167.html">
-      <img src="/img/promos/nueva-tirada-de-la-ruleta-en-la-app-de-2167.jpg" alt="Nueva tirada de la ruleta en la app de DIA" loading="lazy">
+    <a class="tarjeta" href="/promo/nueva-tirada-de-la-ruleta-en-la-app-de-2167.html" data-busca="nueva tirada de la ruleta en la app de dia dia ha activado una nueva tirada de su ruleta en la app, así que mundopromer ya puede probar suerte. dia gratis">
+      <div class="foto"><img src="/img/promos/nueva-tirada-de-la-ruleta-en-la-app-de-2167.jpg" alt="Nueva tirada de la ruleta en la app de DIA" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-gratis">Gratis</span>
         <h3>Nueva tirada de la ruleta en la app de DIA</h3>
@@ -56,8 +62,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/2-semanas-de-gimnasio-gratis-en-basic-fit-1781.html">
-      <img src="/img/promos/2-semanas-de-gimnasio-gratis-en-basic-fit-1781.jpg" alt="2 semanas de gimnasio gratis en Basic-Fit" loading="lazy">
+    <a class="tarjeta" href="/promo/2-semanas-de-gimnasio-gratis-en-basic-fit-1781.html" data-busca="2 semanas de gimnasio gratis en basic-fit basic-fit ofrece 2 semanas de gimnasio sin pagar en toda españa. con un qr puedes entrar a las instalaciones durante ese periodo. basic-fit gratis">
+      <div class="foto"><img src="/img/promos/2-semanas-de-gimnasio-gratis-en-basic-fit-1781.jpg" alt="2 semanas de gimnasio gratis en Basic-Fit" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-gratis">Gratis</span>
         <h3>2 semanas de gimnasio gratis en Basic-Fit</h3>
@@ -66,8 +72,8 @@
       </div>
     </a>
     
-    <a class="tarjeta" href="/promo/taco-supreme-gratis-en-taco-bell-este-6-de-1775.html">
-      <img src="/img/promos/taco-supreme-gratis-en-taco-bell-este-6-de-1775.jpg" alt="Taco Supreme gratis en Taco Bell este 6 de octubre" loading="lazy">
+    <a class="tarjeta" href="/promo/taco-supreme-gratis-en-taco-bell-este-6-de-1775.html" data-busca="taco supreme gratis en taco bell este 6 de octubre taco bell regala un taco supreme si vas con una bandera o prenda de cualquier país y lo pides en su idioma. solo en barra y hasta fin de existencias. taco bell gratis">
+      <div class="foto"><img src="/img/promos/taco-supreme-gratis-en-taco-bell-este-6-de-1775.jpg" alt="Taco Supreme gratis en Taco Bell este 6 de octubre" width="400" height="170" loading="lazy"></div>
       <div class="cuerpo">
         <span class="etiqueta cat-gratis">Gratis</span>
         <h3>Taco Supreme gratis en Taco Bell este 6 de octubre</h3>
@@ -86,5 +92,52 @@
   <a href="/privacidad.html">Privacidad</a>
   <p class="aviso">Algunos enlaces de esta web son de afiliado. Si te registras o compras a través de ellos, MundoPromos puede recibir una comisión sin ningún coste adicional para ti. Las condiciones de cada promoción las fija la marca correspondiente y pueden cambiar o agotarse en cualquier momento.</p>
 </footer>
+
+<script>
+/* Buscador: filtra las tarjetas ya pintadas, sin pedir nada al servidor.
+   Quien llegue sin JavaScript ve el listado completo igualmente. */
+(function () {
+  var campo = document.getElementById("buscar");
+  var rejilla = document.getElementById("rejilla");
+  var aviso = document.getElementById("sinresultados");
+  if (!campo || !rejilla) return;
+
+  function limpiar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+  }
+
+  var tarjetas = [].slice.call(rejilla.querySelectorAll(".tarjeta")).map(function (el) {
+    return { el: el, texto: limpiar(el.dataset.busca || el.textContent) };
+  });
+
+  function filtrar() {
+    var palabras = limpiar(campo.value).split(/\s+/).filter(Boolean);
+    var visibles = 0;
+    tarjetas.forEach(function (t) {
+      var vale = palabras.every(function (p) { return t.texto.indexOf(p) !== -1; });
+      t.el.hidden = !vale;
+      if (vale) visibles++;
+    });
+    aviso.hidden = visibles > 0;
+  }
+
+  var espera;
+  campo.addEventListener("input", function () {
+    clearTimeout(espera);
+    espera = setTimeout(filtrar, 120);
+  });
+
+  // Si llega buscando desde la portada (/promos.html?q=...), filtramos ya
+  try {
+    var q = new URLSearchParams(location.search).get("q");
+    if (q) {
+      campo.value = q;
+      filtrar();
+      campo.focus();
+    }
+  } catch (e) { /* navegador antiguo: se queda el listado entero */ }
+})();
+</script>
+<script src="/instagram.js" defer></script>
 </body>
 </html>
