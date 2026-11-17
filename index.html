@@ -415,5 +415,23 @@ async function load(){
   }
 }
 </script>
-</body>
+
+<script>
+/* Si todavia no hay promociones publicadas, la portada abre en Cumpleanos
+   en vez de en una pestana vacia. En cuanto el bot publique la primera,
+   "Lo ultimo" pasa a ser lo primero que se ve, sin tocar nada. */
+(function(){
+  var hay = document.querySelector('#p-nuevas .tarjeta');
+  if (hay) return;
+  var pestanas = document.querySelectorAll('.tabs .tab');
+  for (var i = 0; i < pestanas.length; i++) {
+    if ((pestanas[i].getAttribute('onclick') || '').indexOf("'cumple'") !== -1) {
+      pestanas[i].click();
+      window.scrollTo(0, 0);
+      return;
+    }
+  }
+})();
+</script>
+
 </html>
