@@ -125,7 +125,7 @@ h2.sec::after{content:'';flex:1;height:2px;background:var(--line);border-radius:
 
 .hero{background:#c2410c;border-radius:16px;padding:2.25rem 1.35rem;text-align:center;margin-bottom:1.5rem;color:#fff}
 .hero .amt{font-family:'Bricolage Grotesque',sans-serif;font-size:4rem;font-weight:800;line-height:.9;letter-spacing:-2px;display:block;margin-bottom:.4rem}
-.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:.55rem;letter-spacing:-.4px}
+.hero h2{font-family:'Bricolage Grotesque',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:.55rem;letter-spacing:-.4px}
 .hero p{font-size:14px;line-height:1.55;opacity:.92;max-width:44ch;margin:0 auto 1.35rem}
 .hero a{display:inline-block;background:#fff;color:#c2410c;font-weight:600;font-size:15px;padding:.8rem 1.7rem;border-radius:9px;text-decoration:none}
 .steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.75rem;counter-reset:s}
@@ -161,7 +161,7 @@ h2.sec::after{content:'';flex:1;height:2px;background:var(--line);border-radius:
 @media(min-width:860px){.rejilla{grid-template-columns:repeat(3,1fr)}}
 .tarjeta{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:box-shadow .18s,transform .18s}
 .tarjeta:hover{box-shadow:0 8px 24px rgba(6,153,154,.16);transform:translateY(-2px)}
-.tarjeta img{width:100%;height:168px;object-fit:cover;background:#f6fafa;display:block}
+.tarjeta .foto{position:relative;background:#f1f7f7;overflow:hidden}.tarjeta .foto::after{content:'';position:absolute;inset:0;box-shadow:inset 0 -36px 42px -30px rgba(17,38,43,.3);pointer-events:none}.tarjeta img{width:100%;height:168px;object-fit:cover;object-position:center;background:#f1f7f7;display:block;transition:transform .35s ease}.tarjeta:hover img{transform:scale(1.045)}
 .tarjeta .sinfoto{width:100%;height:168px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));display:flex;align-items:center;justify-content:center;font-size:2.6rem}
 .tarjeta .cuerpo{padding:.85rem .95rem 1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
 .tarjeta h3{font-family:'Bricolage Grotesque',sans-serif;font-size:15.5px;font-weight:800;line-height:1.25;color:var(--ink);letter-spacing:-.2px}
@@ -178,7 +178,26 @@ h2.sec::after{content:'';flex:1;height:2px;background:var(--line);border-radius:
 footer{text-align:center;padding:1.5rem 1rem;color:var(--muted);font-size:12px;border-top:1px solid var(--line);background:var(--card)}
 footer a{color:var(--teal);text-decoration:none;font-weight:500}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-.bhero{text-align:left;background:linear-gradient(140deg,#04565c 0%,#06999a 55%,#0bb3ad 100%);border-radius:18px;padding:1.9rem 1.5rem 1.6rem;margin-bottom:1.9rem;color:#fff;box-shadow:0 8px 28px rgba(4,86,92,.32);position:relative;overflow:hidden}.bhero::after{content:"";position:absolute;right:-60px;top:-70px;width:210px;height:210px;border-radius:50%;background:rgba(255,255,255,.07)}.bhero-kicker{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;background:rgba(255,255,255,.18);padding:5px 11px;border-radius:20px;margin-bottom:.85rem}.bhero-t{font-family:'Bricolage Grotesque',sans-serif;font-size:1.85rem;font-weight:800;line-height:1.12;letter-spacing:-.9px;margin-bottom:.6rem;max-width:16ch;position:relative}.bhero-p{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.94);max-width:52ch;margin-bottom:1.35rem;position:relative}.bhero-p b{font-weight:600;color:#fff;border-bottom:2px solid rgba(255,255,255,.5)}.bhero-steps{display:grid;grid-template-columns:1fr;gap:8px;position:relative}.hs{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.13);border-radius:11px;padding:.65rem .8rem}.hs-n{width:22px;height:22px;flex-shrink:0;border-radius:50%;background:#fff;color:#04747a;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px}.hs b{display:block;font-size:13px;font-weight:600;line-height:1.3}.hs span{display:block;font-size:11.5px;color:rgba(255,255,255,.82);line-height:1.35;margin-top:1px}@media(min-width:620px){.bhero{padding:2.4rem 2rem 2rem}.bhero-t{font-size:2.5rem;max-width:19ch}.bhero-steps{grid-template-columns:repeat(3,1fr)}}.embed{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(17,38,43,.06)}.embed-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:.6rem .85rem;background:var(--teal-lt);border-bottom:1px solid var(--line);font-size:12.5px}.embed-bar span{font-weight:600;color:var(--teal-dk)}.embed-bar a{color:var(--teal-dk);font-weight:600;text-decoration:none;white-space:nowrap}.embed-frame{display:block;width:100%;height:620px;border:0}.embed-note{font-size:11.5px;color:var(--muted);margin-top:.65rem;text-align:center;line-height:1.45}@media(min-width:720px){.embed-frame{height:780px}}
+.bhero{text-align:left;background:var(--hero,linear-gradient(140deg,#04565c 0%,#06999a 55%,#0bb3ad 100%));border-radius:18px;padding:1.9rem 1.5rem 1.6rem;margin-bottom:1.9rem;color:#fff;box-shadow:0 8px 28px rgba(4,86,92,.32);position:relative;overflow:hidden}.bhero::after{content:"";position:absolute;right:-60px;top:-70px;width:210px;height:210px;border-radius:50%;background:rgba(255,255,255,.07)}.bhero-kicker{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;background:rgba(255,255,255,.18);padding:5px 11px;border-radius:20px;margin-bottom:.85rem}.bhero-t{font-family:'Bricolage Grotesque',sans-serif;font-size:1.85rem;font-weight:800;line-height:1.12;letter-spacing:-.9px;margin-bottom:.6rem;max-width:16ch;position:relative}.bhero-p{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.94);max-width:52ch;margin-bottom:1.35rem;position:relative}.bhero-p b{font-weight:600;color:#fff;border-bottom:2px solid rgba(255,255,255,.5)}.bhero-steps{display:grid;grid-template-columns:1fr;gap:8px;position:relative}.hs{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.13);border-radius:11px;padding:.65rem .8rem}.hs-n{width:22px;height:22px;flex-shrink:0;border-radius:50%;background:#fff;color:#04747a;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px}.hs b{display:block;font-size:13px;font-weight:600;line-height:1.3}.hs span{display:block;font-size:11.5px;color:rgba(255,255,255,.82);line-height:1.35;margin-top:1px}@media(min-width:620px){.bhero{padding:2.4rem 2rem 2rem}.bhero-t{font-size:2.5rem;max-width:19ch}.bhero-steps{grid-template-columns:repeat(3,1fr)}}.embed{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(17,38,43,.06)}.embed-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:.6rem .85rem;background:var(--teal-lt);border-bottom:1px solid var(--line);font-size:12.5px}.embed-bar span{font-weight:600;color:var(--teal-dk)}.embed-bar a{color:var(--teal-dk);font-weight:600;text-decoration:none;white-space:nowrap}.embed-frame{display:block;width:100%;height:620px;border:0}.embed-note{font-size:11.5px;color:var(--muted);margin-top:.65rem;text-align:center;line-height:1.45}@media(min-width:720px){.embed-frame{height:780px}}
+
+/* Variantes de la cabecera: misma forma en todas las pestanas, color propio */
+#p-nuevas .bhero{--hero:linear-gradient(140deg,#04565c 0%,#06999a 52%,#12b886 100%)}
+#p-cupones .bhero{--hero:linear-gradient(140deg,#0a5544 0%,#12734a 55%,#1aa06a 100%);box-shadow:0 8px 28px rgba(10,85,68,.3)}
+#p-telegram .bhero{--hero:linear-gradient(140deg,#1b4b73 0%,#2481cc 60%,#39a7e8 100%);box-shadow:0 8px 28px rgba(27,75,115,.3)}
+/* El bono de TopCashback conserva su naranja, pero con la misma forma */
+.hero{background:linear-gradient(140deg,#8a2c06 0%,#c2410c 55%,#ea7317 100%);border-radius:18px;padding:1.9rem 1.5rem;box-shadow:0 8px 28px rgba(138,44,6,.3);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-70px;width:210px;height:210px;border-radius:50%;background:rgba(255,255,255,.07)}
+.hero .amt,.hero h1,.hero p{position:relative}
+/* El contador de promos vivas */
+.bhero-vivo{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:rgba(255,255,255,.18);padding:5px 12px;border-radius:20px;margin-bottom:.85rem}
+.bhero-punto{width:7px;height:7px;border-radius:50%;background:#7ef5c0;box-shadow:0 0 0 0 rgba(126,245,192,.7);animation:latido 2.2s infinite}
+@keyframes latido{70%{box-shadow:0 0 0 8px rgba(126,245,192,0)}100%{box-shadow:0 0 0 0 rgba(126,245,192,0)}}
+.bhero-acciones{display:flex;gap:9px;flex-wrap:wrap;position:relative;margin-top:.3rem}
+.bhero-b{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;text-decoration:none;padding:.65rem 1.15rem;border-radius:11px;background:#fff;color:#04747a}
+.bhero-b:hover{background:#eafafa}
+.bhero-b.ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.bhero-b.ghost:hover{background:rgba(255,255,255,.26)}
+@media(prefers-reduced-motion:reduce){.bhero-punto{animation:none}}
 </style>
 </head>
 <body>
@@ -205,14 +224,17 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 <main>
 
 <section id="p-nuevas">
-  <div class="up-cab">
-    <div>
-      <span class="up-vivo"><span class="up-punto"></span> Recién publicado</span>
-      <h1 class="up-tit">Lo último que hemos encontrado</h1>
-      <p class="up-sub">Muestras gratis, reembolsos y chollos de supermercado. Se publica aquí solo, en cuanto lo sacamos en Telegram.</p>
+  <section class="bhero">
+    <span class="bhero-vivo"><span class="bhero-punto"></span> <!--CUENTA:INICIO-->Actualizado a diario<!--CUENTA:FIN--></span>
+    <h1 class="bhero-t">Muestras gratis y chollos, antes que nadie</h1>
+    <p class="bhero-p">Rastreamos marcas y supermercados todos los días y publicamos solo lo que funciona de verdad: muestras que llegan a casa, reembolsos del 100% y cupones de súper. <b>Sin registros ni letra pequeña.</b></p>
+    <div class="bhero-acciones">
+      <a class="bhero-b" href="https://t.me/Mundopromosapp" target="_blank" rel="noopener">Avisadme en Telegram</a>
+      <a class="bhero-b ghost" href="/promos.html">Ver todas las promos</a>
     </div>
-    <a class="up-todas" href="/promos.html">Ver todas →</a>
-  </div>
+  </section>
+
+  <h2 class="sec"><em>🔥</em> Lo último que hemos encontrado</h2>
   <div class="rejilla">
       <!--ULTIMAS:INICIO-->
       <a class="tarjeta" href="/promo/muestra-gratis-del-perfume-terre-d-hermes-en-redes-1788.html"><img src="/img/promos/muestra-gratis-del-perfume-terre-d-hermes-en-redes-1788.jpg" alt="Muestra gratis del perfume Terre d'Hermès en redes sociales" loading="lazy"><div class="cuerpo"><span class="etiqueta cat-muestra">Muestra gratis</span><h3>Muestra gratis del perfume Terre d'Hermès en redes sociales</h3><p>Muestra gratis de Terre d'Hermès sin enlace directo: aparece como publicidad en Facebook e Instagram de la marca si interactúas con sus cuentas oficiales.</p><span class="pie">16 de noviembre de 2026</span></div></a>
@@ -228,7 +250,7 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 <section id="p-cumple">
   <section class="bhero">
     <span class="bhero-kicker">Recopilación MundoPromos</span>
-    <h1 class="bhero-t">Todo lo que te regalan por tu cumpleaños en España</h1>
+    <h2 class="bhero-t">Todo lo que te regalan por tu cumpleaños en España</h2>
     <p class="bhero-p">Hemos reunido <b>30 sitios</b> que te dan comida, entradas o vales de descuento solo por cumplir años. Toca cualquier tarjeta y te lleva directo a la web de la marca para que te registres.</p>
     <div class="bhero-steps">
       <div class="hs"><span class="hs-n">1</span><div><b>Regístrate antes</b><span>Casi todas exigen ser socio previamente</span></div></div>
@@ -281,7 +303,11 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 </section>
 
 <section id="p-cupones">
-  <p class="lead">Cupones, ofertas y chollos de supermercado. Lo que vamos encontrando lo publicamos aquí según sale, y debajo tienes las webs de las marcas que reparten cupones directamente.</p>
+  <section class="bhero">
+    <span class="bhero-kicker">Compra del súper</span>
+    <h2 class="bhero-t">Que la compra te salga más barata</h2>
+    <p class="bhero-p">Cupones para canjear en caja, ofertas que merecen la pena y reembolsos de marca. Abajo tienes además las webs que reparten cupones directamente.</p>
+  </section>
 
   <h2 class="sec"><em>🛒</em> Lo último de supermercados</h2>
   <div class="rejilla rejilla-cupones">
@@ -304,7 +330,7 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 <section id="p-cash">
   <div class="hero">
     <span class="amt">10€</span>
-    <h1>Tu bono de bienvenida en TopCashback</h1>
+    <h2>Tu bono de bienvenida en TopCashback</h2>
     <p>Regístrate con nuestro enlace y recibirás 10€ extra cuando hagas tu primera compra. Registrarse es gratis y no tiene permanencia.</p>
     <a href="https://www.topcashback.es/munpromos/" target="_blank">Crear mi cuenta</a>
   </div>
@@ -341,7 +367,11 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 </section>
 
 <section id="p-telegram">
-  <p class="lead">Publicamos las ofertas en cuanto salen. Los chollos buenos vuelan, así que el canal es la forma más rápida de enterarte.</p>
+  <section class="bhero">
+    <span class="bhero-kicker">Donde sale todo primero</span>
+    <h2 class="bhero-t">Entérate antes de que se agote</h2>
+    <p class="bhero-p">Las muestras buenas vuelan en horas. En los canales lo publicamos en cuanto lo encontramos, y de ahí pasa solo a esta web.</p>
+  </section>
 
   <h2 class="sec"><em>📢</em> Canales de Telegram</h2>
   <div class="chans">
@@ -440,4 +470,6 @@ async function load(){
 })();
 </script>
 
+<script src="/instagram.js" defer></script>
+</body>
 </html>

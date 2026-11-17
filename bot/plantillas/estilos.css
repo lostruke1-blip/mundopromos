@@ -22,7 +22,7 @@ main.ancho{max-width:1040px}
 .miga{font-size:12.5px;color:var(--muted);margin-bottom:1rem}
 .miga a{color:var(--teal-dk);text-decoration:none}
 
-.etiqueta{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:4px 10px;border-radius:20px}
+.etiqueta{display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:4px 10px;border-radius:20px}
 .cat-muestra{background:#dcf5e6;color:var(--verde)}
 .cat-reembolso{background:#fef3c7;color:#b45309}
 .cat-cupon{background:var(--teal-lt);color:var(--teal-dk)}
@@ -56,7 +56,12 @@ article strong{font-weight:600;color:var(--ink)}
 @media(min-width:860px){.rejilla{grid-template-columns:repeat(3,1fr)}}
 .tarjeta{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:box-shadow .18s,transform .18s}
 .tarjeta:hover{box-shadow:0 8px 24px rgba(6,153,154,.16);transform:translateY(-2px)}
-.tarjeta img{width:100%;height:170px;object-fit:cover;background:#f6fafa;display:block}
+/* Las fotos llegan de Telegram en todos los formatos: capturas, carteles,
+   fotos de producto. Un marco comun las iguala sin recortarlas mal. */
+.tarjeta .foto{position:relative;background:#f1f7f7;overflow:hidden}
+.tarjeta .foto::after{content:"";position:absolute;inset:0;box-shadow:inset 0 -36px 42px -30px rgba(17,38,43,.3);pointer-events:none}
+.tarjeta img{width:100%;height:170px;object-fit:cover;object-position:center;background:#f1f7f7;display:block;transition:transform .35s ease}
+.tarjeta:hover img{transform:scale(1.045)}
 .tarjeta .sinfoto{width:100%;height:170px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));display:flex;align-items:center;justify-content:center;font-size:2.6rem}
 .tarjeta .cuerpo{padding:.85rem .95rem 1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
 .tarjeta h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:15.5px;font-weight:800;line-height:1.25;color:var(--ink);letter-spacing:-.2px}
@@ -68,6 +73,14 @@ article strong{font-weight:600;color:var(--ink)}
 .titulosec{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-.5px;margin:0 0 .3rem}
 .subtitulosec{font-size:14px;color:var(--muted);margin-bottom:1.4rem}
 
+.buscador{position:relative;margin-bottom:.9rem}
+.buscador input{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:.8rem 2.6rem .8rem 1rem}
+.buscador input:focus{outline:2px solid var(--teal);outline-offset:1px}
+.buscador input::placeholder{color:#9bb3b5}
+.buscador input::-webkit-search-cancel-button{cursor:pointer}
+.buscador-ico{position:absolute;right:.95rem;top:50%;transform:translateY(-50%);font-size:15px;opacity:.5;pointer-events:none}
+.sinresultados{font-size:14px;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:var(--r);padding:1.4rem 1.1rem;text-align:center;margin-bottom:1.2rem}
+.tarjeta[hidden]{display:none}
 .filtros{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:1.5rem}
 .filtros a{font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:20px;text-decoration:none;background:#fff;border:1px solid var(--line);color:var(--muted)}
 .filtros a.activo{background:var(--teal);border-color:var(--teal);color:#fff}

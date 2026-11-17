@@ -145,6 +145,20 @@ class Publicador:
         original = portada
         activas = [p for p in promos if p.get("estado") != "agotada"]
 
+        # El contador de la cabecera
+        marca_i, marca_f = "<!--CUENTA:INICIO-->", "<!--CUENTA:FIN-->"
+        if marca_i in portada and marca_f in portada:
+            cuantas = len(activas)
+            texto = (
+                "Actualizado a diario"
+                if cuantas < 3
+                else f"{cuantas} promociones activas ahora mismo"
+            )
+            i = portada.index(marca_i) + len(marca_i)
+            f = portada.index(marca_f)
+            if f > i:
+                portada = portada[:i] + texto + portada[f:]
+
         for bloque in BLOQUES:
             marca_inicio = f"<!--{bloque['nombre'].upper()}:INICIO-->"
             marca_fin = f"<!--{bloque['nombre'].upper()}:FIN-->"
@@ -171,7 +185,7 @@ class Publicador:
         """
         generados = self.generador.construir(promos)
         desfasados = {}
-        for ruta in ("comentarios.js", "promos.css"):
+        for ruta in ("comentarios.js", "promos.css", "instagram.js"):
             if ruta in generados and self.repo.leer_texto(ruta) != generados[ruta]:
                 desfasados[ruta] = generados[ruta]
         return desfasados

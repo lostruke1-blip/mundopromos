@@ -144,11 +144,12 @@ class Generador:
         """Fragmento que se inyecta en la portada entre los marcadores."""
         trozos = []
         for p in promos[:cuantas]:
-            img = (
+            dentro = (
                 f'<img src="{p["imagen"]}" alt="{p["titulo"]}" width="400" height="168" loading="lazy">'
                 if p.get("imagen")
                 else '<div class="sinfoto">🎁</div>'
             )
+            img = f'<div class="foto">{dentro}</div>'
             caducada = " caducada" if p.get("estado") == "agotada" else ""
             trozos.append(
                 f'<a class="tarjeta{caducada}" href="/promo/{p["slug"]}.html">{img}'
@@ -167,6 +168,7 @@ class Generador:
         archivos: dict[str, str] = {}
 
         archivos["promos.css"] = (RUTA_PLANTILLAS / "estilos.css").read_text(encoding="utf-8")
+        archivos["instagram.js"] = (RUTA_PLANTILLAS / "instagram.js").read_text(encoding="utf-8")
         archivos["comentarios.js"] = (
             (RUTA_PLANTILLAS / "comentarios.js")
             .read_text(encoding="utf-8")

@@ -77,7 +77,7 @@
   <div class="rejilla">
     {% for r in relacionadas %}
     <a class="tarjeta{% if r.estado == 'agotada' %} caducada{% endif %}" href="/promo/{{ r.slug }}.html">
-      {% if r.imagen %}<img src="{{ r.imagen }}" alt="{{ r.titulo }}" width="400" height="170" loading="lazy">{% else %}<div class="sinfoto">🎁</div>{% endif %}
+      <div class="foto">{% if r.imagen %}<img src="{{ r.imagen }}" alt="{{ r.titulo }}" width="400" height="170" loading="lazy">{% else %}<div class="sinfoto">🎁</div>{% endif %}</div>
       <div class="cuerpo">
         <span class="etiqueta cat-{{ r.categoria }}">{{ r.etiqueta }}</span>
         <h3>{{ r.titulo }}</h3>
@@ -99,5 +99,6 @@
 </footer>
 
 <script src="/comentarios.js" defer></script>
+<script src="/instagram.js" defer></script>
 </body>
 </html>

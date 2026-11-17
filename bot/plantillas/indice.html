@@ -36,6 +36,12 @@
   <h1 class="titulosec">Lo último que hemos encontrado</h1>
   <p class="subtitulosec">{{ activas }} promociones activas ahora mismo. Se actualiza solo cada vez que publicamos algo en nuestros canales.</p>
 
+  <div class="buscador">
+    <input type="search" id="buscar" placeholder="Buscar: Nestlé, champú, Carrefour…" autocomplete="off" aria-label="Buscar promociones">
+    <span class="buscador-ico" aria-hidden="true">🔍</span>
+  </div>
+  <p class="sinresultados" id="sinresultados" hidden>No hay nada con esa búsqueda. Prueba con el nombre de la marca o del producto.</p>
+
   <div class="filtros">
     <a href="/promos.html" class="activo">Todas</a>
     <a href="/promos-muestra.html">Muestras gratis</a>
@@ -44,10 +50,10 @@
     <a href="/promos-chollo.html">Chollos</a>
   </div>
 
-  <div class="rejilla">
+  <div class="rejilla" id="rejilla">
     {% for p in promos %}
-    <a class="tarjeta{% if p.estado == 'agotada' %} caducada{% endif %}" href="/promo/{{ p.slug }}.html">
-      {% if p.imagen %}<img src="{{ p.imagen }}" alt="{{ p.titulo }}" width="400" height="170" loading="lazy">{% else %}<div class="sinfoto">🎁</div>{% endif %}
+    <a class="tarjeta{% if p.estado == 'agotada' %} caducada{% endif %}" href="/promo/{{ p.slug }}.html" data-busca="{{ (p.titulo ~ ' ' ~ p.resumen ~ ' ' ~ (p.marca or '') ~ ' ' ~ p.etiqueta)|lower }}">
+      <div class="foto">{% if p.imagen %}<img src="{{ p.imagen }}" alt="{{ p.titulo }}" width="400" height="170" loading="lazy">{% else %}<div class="sinfoto">🎁</div>{% endif %}</div>
       <div class="cuerpo">
         <span class="etiqueta cat-{{ p.categoria }}">{{ p.etiqueta }}</span>
         <h3>{{ p.titulo }}</h3>
@@ -66,5 +72,40 @@
   <a href="/privacidad.html">Privacidad</a>
   <p class="aviso">Algunos enlaces de esta web son de afiliado. Si te registras o compras a través de ellos, MundoPromos puede recibir una comisión sin ningún coste adicional para ti. Las condiciones de cada promoción las fija la marca correspondiente y pueden cambiar o agotarse en cualquier momento.</p>
 </footer>
+
+<script>
+/* Buscador: filtra las tarjetas ya pintadas, sin pedir nada al servidor.
+   Quien llegue sin JavaScript ve el listado completo igualmente. */
+(function () {
+  var campo = document.getElementById("buscar");
+  var rejilla = document.getElementById("rejilla");
+  var aviso = document.getElementById("sinresultados");
+  if (!campo || !rejilla) return;
+
+  function limpiar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+  }
+
+  var tarjetas = [].slice.call(rejilla.querySelectorAll(".tarjeta")).map(function (el) {
+    return { el: el, texto: limpiar(el.dataset.busca || el.textContent) };
+  });
+
+  var espera;
+  campo.addEventListener("input", function () {
+    clearTimeout(espera);
+    espera = setTimeout(function () {
+      var palabras = limpiar(campo.value).split(/\s+/).filter(Boolean);
+      var visibles = 0;
+      tarjetas.forEach(function (t) {
+        var vale = palabras.every(function (p) { return t.texto.indexOf(p) !== -1; });
+        t.el.hidden = !vale;
+        if (vale) visibles++;
+      });
+      aviso.hidden = visibles > 0;
+    }, 120);
+  });
+})();
+</script>
+<script src="/instagram.js" defer></script>
 </body>
 </html>
