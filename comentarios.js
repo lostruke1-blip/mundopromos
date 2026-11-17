@@ -50,12 +50,14 @@
       '<textarea class="co-texto" id="co-texto" name="texto" rows="3" maxlength="' + MAX + '" ' +
         'placeholder="Escribe tu comentario…" required></textarea>' +
       '<div class="co-pieform">' +
+        '<label class="co-recordar"><input type="checkbox" id="co-recordar"> Recordar mi nombre en este navegador</label>' +
         '<span class="co-restante" id="co-restante"></span>' +
         '<button class="co-enviar" id="co-enviar" type="submit">Publicar comentario</button>' +
       '</div>' +
       '<label class="co-trampa" aria-hidden="true">No rellenar<input type="text" name="web" tabindex="-1" autocomplete="off"></label>' +
       '<p class="co-aviso">Al publicar aceptas que guardemos tu nombre y tu comentario para mostrarlos aquí. ' +
-      'Lee la <a href="/privacidad.html">política de privacidad</a>. Los comentarios se revisan antes de publicarse.</p>' +
+      'No pedimos correo ni creamos ninguna cuenta. Lee la <a href="/privacidad.html">política de privacidad</a>. ' +
+      'Los comentarios se revisan antes de publicarse.</p>' +
       '<p class="co-estado" id="co-estado" role="status"></p>' +
     '</form>' +
     '<div class="co-lista" id="co-lista"><p class="co-cargando">Cargando comentarios…</p></div>';
@@ -69,10 +71,22 @@
   var cuenta = document.getElementById("co-cuenta");
   var restante = document.getElementById("co-restante");
 
+  var recordar = document.getElementById("co-recordar");
+
+  // El nombre solo se guarda si la persona marca la casilla. Mientras no lo
+  // haga, la web no deja nada en su navegador y no hace falta pedirle permiso.
   try {
     var guardado = localStorage.getItem("mp_nombre");
-    if (guardado) campoNombre.value = guardado;
+    if (guardado) {
+      campoNombre.value = guardado;
+      recordar.checked = true;
+    }
   } catch (e) { /* navegacion privada */ }
+
+  recordar.addEventListener("change", function () {
+    if (recordar.checked) return;
+    try { localStorage.removeItem("mp_nombre"); } catch (e) { /* ignorar */ }
+  });
 
   campoTexto.addEventListener("input", function () {
     var quedan = MAX - campoTexto.value.length;
@@ -135,7 +149,9 @@
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (res) {
         if (!res.ok) throw new Error(res.d.error || "error");
-        try { localStorage.setItem("mp_nombre", nombre); } catch (e) { /* ignorar */ }
+        if (recordar.checked) {
+          try { localStorage.setItem("mp_nombre", nombre); } catch (e) { /* ignorar */ }
+        }
         campoTexto.value = "";
         restante.textContent = "";
         estado.textContent = res.d.publicado
