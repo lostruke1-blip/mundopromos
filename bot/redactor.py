@@ -5,14 +5,21 @@ y devolver datos estructurados: titulo, titulo SEO, resumen, cuerpo y categoria.
 """
 from __future__ import annotations
 
+import base64
 import json
+import logging
 import os
 import re
 import unicodedata
 
 import anthropic
 
+log = logging.getLogger("mundopromos.redactor")
+
 MODELO = os.environ.get("MODELO_REDACTOR", "claude-haiku-5-5")
+# Cuantas fotos del mensaje se le ensenan al modelo. En un album los
+# datos suelen repartirse entre las primeras.
+MAX_IMAGENES = int(os.environ.get("MAX_IMAGENES", "3"))
 
 CATEGORIAS = [
     "muestra",      # muestra gratis a casa
@@ -25,7 +32,27 @@ CATEGORIAS = [
 
 INSTRUCCIONES = """Eres el redactor de MundoPromos, una web espanola de promociones, muestras gratis y chollos.
 
-Recibes el texto tal cual se publico en un canal de Telegram y lo conviertes en una entrada de blog.
+Recibes una publicacion de un canal de Telegram (texto, imagenes o las dos cosas)
+y la conviertes en una entrada de blog.
+
+LAS IMAGENES
+- Casi siempre son capturas o carteles de la promocion, y suelen llevar dentro
+  los datos que importan: cuanto se ahorra, el producto exacto, el precio, las
+  fechas, el supermercado, las condiciones en letra pequena.
+- LEELAS con atencion y saca de ahi la informacion, sobre todo cuando el mensaje
+  venga sin texto o con cuatro palabras.
+- Transcribe cifras, fechas y nombres de producto tal y como aparecen. No los
+  redondees ni los adaptes.
+- Si la imagen trae un importe de reembolso, el periodo de validez o un limite
+  de tickets, ponlo en el cuerpo: es justo lo que la gente necesita saber.
+- Lo que no puedas leer con seguridad, omitelo. Nunca adivines un precio, una
+  fecha ni un codigo.
+- No describas la imagen ("en la foto se ve...", "el cartel dice...", "la imagen
+  esta recortada"): el lector no la esta mirando, y hablarle de ella le confunde.
+  Usa lo que pone para contar la promocion y ya esta.
+- Si falta un dato (las fechas, el limite, la letra pequena), no lo menciones como
+  ausencia: remite a las bases o a la web de la promocion con naturalidad.
+- Si la imagen lleva una marca de agua de MundoPromos, ignorala.
 
 VOZ EDITORIAL
 - Escribes en espanol de Espana, cercano y directo, sin sonar a nota de prensa.
@@ -43,6 +70,8 @@ REGLAS DE FORMATO (importantes)
 - El cuerpo tiene dos partes: primero de que va la promocion, y despues una
   seccion con los pasos en lista cuyo titulo es EXACTAMENTE este, con tilde:
   <h2>Cómo participar</h2>
+- Esa seccion empieza con una frase suelta en su propio <p>, y DESPUES va la
+  lista de pasos. Esa frase nunca va dentro de un <li>.
 - La PRIMERA FRASE de esa seccion debe ser distinta cada vez: varia la formula,
   no empieces siempre igual.
 
@@ -78,8 +107,27 @@ Devuelves SOLO un objeto JSON valido, sin texto alrededor, con estas claves:
   "publicable": true
 }
 
-Pon "publicable": false solo si el texto no contiene ninguna promocion real
-(por ejemplo un aviso del canal, un saludo o un mensaje administrativo)."""
+Pon "publicable": false solo si ni el texto ni las imagenes contienen una
+promocion real (por ejemplo un aviso del canal, un saludo, un meme o un mensaje
+administrativo), o si las imagenes estan tan borrosas que no sacas nada en claro."""
+
+
+class _Fallo:
+    """Marca un fallo tecnico, no un 'esto no se publica'.
+
+    Importa distinguirlos: lo que no es publicable se anota para no volver a
+    analizarlo (y no volver a pagarlo), pero un fallo pasajero debe
+    reintentarse en la siguiente vuelta en vez de perder la promocion.
+    """
+
+    def __bool__(self):
+        return False
+
+    def __repr__(self):
+        return "FALLO"
+
+
+FALLO = _Fallo()
 
 
 def _limpiar_json(bruto: str) -> str:
@@ -103,38 +151,84 @@ class Redactor:
         self.cliente = anthropic.Anthropic(api_key=api_key or os.environ["ANTHROPIC_API_KEY"])
         self.modelo = modelo
 
-    def redactar(self, texto: str, canal: str, enlaces: list[str]) -> dict | None:
-        """Devuelve el dict de la entrada o None si no es publicable."""
-        if not texto or len(texto.strip()) < 25:
+    def redactar(
+        self,
+        texto: str,
+        canal: str,
+        enlaces: list[str],
+        imagenes: list[bytes] | None = None,
+    ) -> dict | None:
+        """Devuelve el dict de la entrada o None si no es publicable.
+
+        Con imagenes basta aunque no venga texto: muchas promociones se
+        publican como una captura sin mas, y los datos estan dentro.
+        """
+        texto = (texto or "").strip()
+        imagenes = [i for i in (imagenes or []) if i][:MAX_IMAGENES]
+
+        # Sin imagen seguimos exigiendo algo de texto; con imagen, no hace falta
+        if not imagenes and len(texto) < 25:
             return None
+
+        if texto:
+            parte_texto = f"Texto original publicado en Telegram:\n---\n{texto[:4000]}\n---"
+        else:
+            parte_texto = (
+                "La publicacion no lleva texto: solo la imagen. Saca de ella "
+                "todo lo que necesites para escribir la entrada."
+            )
 
         contexto = (
             f"Canal de origen: {canal}\n"
             f"Enlaces detectados (NO los metas en el cuerpo, son para los botones): "
             f"{', '.join(enlaces[:5]) if enlaces else 'ninguno'}\n\n"
-            f"Texto original publicado en Telegram:\n---\n{texto[:4000]}\n---"
+            f"{parte_texto}"
         )
 
-        respuesta = self.cliente.messages.create(
-            model=self.modelo,
-            max_tokens=1600,
-            system=INSTRUCCIONES,
-            messages=[{"role": "user", "content": contexto}],
-        )
+        contenido: list[dict] = []
+        for imagen in imagenes:
+            contenido.append(
+                {
+                    "type": "image",
+                    "source": {
+                        "type": "base64",
+                        "media_type": "image/jpeg",
+                        "data": base64.standard_b64encode(imagen).decode(),
+                    },
+                }
+            )
+        contenido.append({"type": "text", "text": contexto})
+
+        try:
+            respuesta = self.cliente.messages.create(
+                model=self.modelo,
+                max_tokens=3000,
+                system=INSTRUCCIONES,
+                messages=[{"role": "user", "content": contenido}],
+            )
+        except Exception as e:  # noqa: BLE001 - red, limites, caidas
+            log.warning("La API fallo (%s), lo reintento en la siguiente vuelta", e)
+            return FALLO
 
         bruto = "".join(
             bloque.text for bloque in respuesta.content if getattr(bloque, "type", "") == "text"
         )
 
+        if respuesta.stop_reason == "max_tokens":
+            log.warning("Respuesta cortada por longitud, lo reintento mas adelante")
+            return FALLO
+
         try:
             datos = json.loads(_limpiar_json(bruto))
         except json.JSONDecodeError:
-            return None
+            log.warning("El modelo no devolvio JSON valido: %s", bruto[:160])
+            return FALLO
 
         if not datos.get("publicable", True):
             return None
         if not datos.get("titulo") or not datos.get("cuerpo_html"):
-            return None
+            log.warning("Respuesta sin titulo o sin cuerpo, lo reintento")
+            return FALLO
 
         # El modelo a veces escribe el titular sin tilde. Lo corregimos aqui
         # para que la seccion se llame siempre igual en toda la web.

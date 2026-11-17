@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 
 import canales
 from generador import RUTA_PLANTILLAS, Generador
-from redactor import Redactor, generar_slug
+from redactor import FALLO, MAX_IMAGENES, Redactor, generar_slug
 from repositorio import Repositorio, descargar_imagen
 
 logging.basicConfig(
@@ -41,6 +41,11 @@ log = logging.getLogger("mundopromos")
 
 RUTA_DATOS = "promos/datos.json"
 RUTA_HUELLA = "promos/plantillas.txt"
+
+# Se sube cuando el redactor aprende algo nuevo. Lo que se descarto con una
+# version anterior se vuelve a mirar una vez: las publicaciones de solo foto
+# se tiraban cuando el redactor todavia no sabia leer imagenes.
+VERSION_REDACTOR = 2
 
 # Huecos de la portada que rellena el bot. Cada uno dice que promos lleva
 # y cuantas caben. Si un hueco no existe en index.html, se ignora.
@@ -110,7 +115,17 @@ class Publicador:
         if pub.reenviada:
             return None
 
-        redactado = self.redactor.redactar(pub.texto, pub.canal, pub.enlaces)
+        # Las fotos se bajan antes de redactar: el modelo las lee para sacar
+        # importes, fechas y condiciones, que muchas veces solo estan ahi.
+        fotos = [d for d in (descargar_imagen(u) for u in pub.fotos[:MAX_IMAGENES]) if d]
+
+        if not fotos and len((pub.texto or "").strip()) < 25:
+            log.info("  %s sin texto ni foto aprovechable", pub.id)
+            return None
+
+        redactado = self.redactor.redactar(pub.texto, pub.canal, pub.enlaces, fotos)
+        if redactado is FALLO:
+            return FALLO
         if not redactado:
             log.info("  %s descartada por el redactor", pub.id)
             return None
@@ -119,11 +134,9 @@ class Publicador:
 
         binarios: dict[str, bytes] = {}
         ruta_imagen = None
-        if pub.fotos:
-            datos = descargar_imagen(pub.fotos[0])
-            if datos:
-                ruta_imagen = f"/img/promos/{slug}.jpg"
-                binarios[f"img/promos/{slug}.jpg"] = datos
+        if fotos:
+            ruta_imagen = f"/img/promos/{slug}.jpg"
+            binarios[f"img/promos/{slug}.jpg"] = fotos[0]
 
         entrada = {
             "id": pub.id,
@@ -249,16 +262,36 @@ class Publicador:
                     log.info("  %s marcada como agotada", pub.id)
 
             # 2. publicar las nuevas, de la mas antigua a la mas reciente
-            candidatas = [p for p in publicaciones if p.id not in conocidas]
+            def toca_mirarla(pub) -> bool:
+                guardada = conocidas.get(pub.id)
+                if guardada is None:
+                    return True
+                # Las descartadas por un redactor mas tonto, otra oportunidad
+                return bool(guardada.get("descartada")) and (
+                    guardada.get("version", 1) < VERSION_REDACTOR
+                )
+
+            candidatas = [p for p in publicaciones if toca_mirarla(p)]
+            repescadas = sum(1 for p in candidatas if p.id in conocidas)
+            if repescadas:
+                log.info("  %d descartadas antiguas vuelven a revisarse", repescadas)
             candidatas.sort(key=lambda p: p.numero)
             for pub in candidatas:
                 if len(nuevas) >= self.max_por_ciclo:
                     log.info("  tope de %d por ciclo alcanzado", self.max_por_ciclo)
                     break
                 resultado = self._crear_entrada(pub)
+                if resultado is FALLO:
+                    # fallo pasajero: ni la publicamos ni la damos por perdida
+                    log.info("  %s se queda para la siguiente vuelta", pub.id)
+                    continue
                 if not resultado:
                     # la recordamos para no volver a pagar por redactarla
-                    conocidas[pub.id] = {"id": pub.id, "descartada": True}
+                    conocidas[pub.id] = {
+                        "id": pub.id,
+                        "descartada": True,
+                        "version": VERSION_REDACTOR,
+                    }
                     continue
                 entrada, bins = resultado
                 nuevas.append(entrada)
