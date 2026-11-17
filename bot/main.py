@@ -39,8 +39,22 @@ logging.basicConfig(
 log = logging.getLogger("mundopromos")
 
 RUTA_DATOS = "promos/datos.json"
-MARCA_INICIO = "<!--ULTIMAS:INICIO-->"
-MARCA_FIN = "<!--ULTIMAS:FIN-->"
+
+# Huecos de la portada que rellena el bot. Cada uno dice que promos lleva
+# y cuantas caben. Si un hueco no existe en index.html, se ignora.
+BLOQUES = [
+    {
+        "nombre": "ultimas",
+        "cuantas": 6,
+        "filtro": lambda p: True,
+    },
+    {
+        "nombre": "cupones",
+        "cuantas": 6,
+        "filtro": lambda p: p.get("categoria") in ("cupon", "chollo")
+        or p.get("canal") == "OfertasSupermercadosES",
+    },
+]
 
 
 def entorno(clave: str, por_defecto=None, obligatoria=False):
@@ -123,17 +137,31 @@ class Publicador:
         return entrada, binarios
 
     def _inyectar_en_portada(self, promos: list[dict]) -> dict[str, str]:
-        """Mete las ultimas promos en index.html entre los marcadores."""
+        """Rellena cada hueco de index.html con las promos que le tocan."""
         portada = self.repo.leer_texto("index.html")
-        if not portada or MARCA_INICIO not in portada or MARCA_FIN not in portada:
+        if not portada:
             return {}
-        inicio = portada.index(MARCA_INICIO) + len(MARCA_INICIO)
-        fin = portada.index(MARCA_FIN)
+
+        original = portada
         activas = [p for p in promos if p.get("estado") != "agotada"]
-        nuevo = "\n      " + self.generador.tarjetas_inicio(activas) + "\n      "
-        if portada[inicio:fin] == nuevo:
-            return {}
-        return {"index.html": portada[:inicio] + nuevo + portada[fin:]}
+
+        for bloque in BLOQUES:
+            marca_inicio = f"<!--{bloque['nombre'].upper()}:INICIO-->"
+            marca_fin = f"<!--{bloque['nombre'].upper()}:FIN-->"
+            if marca_inicio not in portada or marca_fin not in portada:
+                continue
+            inicio = portada.index(marca_inicio) + len(marca_inicio)
+            fin = portada.index(marca_fin)
+            if fin < inicio:
+                log.warning("Marcadores de %s al reves, lo salto", bloque["nombre"])
+                continue
+            elegidas = [p for p in activas if bloque["filtro"](p)]
+            if not elegidas:
+                continue
+            contenido = self.generador.tarjetas_inicio(elegidas, bloque["cuantas"])
+            portada = portada[:inicio] + "\n      " + contenido + "\n      " + portada[fin:]
+
+        return {} if portada == original else {"index.html": portada}
 
     def _estaticos_desfasados(self, promos: list[dict]) -> dict[str, str]:
         """Archivos fijos de la web que ya no coinciden con lo que toca.

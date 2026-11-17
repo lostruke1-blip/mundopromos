@@ -47,7 +47,7 @@
   <div class="rejilla">
     {% for p in promos %}
     <a class="tarjeta{% if p.estado == 'agotada' %} caducada{% endif %}" href="/promo/{{ p.slug }}.html">
-      {% if p.imagen %}<img src="{{ p.imagen }}" alt="{{ p.titulo }}" loading="lazy">{% else %}<div class="sinfoto">🎁</div>{% endif %}
+      {% if p.imagen %}<img src="{{ p.imagen }}" alt="{{ p.titulo }}" width="400" height="170" loading="lazy">{% else %}<div class="sinfoto">🎁</div>{% endif %}
       <div class="cuerpo">
         <span class="etiqueta cat-{{ p.categoria }}">{{ p.etiqueta }}</span>
         <h3>{{ p.titulo }}</h3>

@@ -138,10 +138,16 @@ def main():
     comprobar(ld is not None, "incluye datos estructurados")
     if ld:
         try:
-            datos = json.loads(ld.group(1))
-            comprobar(datos["@type"] == "Article", "JSON-LD valido de tipo Article")
-            comprobar(datos["image"] == "https://mundopromos.com/img/promos/reembolso-cafe-marcilla-902.jpg",
+            bloques = json.loads(ld.group(1))
+            comprobar(isinstance(bloques, list) and len(bloques) == 2, "dos bloques de datos estructurados")
+            articulo, miga = bloques
+            comprobar(articulo["@type"] == "Article", "JSON-LD valido de tipo Article")
+            comprobar(articulo["image"] == "https://mundopromos.com/img/promos/reembolso-cafe-marcilla-902.jpg",
                        "imagen absoluta en el JSON-LD")
+            comprobar(miga["@type"] == "BreadcrumbList", "miga de pan para Google")
+            comprobar([i["position"] for i in miga["itemListElement"]] == [1, 2, 3], "miga bien numerada")
+            comprobar(miga["itemListElement"][2]["item"].endswith("/promos-reembolso.html"),
+                       "la miga apunta a la categoria correcta")
         except json.JSONDecodeError as e:
             comprobar(False, f"JSON-LD invalido: {e}")
 
@@ -160,7 +166,9 @@ def main():
     comprobar(primera < ultima, "ordenadas de mas nueva a mas vieja")
 
     mapa = archivos["sitemap.xml"]
-    comprobar(mapa.count("<loc>") == 6, "sitemap con portada, indice y 4 promos")
+    comprobar(mapa.count("<loc>") == 10, "sitemap con portada, indice, 4 categorias y 4 promos")
+    comprobar(mapa.count("/promos-") == 4, "una entrada por categoria con promos")
+    comprobar("/promos-sorteo.html" not in mapa, "no anuncia categorias vacias")
     comprobar("<lastmod>2026-11-12</lastmod>" in mapa, "lastmod en el sitemap")
 
     tarjetas = gen.tarjetas_inicio([p for p in PROMOS if p["estado"] != "agotada"])

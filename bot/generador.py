@@ -63,7 +63,22 @@ class Generador:
         }
         if p.get("imagen"):
             datos["image"] = f"{self.sitio}{p['imagen']}"
-        return json.dumps(datos, ensure_ascii=False, indent=1)
+
+        # La miga de pan, para que Google la muestre bajo el titulo
+        miga = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Inicio",
+                 "item": f"{self.sitio}/"},
+                {"@type": "ListItem", "position": 2, "name": "Promociones",
+                 "item": f"{self.sitio}/promos.html"},
+                {"@type": "ListItem", "position": 3,
+                 "name": ETIQUETAS.get(p["categoria"], p["categoria"]),
+                 "item": f"{self.sitio}/promos-{p['categoria']}.html"},
+            ],
+        }
+        return json.dumps([datos, miga], ensure_ascii=False, indent=1)
 
     def pagina_promo(self, p: dict, relacionadas: list[dict]) -> str:
         plantilla = self.env.get_template("promo.html")
@@ -103,6 +118,14 @@ class Generador:
             f"  <url>\n    <loc>{self.sitio}/promos.html</loc>\n"
             f"    <changefreq>hourly</changefreq>\n    <priority>0.9</priority>\n  </url>",
         ]
+        # Las paginas de categoria tambien tienen que entrar: son las que
+        # pueden posicionar por "muestras gratis", "cupones supermercado"...
+        categorias = {p["categoria"] for p in promos if p.get("categoria") in ETIQUETAS}
+        for cat in sorted(categorias):
+            urls.append(
+                f"  <url>\n    <loc>{self.sitio}/promos-{cat}.html</loc>\n"
+                f"    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>"
+            )
         for p in promos:
             fecha = (p.get("actualizado") or p.get("fecha") or "")[:10]
             urls.append(
@@ -122,7 +145,7 @@ class Generador:
         trozos = []
         for p in promos[:cuantas]:
             img = (
-                f'<img src="{p["imagen"]}" alt="{p["titulo"]}" loading="lazy">'
+                f'<img src="{p["imagen"]}" alt="{p["titulo"]}" width="400" height="168" loading="lazy">'
                 if p.get("imagen")
                 else '<div class="sinfoto">🎁</div>'
             )
