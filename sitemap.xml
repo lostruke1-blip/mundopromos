@@ -5,4 +5,57 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://mundopromos.com/promos.html</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mundopromos.com/promo/champu-y-acondicionador-nuniq-gratis-solo-pagas-el-envio-1777.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mundopromos.com/promo/muestra-gratis-de-mascarilla-keratin-alpha-sleek-de-l-1776.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mundopromos.com/promo/taco-supreme-gratis-en-taco-bell-este-6-de-1775.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mundopromos.com/promo/pruebas-gratis-de-fairy-ultra-y-fairy-spray-con-1772.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mundopromos.com/promo/1-000-muestras-gratis-de-comida-humeda-para-gato-1770.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mundopromos.com/promo/muestra-gratis-de-carolina-herrera-la-bomba-1769.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mundopromos.com/promo/busca-10-000-probadores-para-el-nuevo-aceite-glowtox-1768.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mundopromos.com/promo/muestra-gratis-de-la-favorite-de-jean-paul-gaultier-1765.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
