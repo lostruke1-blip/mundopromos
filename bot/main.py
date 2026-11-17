@@ -135,6 +135,19 @@ class Publicador:
             return {}
         return {"index.html": portada[:inicio] + nuevo + portada[fin:]}
 
+    def _estaticos_desfasados(self, promos: list[dict]) -> dict[str, str]:
+        """Archivos fijos de la web que ya no coinciden con lo que toca.
+
+        Sin esto, cambiar API_COMENTARIOS o retocar los estilos no llegaba
+        nunca a la web si no habia ninguna promo nueva ese dia.
+        """
+        generados = self.generador.construir(promos)
+        desfasados = {}
+        for ruta in ("comentarios.js", "promos.css"):
+            if ruta in generados and self.repo.leer_texto(ruta) != generados[ruta]:
+                desfasados[ruta] = generados[ruta]
+        return desfasados
+
     def ciclo(self, historico: int = 0) -> int:
         promos = self.cargar_promos()
         conocidas = {p["id"]: p for p in promos}
@@ -179,11 +192,17 @@ class Publicador:
                 binarios.update(bins)
                 log.info("  + %s · %s", entrada["categoria"], entrada["titulo"])
 
+        publicables = [p for p in conocidas.values() if not p.get("descartada")]
+
         if not nuevas and not cambios:
-            log.info("Sin novedades")
+            desfasados = self._estaticos_desfasados(publicables)
+            if not desfasados:
+                log.info("Sin novedades")
+                return 0
+            sha = self.repo.commit(desfasados, "Actualiza " + ", ".join(desfasados))
+            log.info("Commit %s · %s al dia", (sha or "")[:7], ", ".join(desfasados))
             return 0
 
-        publicables = [p for p in conocidas.values() if not p.get("descartada")]
         archivos: dict[str, bytes | str] = dict(self.generador.construir(publicables))
         archivos.update(binarios)
         archivos.update(self._inyectar_en_portada(

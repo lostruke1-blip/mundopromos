@@ -41,9 +41,16 @@ REGLAS DE FORMATO (importantes)
 - Quita llamadas tipo "activa notificaciones", "corred", "reenvia a tus amigas".
 - El cuerpo va en HTML simple: solo <p>, <ul>, <li> y <strong>. Nada mas.
 - El cuerpo tiene dos partes: primero de que va la promocion, y despues una
-  seccion "Como participar" con los pasos en lista.
-- La PRIMERA FRASE de la seccion "Como participar" debe ser distinta cada vez:
-  varia la formula, no empieces siempre igual.
+  seccion con los pasos en lista cuyo titulo es EXACTAMENTE este, con tilde:
+  <h2>Cómo participar</h2>
+- La PRIMERA FRASE de esa seccion debe ser distinta cada vez: varia la formula,
+  no empieces siempre igual.
+
+ORTOGRAFIA
+- Estas instrucciones van sin tildes para evitar problemas de codificacion,
+  pero TU RESPUESTA debe llevar la ortografia correcta del espanol: tildes,
+  enes y signos de apertura (¿ ¡) donde toquen. "Cómo", "más", "según",
+  "gratis para ti", "participación", etc.
 
 TITULO SEO
 - Si es un sorteo normal, anade " (Sorteo)" al final.
@@ -65,7 +72,7 @@ Devuelves SOLO un objeto JSON valido, sin texto alrededor, con estas claves:
   "titulo_seo": "titulo para Google, maximo 60 caracteres, con sufijo si toca",
   "descripcion": "meta descripcion atractiva e informativa, 120-155 caracteres, sin la URL de la web",
   "resumen": "una o dos frases para la tarjeta de la portada",
-  "cuerpo_html": "<p>...</p><h2>Como participar</h2><ul><li>...</li></ul>",
+  "cuerpo_html": "<p>...</p><h2>Cómo participar</h2><ul><li>...</li></ul>",
   "categoria": "una de: muestra, reembolso, cupon, sorteo, chollo, gratis",
   "marca": "marca o tienda principal, o null si no se identifica",
   "publicable": true
@@ -128,6 +135,15 @@ class Redactor:
             return None
         if not datos.get("titulo") or not datos.get("cuerpo_html"):
             return None
+
+        # El modelo a veces escribe el titular sin tilde. Lo corregimos aqui
+        # para que la seccion se llame siempre igual en toda la web.
+        datos["cuerpo_html"] = re.sub(
+            r"<h2>\s*C[oó]mo participar\s*</h2>",
+            "<h2>Cómo participar</h2>",
+            datos["cuerpo_html"],
+            flags=re.IGNORECASE,
+        )
 
         datos.setdefault("categoria", "chollo")
         if datos["categoria"] not in CATEGORIAS:
