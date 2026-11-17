@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T11:07:09.323014+00:00",
+ "actualizado": "2026-11-17T14:35:00.299665+00:00",
  "promos": [
   {
    "id": "Mundopromosapp/1788",
@@ -20,6 +20,44 @@
    "enlaces_extra": [
     "https://instagram.com/hermes?igshid=YmMyMTA2M2Y="
    ],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2173",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2173,
+   "fecha": "2026-11-13T09:05:18+00:00",
+   "actualizado": "2026-11-17T14:35:00.079398+00:00",
+   "slug": "estuches-old-spice-cold-spice-1-39-por-set-2173",
+   "titulo": "Estuches Old Spice Cold Spice: 1,39€ por set llevando 2",
+   "titulo_seo": "Old Spice Cold Spice a 1,39€/set en Carrefour",
+   "descripcion": "Estuches Old Spice Cold Spice (gel de ducha y desodorante) a 1,39€ por set llevando 2 en Carrefour, con cupón del 30% y 2x1 que acumula en ChequeAhorro.",
+   "resumen": "Los estuches Old Spice Cold Spice bajan a 1,39€ por set si llevas dos en Carrefour, combinando el cupón del 30% con la promoción 2x1 que acumula. En la web se están agotando rápido.",
+   "cuerpo_html": "<p>Carrefour tiene a la venta el <strong>estuche Old Spice Cold Spice</strong>, que incluye gel de ducha de 250 ml y desodorante de 70 ml. Su precio habitual es de 6,99€, pero con las promociones activas el set sale a <strong>1,39€ por unidad si llevas 2</strong>.</p><p>Hay dos ventajas que se suman: un <strong>cupón del 30%</strong> y una oferta <strong>2x1 que acumula</strong>. Según el ejemplo de compra que se muestra en la promoción, la acumulación se traduce en un saldo para tu próximo ChequeAhorro y en un cupón canjeable para compras posteriores.</p><p>Si quieres sacarle partido al ahorro, recuerda que con la tarjeta Club Carrefour se acumula el 1% de cada compra en ChequeAhorro. Además, en la web los estuches se están agotando rápido, así que conviene no esperar demasiado.</p><h2>Cómo participar</h2><p>Para aprovechar la oferta, sigue estos pasos:</p><ul><li>Busca el estuche Old Spice Cold Spice en la web de Carrefour.</li><li>Añade dos unidades al carrito.</li><li>Comprueba que aparecen el cupón del 30% y la promoción 2x1 que acumula.</li><li>Hazte socio de El Club Carrefour si todavía no lo eres, para acumular en ChequeAhorro.</li><li>Revisa las condiciones completas en las bases de la promoción antes de finalizar la compra.</li></ul>",
+   "categoria": "chollo",
+   "marca": "Carrefour",
+   "imagen": "/img/promos/estuches-old-spice-cold-spice-1-39-por-set-2173.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2171",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2171,
+   "fecha": "2026-11-13T08:26:12+00:00",
+   "actualizado": "2026-11-17T14:34:50.147382+00:00",
+   "slug": "estuche-adidas-ice-dive-en-carrefour-2-sets-por-2171",
+   "titulo": "Estuche Adidas Ice Dive en Carrefour: 2 sets por unos 3€",
+   "titulo_seo": "Estuche Adidas Ice Dive en Carrefour por unos 3€",
+   "descripcion": "Chollo en Carrefour con el estuche Adidas Ice Dive: 30% en cupón y la etiqueta 2x1 Acumula. Según el canal, 2 sets salen por unos 3€.",
+   "resumen": "Carrefour tiene el estuche Adidas Ice Dive con un 30% en cupón y la etiqueta 2x1 Acumula. Según el canal, 2 sets pueden salir por unos 3€, pero el stock puede agotarse pronto.",
+   "cuerpo_html": "<p>Carrefour tiene a la venta el estuche Adidas Ice Dive, que incluye colonia de 100 ml, after shave de 100 ml, gel de ducha de 250 ml y desodorante. El precio que aparece en la web es de 15,90€ por unidad, y el producto lleva la etiqueta <strong>30% en cupón</strong> y <strong>2x1 Acumula</strong>.</p><p>Según el canal que ha publicado la oferta, en la web se están quedando 2 sets por unos 3€ aproximadamente. Es un precio que puede variar según cómo se apliquen las promociones en el momento de la compra, así que conviene revisarlo en la propia web antes de decidir. Los chollos de este tipo suelen durar poco, y el canal advierte de que el producto podría agotarse pronto.</p><h2>Cómo participar</h2><p>Para aprovechar la oferta, sigue estos pasos:</p><ul><li>Busca el estuche Adidas Ice Dive en la web de Carrefour.</li><li>Revisa el descuento del 30% en cupón y la etiqueta 2x1 Acumula en la ficha del producto.</li><li>Añade el estuche al carrito y comprueba el precio final antes de pagar.</li><li>Si tienes la tarjeta Club Carrefour, recuerda que con tu compra acumulas el 1% en ChequeAhorro.</li></ul>",
+   "categoria": "chollo",
+   "marca": "Carrefour",
+   "imagen": "/img/promos/estuche-adidas-ice-dive-en-carrefour-2-sets-por-2171.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
    "estado": "activa"
   },
   {
@@ -61,6 +99,44 @@
    "estado": "activa"
   },
   {
+   "id": "OfertasSupermercadosES/2166",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2166,
+   "fecha": "2026-11-10T18:20:01+00:00",
+   "actualizado": "2026-11-17T14:34:41.622605+00:00",
+   "slug": "prueba-productos-gratis-en-carrefour-con-el-club-5-2166",
+   "titulo": "Prueba productos gratis en Carrefour con El Club 5 estrellas",
+   "titulo_seo": "Club 5 estrellas de Carrefour (club de probador@s)",
+   "descripcion": "Apúntate al club 5 estrellas de Carrefour para probar productos gratis sin compra mínima. Puedes inscribirte hasta el 15/11/2026 a las 23:59h.",
+   "resumen": "Carrefour abre una nueva oportunidad para probar productos gratis con su club de probadores El Club 5 estrellas. No hace falta comprar nada para apuntarse.",
+   "cuerpo_html": "<p>Carrefour vuelve a abrir su club de probadores con una nueva convocatoria para <strong>probar productos gratis</strong>. Se llama El Club 5 estrellas y está pensado para quienes quieran recibir productos de la marca y dar su opinión sobre ellos.</p><p>Para apuntarte no necesitas hacer ninguna compra mínima. El plazo de inscripción termina el <strong>15/11/2026 a las 23:59h</strong>, así que conviene no dejarlo para el último momento.</p><p>Recuerda que con la tarjeta Club Carrefour se acumula el 1% de cada compra en ChequeAhorro.</p><h2>Cómo participar</h2><p>Para entrar en el club, solo tienes que seguir estos pasos antes de que acabe el plazo:</p><ul><li>Entra en el formulario de inscripción desde el botón de la tarjeta.</li><li>Rellena tus datos y envía la solicitud.</li><li>Inscríbete antes del 15/11/2026 a las 23:59h, sin necesidad de comprar nada antes.</li></ul>",
+   "categoria": "muestra",
+   "marca": "Carrefour",
+   "imagen": "/img/promos/prueba-productos-gratis-en-carrefour-con-el-club-5-2166.jpg",
+   "enlace": "https://docs.google.com/forms/d/e/1FAIpQLSc3ZDu_VwSA3ol0xO2Hrsv359i9slOArQNzsloLzi8rd5pwAQ/viewform",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2165",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2165,
+   "fecha": "2026-11-10T11:13:33+00:00",
+   "actualizado": "2026-11-17T14:34:34.625685+00:00",
+   "slug": "carrefour-cupones-de-hasta-100-de-acumulacion-en-el-2165",
+   "titulo": "Carrefour: cupones de hasta 100% de acumulación en El Club",
+   "titulo_seo": "Cupones Carrefour 100% acumulación en El Club",
+   "descripcion": "Revisa la app de Carrefour: aparecen cupones de El Club con hasta el 100% de acumulación en nachos Mission, snacks Grefusa y geles Malizia.",
+   "resumen": "En la app de Carrefour están apareciendo cupones de El Club con hasta un 100% de acumulación en productos como los nachos Mission o los snacks Grefusa.",
+   "cuerpo_html": "<p>Si os movéis por la app de Carrefour, es buen momento para echarle un vistazo: están apareciendo cupones de <strong>El Club</strong> con porcentajes de acumulación muy altos. El más llamativo es el <strong>100% de acumulación</strong> en los <strong>Nachos Artesanos Mission 200g</strong>, válido del 12/11/2026 al 22/11/2026 en hipermercados Carrefour.</p><p>También hay cupones del <strong>80% de acumulación</strong> en los snacks <strong>Grefusa Mix Barbacoa</strong> y en los geles de baño <strong>Malizia Bagno Schiuma</strong>, con el mismo tipo de promoción para socios de El Club. Son productos distintos, así que conviene revisar las condiciones de cada cupón en la propia app.</p><p>Recordad que con la tarjeta Club Carrefour se acumula además el 1% de cada compra en ChequeAhorro.</p><h2>Cómo participar</h2><p>Estos son los pasos para no perderos ningún cupón:</p><ul><li><p>Abrid la app de Carrefour e iniciad sesión con vuestra cuenta de El Club.</p></li><li><p>Buscad la sección de cupones y localizad los de acumulación del 100% y del 80%.</p></li><li><p>Revisad el periodo de validez y las condiciones de cada uno en la app o en las bases de la promoción.</p></li><li><p>Comprad los productos indicados en hipermercados Carrefour dentro de las fechas de validez.</p></li></ul>",
+   "categoria": "cupon",
+   "marca": "Carrefour",
+   "imagen": "/img/promos/carrefour-cupones-de-hasta-100-de-acumulacion-en-el-2165.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
    "id": "Mundopromosapp/1784",
    "canal": "Mundopromosapp",
    "numero": 1784,
@@ -95,6 +171,44 @@
    "marca": "Lancôme",
    "imagen": "/img/promos/muestra-gratis-de-la-nueva-renergie-collagen-lift-xtend-1783.jpg",
    "enlace": "https://lancome-es.beauty-campaigns.com/quiz/1862918_1221/ES_LLD_LAC_Renergie_MujerHoy.html?fbclid=IwVERDUAVa5Z5leHRuA2FlbQIxMABwZG9mBXNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABH5UdBYwy2jLXWDHeiitRA1os0FyTQkZ0YOb9y_WDFJwBgcPT4gBJb8iDelr9_aem_9afJ5YIC7lIR_o7kKLOu1Q",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2163",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2163,
+   "fecha": "2026-11-04T08:15:18+00:00",
+   "actualizado": "2026-11-17T14:34:21.843370+00:00",
+   "slug": "reembolso-de-4-en-los-jarabes-pharysol-tos-2163",
+   "titulo": "Reembolso de 4€ en los jarabes Pharysol TOS",
+   "titulo_seo": "Reembolso de 4€ Pharysol TOS: cómo participar",
+   "descripcion": "Reembolso de 4€ en los jarabes Pharysol TOS y Pharysol TOS pediátrico. Promoción válida hasta el 31/01/2027, con un máximo de 1.000 participaciones.",
+   "resumen": "Te devuelven 4€ al comprar los jarabes Pharysol TOS o Pharysol TOS pediátrico. La promoción va del 8 de noviembre de 2026 al 31 de enero de 2027, o hasta agotar las 1.000 participaciones.",
+   "cuerpo_html": "<p>Pharysol lanza un reembolso de <strong>4€</strong> por la compra de sus jarabes para la tos seca y productiva. Sirve tanto para <strong>Pharysol TOS</strong> como para <strong>Pharysol TOS pediátrico</strong>, la versión para niños a partir de un año.</p><p>La promoción está disponible desde el <strong>8 de noviembre de 2026</strong> y se puede participar hasta el <strong>31 de enero de 2027</strong>. Ojo, que está limitada a <strong>1.000 participaciones</strong>, así que conviene no dejarlo para el final.</p><p>Las condiciones completas están en las bases legales de la web de la promoción.</p><h2>Cómo participar</h2><p>Para pedir tu reembolso, sigue estos pasos:</p><ul><li>Compra cualquiera de los dos jarabes Pharysol TOS o Pharysol TOS pediátrico dentro del periodo de la promoción.</li><li>Entra en la web de la promoción y accede al formulario de participación.</li><li>Rellena el formulario con tus datos y sube la documentación que te pidan.</li><li>Consulta las bases legales para saber qué justificante necesitas guardar y en qué plazo debes enviarlo.</li></ul>",
+   "categoria": "reembolso",
+   "marca": "Pharysol",
+   "imagen": "/img/promos/reembolso-de-4-en-los-jarabes-pharysol-tos-2163.jpg",
+   "enlace": "https://promocionpharysoltos.com/reva-pharysol-tos/form",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "Mundopromosapp/1782",
+   "canal": "Mundopromosapp",
+   "numero": 1782,
+   "fecha": "2026-11-03T17:07:34+00:00",
+   "actualizado": "2026-11-17T14:33:52.912177+00:00",
+   "slug": "6-perfumes-gratis-de-yodeyma-solo-pagas-2-90-1782",
+   "titulo": "6 perfumes gratis de Yodeyma: solo pagas 2,90€ de envío",
+   "titulo_seo": "6 perfumes gratis de Yodeyma por 2,90€ de envío",
+   "descripcion": "Consigue un perfume de equivalencia de 15 ml gratis en Yodeyma y recibe 5 minivapors de regalo para probar otras fragancias. Solo pagas 2,90€ de gastos de envío.",
+   "resumen": "Yodeyma regala un perfume de equivalencia de 15 ml y 5 minivapors para probar otras fragancias. Solo hay que pagar 2,90€ de gastos de envío.",
+   "cuerpo_html": "<p>Si te gustan los perfumes de equivalencia, esta promoción de Yodeyma te interesa. Por un lado, te llevas un perfume de 15 ml completamente gratis. Por otro, recibes 5 minivapors de regalo para probar otras fragancias antes de decidirte por una.</p><p>El único gasto es de 2,90€ en concepto de envío.</p><h2>Cómo participar</h2><p>Para hacerte con tu pack, sigue estos pasos:</p><ul><li>Entra en la web de la promoción de Yodeyma y elige tu perfume de equivalencia.</li><li>Completa el pedido con tus datos de envío.</li><li>Paga los 2,90€ de gastos de envío para recibir tu perfume de 15 ml y los 5 minivapors.</li></ul>",
+   "categoria": "gratis",
+   "marca": "Yodeyma",
+   "imagen": null,
+   "enlace": null,
    "enlaces_extra": [],
    "estado": "activa"
   },
@@ -175,6 +289,25 @@
    "estado": "activa"
   },
   {
+   "id": "OfertasSupermercadosES/2161",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2161,
+   "fecha": "2026-10-27T13:13:13+00:00",
+   "actualizado": "2026-11-17T14:34:14.779788+00:00",
+   "slug": "carrefour-40-de-descuento-en-juguetes-y-bicicletas-2161",
+   "titulo": "Carrefour: 40% de descuento en juguetes y bicicletas",
+   "titulo_seo": "Carrefour: 40% en juguetes y bicicletas",
+   "descripcion": "Carrefour aplica un 40% de descuento en juguetes y bicicletas por compras superiores a 40€, del 29 de octubre al 4 de noviembre. Así funciona la oferta.",
+   "resumen": "Del 29 de octubre al 4 de noviembre, Carrefour ofrece un 40% de descuento en juguetes y bicicletas, tanto en sus hipermercados como en su web.",
+   "cuerpo_html": "<p>Carrefour lanza del <strong>29 de octubre al 4 de noviembre</strong> una promoción de <strong>-40% en todos los juguetes y bicicletas</strong>, en sus hipermercados y en Carrefour.es. Es una buena ocasión para adelantar los regalos de Navidad o para renovar la bici de los peques.</p><p>El descuento se aplica por compras superiores a 40€ en juguetes y bicicletas. Entran en la promoción productos como bicicletas eléctricas, futbolines, billares, mesas de juego, camas elásticas, sets de boxeo, canastas, dianas, Funkos y juguetes de pequeña puericultura, entre otros. Quedan fuera patines, patinetes (también los eléctricos), artículos de Halloween, disfraces, videojuegos y consolas.</p><p>El importe del descuento no se descuenta en caja, sino que se entrega en forma de <strong>cupón canjeable en tu próxima compra, entre el 5 y el 19 de noviembre de 2026</strong>.</p><p>Si tienes la tarjeta Club Carrefour, además acumulas el 1% de cada compra en ChequeAhorro.</p><h2>Cómo participar</h2><p>Lo primero es elegir dónde comprar: en un hipermercado Carrefour o en la web Carrefour.es.</p><ul><li>Reúne juguetes o bicicletas de la promoción por un importe superior a 40€.</li><li>Completa la compra y guarda el ticket.</li><li>Canjea el cupón de descuento en tu próxima compra entre el 5 y el 19 de noviembre de 2026.</li><li>Si necesitas cambiar o devolver algún juguete, puedes hacerlo hasta el 10 de enero de 2027, presentando el ticket y el embalaje original del producto. Ten en cuenta que la devolución de un producto de esta oferta implica devolver también el importe del descuento obtenido.</li></ul>",
+   "categoria": "cupon",
+   "marca": "Carrefour",
+   "imagen": "/img/promos/carrefour-40-de-descuento-en-juguetes-y-bicicletas-2161.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
    "id": "OfertasSupermercadosES/2160",
    "canal": "OfertasSupermercadosES",
    "numero": 2160,
@@ -190,6 +323,25 @@
    "marca": "President",
    "imagen": "/img/promos/pruebalo-gratis-reembolso-de-crema-de-untar-president-chili-2160.jpg",
    "enlace": "https://pruebachili.president.es/",
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2158",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2158,
+   "fecha": "2026-10-26T19:30:08+00:00",
+   "actualizado": "2026-11-17T14:34:04.913712+00:00",
+   "slug": "cupones-gratis-de-lidl-en-la-app-gnocchi-galleta-2158",
+   "titulo": "Cupones gratis de Lidl en la app: gnocchi, galleta y hamburguesa",
+   "titulo_seo": "Cupones gratis de Lidl en la app: gnocchi, galleta y más",
+   "descripcion": "Lidl tiene cupones gratis en su app para gnocchi de patata, galleta de chocolate Sondey 0% azúcar añadido y hamburguesa mixta. Revisa las condiciones.",
+   "resumen": "Han aparecido nuevos cupones gratis en la app de Lidl: gnocchi de patata, galleta de chocolate Sondey 0% azúcar añadido y hamburguesa mixta cerdo/vacuno.",
+   "cuerpo_html": "<p>Ojo, porque en la app de Lidl están saliendo cupones gratis para varios productos. Entre ellos hay <strong>gnocchi de patata</strong> y <strong>hamburguesa mixta cerdo/vacuno</strong>, con compra mínima de 30€, y la <strong>galleta de chocolate Sondey 0% azúcar añadido</strong>, con compra mínima de 50€.</p><p>Los cupones de gnocchi y de hamburguesa solo pueden utilizarse una vez, y son para ti, así que conviene revisar bien las condiciones de cada uno antes de hacer la compra.</p><h2>Cómo participar</h2><p>Así puedes localizarlos y aprovecharlos desde tu móvil.</p><ul><li>Abre la app de Lidl y busca los cupones disponibles en tu tienda.</li><li>Localiza el producto que te interese y pulsa en 'Ver más' para leer las condiciones.</li><li>Comprueba la compra mínima indicada y que el cupón solo se puede utilizar una vez.</li><li>Haz tu compra alcanzando el importe mínimo y aplica el cupón según indique la app.</li></ul>",
+   "categoria": "cupon",
+   "marca": "Lidl",
+   "imagen": "/img/promos/cupones-gratis-de-lidl-en-la-app-gnocchi-galleta-2158.jpg",
+   "enlace": null,
    "enlaces_extra": [],
    "estado": "activa"
   },
@@ -427,40 +579,9 @@
    "estado": "activa"
   },
   {
-   "id": "Mundopromosapp/1782",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2158",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2161",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2163",
-   "descartada": true
-  },
-  {
    "id": "OfertasSupermercadosES/2164",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2165",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2166",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2171",
-   "descartada": true
-  },
-  {
-   "id": "OfertasSupermercadosES/2173",
-   "descartada": true
+   "descartada": true,
+   "version": 2
   },
   {
    "id": "OfertasSupermercadosES/2174",
