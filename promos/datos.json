@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T17:07:23.208380+00:00",
+ "actualizado": "2026-11-25T10:54:25.079247+00:00",
  "promos": [
   {
    "id": "OfertasSupermercadosES/2177",
@@ -653,11 +653,6 @@
    "enlace": "https://www.tiktok.com/@jeanpaulgaultier?_r=1&_t=ZN-99iqc5WV5PD",
    "enlaces_extra": [],
    "estado": "activa"
-  },
-  {
-   "id": "OfertasSupermercadosES/2164",
-   "descartada": true,
-   "version": 2
   }
  ]
 }
