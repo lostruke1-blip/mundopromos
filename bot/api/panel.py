@@ -60,7 +60,26 @@ def _fila_reciente(c, ficha):
     </tr>"""
 
 
-def pagina_panel(pendientes, recientes, resumen, ficha) -> str:
+
+def _filas_busquedas(busquedas):
+    if not busquedas:
+        return ('<tr><td class="vacio">Todavía no hay búsquedas registradas. '
+                'Aparecerán aquí en cuanto alguien use el buscador de la web.</td></tr>')
+    filas = []
+    for b in busquedas:
+        sin_nada = ""
+        if b["vacias"]:
+            sin_nada = f'<span class="e e-spam">{b["vacias"]} sin resultados</span>'
+        filas.append(f"""
+    <tr>
+      <td><strong>{escape(b["termino"])}</strong> {sin_nada}</td>
+      <td class="peq">{b["veces"]} {"vez" if b["veces"] == 1 else "veces"}</td>
+      <td class="peq">{fecha(b["ultima"])}</td>
+    </tr>""")
+    return "".join(filas)
+
+def pagina_panel(pendientes, recientes, resumen, ficha, busquedas=(), total_busquedas=0) -> str:
+    aviso_pendientes = f' <span class="pip">{len(pendientes)}</span>' if pendientes else ""
     cuerpo_pendientes = (
         "".join(_tarjeta_pendiente(c, ficha) for c in pendientes)
         if pendientes
@@ -90,6 +109,12 @@ h2{{font-size:1.05rem;margin:1.6rem 0 .7rem}}
 .b{{font:inherit;font-size:13px;font-weight:600;border:0;border-radius:8px;padding:.45rem .9rem;cursor:pointer;color:#fff}}
 .ok{{background:#12734a}} .no{{background:#8a9a9b}} .bloq{{background:#b45309}} .del{{background:#c0392b}}
 .vacio{{color:#5f7a7d;font-size:14px}}
+.solapas{{display:flex;gap:6px;margin-bottom:.4rem}}
+.solapa{{font:inherit;font-size:13.5px;font-weight:600;color:#5f7a7d;background:transparent;border:1px solid #cfe6e6;border-radius:20px;padding:.45rem 1.1rem;cursor:pointer}}
+.solapa.on{{background:#06999a;border-color:#06999a;color:#fff}}
+.pip{{display:inline-block;background:#c0392b;color:#fff;font-size:10.5px;font-weight:700;min-width:18px;padding:1px 5px;border-radius:20px;margin-left:5px}}
+.solapa.on .pip{{background:#fff;color:#c0392b}}
+.nota{{font-size:13px;color:#5f7a7d;margin-bottom:.8rem;max-width:62ch}}
 table{{width:100%;border-collapse:collapse;background:#fff;border:1px solid #cfe6e6;border-radius:12px;overflow:hidden}}
 td{{padding:.6rem .7rem;border-top:1px solid #e7f1f1;vertical-align:top;font-size:13px}}
 tr:first-child td{{border-top:0}}
@@ -108,9 +133,33 @@ tr:first-child td{{border-top:0}}
     {resumen.get('rechazado', 0)} rechazados</span>
 </header>
 <main>
-  <h2>Pendientes de revisar ({len(pendientes)})</h2>
-  {cuerpo_pendientes}
-  <h2>Últimos movimientos</h2>
-  <table><tbody>{filas or '<tr><td class="vacio">Todavía nada.</td></tr>'}</tbody></table>
+  <div class="solapas">
+    <button class="solapa on" onclick="ver('coment',this)">Comentarios{aviso_pendientes}</button>
+    <button class="solapa" onclick="ver('busq',this)">Búsquedas</button>
+  </div>
+
+  <section id="s-coment">
+    <h2>Pendientes de revisar ({len(pendientes)})</h2>
+    {cuerpo_pendientes}
+    <h2>Últimos movimientos</h2>
+    <table><tbody>{filas or '<tr><td class="vacio">Todavía nada.</td></tr>'}</tbody></table>
+  </section>
+
+  <section id="s-busq" hidden>
+    <h2>Lo que busca la gente</h2>
+    <p class="nota">{total_busquedas} búsquedas en los últimos 30 días. Lo que sale
+      marcado en rojo es gente que buscó algo y no encontró nada: ahí tienes
+      contenido que falta en la web.</p>
+    <table><tbody>{_filas_busquedas(busquedas)}</tbody></table>
+  </section>
 </main>
+
+<script>
+function ver(cual, boton) {{
+  document.getElementById('s-coment').hidden = cual !== 'coment';
+  document.getElementById('s-busq').hidden = cual !== 'busq';
+  document.querySelectorAll('.solapa').forEach(function (b) {{ b.classList.remove('on'); }});
+  boton.classList.add('on');
+}}
+</script>
 </body></html>"""

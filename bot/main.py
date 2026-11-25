@@ -62,12 +62,11 @@ BLOQUES = [
         or p.get("canal") == "OfertasSupermercadosES",
     },
     {
-        # Todo lo del canal grande de muestras, mas cualquier muestra o
-        # regalo que llegue por el otro canal
+        # Solo el canal grande de muestras. Lo del canal de supermercados
+        # tiene su propia pestana y aqui no pinta nada.
         "nombre": "muestras",
         "cuantas": 9,
-        "filtro": lambda p: p.get("canal") == "Mundopromosapp"
-        or p.get("categoria") in ("muestra", "gratis"),
+        "filtro": lambda p: p.get("canal") == "Mundopromosapp",
     },
 ]
 
@@ -230,7 +229,7 @@ class Publicador:
         # Mismas plantillas: solo comprobamos los archivos sueltos
         generados = self.generador.construir(promos)
         desfasados = {}
-        for ruta in ("comentarios.js", "promos.css", "instagram.js"):
+        for ruta in ("comentarios.js", "promos.css", "instagram.js", "lupa.js"):
             if ruta in generados and self.repo.leer_texto(ruta) != generados[ruta]:
                 desfasados[ruta] = generados[ruta]
         return desfasados

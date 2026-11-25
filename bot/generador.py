@@ -107,6 +107,7 @@ class Generador:
         return plantilla.render(
             promos=enriquecidas,
             sitio=self.sitio,
+            api_comentarios=self.api_comentarios,
             activas=sum(1 for p in promos if p.get("estado") != "agotada"),
             anio=datetime.now(timezone.utc).year,
         )
@@ -169,6 +170,7 @@ class Generador:
 
         archivos["promos.css"] = (RUTA_PLANTILLAS / "estilos.css").read_text(encoding="utf-8")
         archivos["instagram.js"] = (RUTA_PLANTILLAS / "instagram.js").read_text(encoding="utf-8")
+        archivos["lupa.js"] = (RUTA_PLANTILLAS / "lupa.js").read_text(encoding="utf-8")
         archivos["comentarios.js"] = (
             (RUTA_PLANTILLAS / "comentarios.js")
             .read_text(encoding="utf-8")

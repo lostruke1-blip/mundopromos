@@ -35,7 +35,7 @@
 }
 body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
 
-header{background:var(--teal);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+header{position:relative;z-index:40;background:var(--teal);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
 .logo{font-family:'Bricolage Grotesque',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-.4px;line-height:1}
 .logo span{opacity:.7;font-weight:600}
 .soc{display:flex;gap:6px;flex-wrap:wrap}
@@ -209,12 +209,40 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
 /* El menu de pestanas se queda sin sitio al crecer: aviso de que hay mas */
 .tabs{-webkit-overflow-scrolling:touch;mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
 @media(min-width:1040px){.tabs{mask-image:none}}
+
+/* Logo clicable */
+a.logo{text-decoration:none;cursor:pointer}
+a.logo:hover span{opacity:.95}
+/* Buscador de la barra: campo en escritorio, lupa desplegable en movil */
+.busca{position:relative;z-index:40;display:flex;align-items:center;flex:1;max-width:340px;margin:0 auto}
+.busca-lupa{display:none;width:36px;height:36px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:transparent;color:#fff;font-size:15px;line-height:1;cursor:pointer;padding:0;align-items:center;justify-content:center}
+.busca-lupa:hover{background:rgba(255,255,255,.18)}
+.busca-campo{width:100%;font-family:inherit;font-size:13.5px;color:#11262b;background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.5);border-radius:20px;padding:.45rem .9rem}
+.busca-campo::placeholder{color:#7d9799}
+.busca-campo:focus{outline:2px solid #fff;outline-offset:1px;background:#fff}
+@media(max-width:780px){
+  header{flex-wrap:nowrap;gap:.5rem}
+  .logo{font-size:1.25rem}
+  .soc{display:none}
+  .busca{flex:0 0 auto;max-width:none;margin:0 0 0 auto}
+  .busca-lupa{display:flex}
+  .busca-campo{position:absolute;right:0;top:calc(100% + 10px);width:0;opacity:0;padding:0;border-width:0;pointer-events:none;transition:width .25s ease,opacity .2s ease}
+  .busca.abierta .busca-campo{width:min(78vw,300px);opacity:1;padding:.55rem 1rem;border-width:1px;pointer-events:auto;box-shadow:0 8px 24px rgba(17,38,43,.22)}
+}
+
+.sec-menor{font-size:1.05rem!important;opacity:.9}
+.lead-menor{font-size:13px;color:var(--muted);margin:-.2rem 0 .9rem}
+#p-cupones .rejilla-cupones .tarjeta h3{font-size:14.5px}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Mundo<span>Promos</span></div>
+  <a class="logo" href="#" onclick="volverInicio(event)" aria-label="Volver a las novedades">Mundo<span>Promos</span></a>
+  <form class="busca" action="/promos.html" method="get" role="search">
+    <button class="busca-lupa" type="button" aria-label="Buscar" aria-expanded="false">🔍</button>
+    <input class="busca-campo" type="search" name="q" placeholder="Buscar: Nestlé, champú, Carrefour…" aria-label="Buscar promociones" autocomplete="off">
+  </form>
   <div class="soc">
     <a href="https://t.me/Mundopromosapp" target="_blank">Telegram</a>
     <a href="https://instagram.com/mundopromos" target="_blank">Instagram</a>
@@ -240,10 +268,6 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
     <span class="bhero-vivo"><span class="bhero-punto"></span> <!--CUENTA:INICIO-->32 promociones activas ahora mismo<!--CUENTA:FIN--></span>
     <h1 class="bhero-t">Muestras gratis y chollos, antes que nadie</h1>
     <p class="bhero-p">Rastreamos marcas y supermercados todos los días y publicamos solo lo que funciona de verdad: muestras que llegan a casa, reembolsos del 100% y cupones de súper. <b>Sin registros ni letra pequeña.</b></p>
-    <form class="bhero-buscar" action="/promos.html" method="get" role="search">
-      <input type="search" name="q" placeholder="Buscar: Nestlé, champú, Carrefour…" aria-label="Buscar promociones" autocomplete="off">
-      <button type="submit">Buscar</button>
-    </form>
     <div class="bhero-acciones">
       <a class="bhero-b" href="https://t.me/Mundopromosapp" target="_blank" rel="noopener">Avisadme en Telegram</a>
       <a class="bhero-b ghost" href="/promos.html">Ver todas las promos</a>
@@ -354,7 +378,17 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
     <p class="bhero-p">Cupones para canjear en caja, ofertas que merecen la pena y reembolsos de marca. Abajo tienes además las webs que reparten cupones directamente.</p>
   </section>
 
-  <h2 class="sec"><em>🛒</em> Lo último de supermercados</h2>
+  <h2 class="sec"><em>🔗</em> Otras webs con cupones</h2>
+  <div class="srcs">
+    <a class="src" href="https://valesycupones.es/" target="_blank"><div class="src-ico">🏷️</div><div class="src-nm">Vales y Cupones</div><div class="src-go">Abrir</div></a>
+    <a class="src" href="https://www.tucasaclub.com/promociones/cupones.html" target="_blank"><div class="src-ico">🏠</div><div class="src-nm">Tu Casa Club</div><div class="src-go">Abrir</div></a>
+    <a class="src" href="https://nestlefamilyclub.es/cupones" target="_blank"><div class="src-ico">👨‍👩‍👧</div><div class="src-nm">Nestlé Family</div><div class="src-go">Abrir</div></a>
+    <a class="src" href="https://www.nestlebebe.es/cupones" target="_blank"><div class="src-ico">👶</div><div class="src-nm">Nestlé Baby&nbsp;&amp;&nbsp;Me</div><div class="src-go">Abrir</div></a>
+    <a class="src" href="https://borges.es/club-borges/cupones/" target="_blank"><div class="src-ico">🫒</div><div class="src-nm">Borges</div><div class="src-go">Abrir</div></a>
+  </div>
+
+  <h2 class="sec sec-menor"><em>🛒</em> Lo último de supermercados</h2>
+  <p class="lead lead-menor">Además de cupones, en el canal avisamos de ofertas, reembolsos y chollos de súper.</p>
   <div class="rejilla rejilla-cupones">
       <!--CUPONES:INICIO-->
       <a class="tarjeta" href="/promo/productos-gratis-para-socios-de-el-club-carrefour-desde-2177.html"><div class="foto"><img src="/img/promos/productos-gratis-para-socios-de-el-club-carrefour-desde-2177.jpg" alt="Productos gratis para socios de El Club Carrefour desde el 18/11" width="400" height="168" loading="lazy"></div><div class="cuerpo"><span class="etiqueta cat-cupon">Cupón</span><h3>Productos gratis para socios de El Club Carrefour desde el 18/11</h3><p>Si eres socio de El Club Carrefour, revisa la app: ya han aparecido cupones para llevarte productos gratis en hipermercados Carrefour, sin mínimo de compra a partir del 18/11.</p><span class="pie">17 de noviembre de 2026</span></div></a>
@@ -365,16 +399,6 @@ footer a{color:var(--teal);text-decoration:none;font-weight:500}
       <a class="tarjeta" href="/promo/estuche-adidas-ice-dive-en-carrefour-2-sets-por-2171.html"><div class="foto"><img src="/img/promos/estuche-adidas-ice-dive-en-carrefour-2-sets-por-2171.jpg" alt="Estuche Adidas Ice Dive en Carrefour: 2 sets por unos 3€" width="400" height="168" loading="lazy"></div><div class="cuerpo"><span class="etiqueta cat-chollo">Chollo</span><h3>Estuche Adidas Ice Dive en Carrefour: 2 sets por unos 3€</h3><p>Carrefour tiene el estuche Adidas Ice Dive con un 30% en cupón y la etiqueta 2x1 Acumula. Según el canal, 2 sets pueden salir por unos 3€, pero el stock puede agotarse pronto.</p><span class="pie">13 de noviembre de 2026</span></div></a>
       <!--CUPONES:FIN-->
   </div>
-
-  <h2 class="sec"><em>🔗</em> Otras webs con cupones</h2>
-  <div class="srcs">
-    <a class="src" href="https://valesycupones.es/" target="_blank"><div class="src-ico">🏷️</div><div class="src-nm">Vales y Cupones</div><div class="src-go">Abrir</div></a>
-    <a class="src" href="https://www.tucasaclub.com/promociones/cupones.html" target="_blank"><div class="src-ico">🏠</div><div class="src-nm">Tu Casa Club</div><div class="src-go">Abrir</div></a>
-    <a class="src" href="https://nestlefamilyclub.es/cupones" target="_blank"><div class="src-ico">👨‍👩‍👧</div><div class="src-nm">Nestlé Family</div><div class="src-go">Abrir</div></a>
-    <a class="src" href="https://www.nestlebebe.es/cupones" target="_blank"><div class="src-ico">👶</div><div class="src-nm">Nestlé Baby&nbsp;&amp;&nbsp;Me</div><div class="src-go">Abrir</div></a>
-    <a class="src" href="https://borges.es/club-borges/cupones/" target="_blank"><div class="src-ico">🫒</div><div class="src-nm">Borges</div><div class="src-go">Abrir</div></a>
-  </div>
-
 </section>
 
 <section id="p-cash">
@@ -520,6 +544,50 @@ async function load(){
 })();
 </script>
 
+
+<script>
+/* El logo devuelve a las novedades sin recargar la pagina */
+function volverInicio(ev) {
+  ev.preventDefault();
+  var pestana = document.querySelector('.tabs .tab[onclick*="\'nuevas\'"]');
+  if (pestana) pestana.click();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* En movil la lupa despliega el campo; en escritorio ya esta puesto */
+(function () {
+  var caja = document.querySelector('.busca');
+  var lupa = caja && caja.querySelector('.busca-lupa');
+  var campo = caja && caja.querySelector('.busca-campo');
+  if (!caja || !lupa || !campo) return;
+
+  lupa.addEventListener('click', function () {
+    // Si ya esta abierto y escrito, la lupa busca en vez de cerrar
+    if (caja.classList.contains('abierta') && campo.value.trim()) {
+      caja.submit ? caja.submit() : caja.requestSubmit();
+      return;
+    }
+    var abierta = caja.classList.toggle('abierta');
+    lupa.setAttribute('aria-expanded', abierta ? 'true' : 'false');
+    if (abierta) campo.focus();
+  });
+
+  document.addEventListener('click', function (ev) {
+    if (!caja.contains(ev.target)) {
+      caja.classList.remove('abierta');
+      lupa.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  campo.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape') {
+      caja.classList.remove('abierta');
+      lupa.setAttribute('aria-expanded', 'false');
+      campo.blur();
+    }
+  });
+})();
+</script>
 <script src="/instagram.js" defer></script>
 </body>
 </html>

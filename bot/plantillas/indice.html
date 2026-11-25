@@ -99,12 +99,38 @@
       if (vale) visibles++;
     });
     aviso.hidden = visibles > 0;
+    return visibles;
   }
 
-  var espera;
+  /* Avisamos de lo que se busca para saber que contenido falta en la web.
+     Solo viaja el texto buscado y cuantos resultados salieron: nada del
+     visitante. Y solo cuando deja de escribir, para no mandar cada letra. */
+  var API = window.MP_API || "{{ api_comentarios }}";
+  var ultimoAnotado = "";
+
+  function anotar(termino, resultados) {
+    if (!API || termino.length < 2 || termino === ultimoAnotado) return;
+    ultimoAnotado = termino;
+    try {
+      fetch(API + "/api/busquedas", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ termino: termino, resultados: resultados }),
+        keepalive: true
+      }).catch(function () { /* da igual si falla */ });
+    } catch (e) { /* navegador antiguo */ }
+  }
+
+  var espera, esperaAnotar;
   campo.addEventListener("input", function () {
     clearTimeout(espera);
-    espera = setTimeout(filtrar, 120);
+    espera = setTimeout(function () {
+      var cuantos = filtrar();
+      clearTimeout(esperaAnotar);
+      esperaAnotar = setTimeout(function () {
+        anotar(campo.value.trim().toLowerCase(), cuantos);
+      }, 1400);
+    }, 120);
   });
 
   // Si llega buscando desde la portada (/promos.html?q=...), filtramos ya
@@ -112,7 +138,7 @@
     var q = new URLSearchParams(location.search).get("q");
     if (q) {
       campo.value = q;
-      filtrar();
+      anotar(q.trim().toLowerCase(), filtrar());
       campo.focus();
     }
   } catch (e) { /* navegador antiguo: se queda el listado entero */ }

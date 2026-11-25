@@ -145,6 +145,34 @@ def recibir(promo):
     return jsonify({"publicado": estado == "publicado"}), 201
 
 
+@app.route("/api/busquedas", methods=["POST", "OPTIONS"])
+def anotar_busqueda():
+    """Apunta lo que busca la gente, para saber que contenido falta.
+
+    No guardamos nada del visitante: ni IP, ni huella, ni sesion. Solo el
+    termino y cuantos resultados le salieron.
+    """
+    if request.method == "OPTIONS":
+        return Response(status=204)
+
+    datos = request.get_json(silent=True) or {}
+    termino = limpiar(datos.get("termino"), 80).lower()
+
+    # Nada de terminos de una letra ni de cosas que parezcan datos personales
+    if len(termino) < 2:
+        return jsonify({"ok": True}), 202
+    if filtro.EMAIL.search(termino) or filtro.TELEFONO.search(termino):
+        return jsonify({"ok": True}), 202
+
+    try:
+        resultados = int(datos.get("resultados"))
+    except (TypeError, ValueError):
+        resultados = None
+
+    almacen.guardar_busqueda(termino, resultados)
+    return jsonify({"ok": True}), 201
+
+
 @app.route("/salud")
 def salud():
     return jsonify({"estado": "ok", "resumen": almacen.resumen()})
@@ -155,12 +183,15 @@ def salud():
 @app.route("/panel")
 @pide_clave
 def panel():
+    hace_30_dias = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
     return Response(
         pagina_panel(
             pendientes=almacen.pendientes(),
             recientes=almacen.recientes(),
             resumen=almacen.resumen(),
             ficha=sesion_ficha(),
+            busquedas=almacen.busquedas_top(hace_30_dias),
+            total_busquedas=almacen.busquedas_cuantas(hace_30_dias),
         ),
         mimetype="text/html",
     )

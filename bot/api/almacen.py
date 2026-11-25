@@ -78,8 +78,50 @@ class Almacen:
             "CREATE INDEX IF NOT EXISTS idx_promo_estado ON comentarios (promo, estado)"
         )
         self._ejecutar("CREATE INDEX IF NOT EXISTS idx_estado ON comentarios (estado)")
+
+        # Lo que busca la gente. No guardamos nada del visitante: solo el
+        # termino y cuando se busco, para saber que contenido falta.
+        self._ejecutar(
+            f"""CREATE TABLE IF NOT EXISTS busquedas (
+                   id {serial},
+                   termino TEXT NOT NULL,
+                   fecha TEXT NOT NULL,
+                   resultados INTEGER
+               )"""
+        )
+        self._ejecutar("CREATE INDEX IF NOT EXISTS idx_busq_fecha ON busquedas (fecha)")
         if not ES_POSTGRES:
             self.conexion.commit()
+
+    # ---------- busquedas ----------
+
+    def guardar_busqueda(self, termino: str, resultados: int | None) -> None:
+        self._ejecutar(
+            "INSERT INTO busquedas (termino, fecha, resultados) VALUES (?, ?, ?)",
+            (termino, _ahora(), resultados),
+        )
+        if not ES_POSTGRES:
+            self.conexion.commit()
+
+    def busquedas_top(self, desde_iso: str, limite: int = 40) -> list[dict]:
+        """Lo mas buscado, con cuantas veces se quedo sin resultados."""
+        filas = self._todos(
+            "SELECT termino, COUNT(*) AS veces, MAX(fecha) AS ultima, "
+            "SUM(CASE WHEN resultados = 0 THEN 1 ELSE 0 END) AS vacias "
+            "FROM busquedas WHERE fecha > ? "
+            "GROUP BY termino ORDER BY veces DESC, ultima DESC LIMIT ?",
+            (desde_iso, limite),
+        )
+        for f in filas:
+            f["veces"] = int(f["veces"] or 0)
+            f["vacias"] = int(f["vacias"] or 0)
+        return filas
+
+    def busquedas_cuantas(self, desde_iso: str) -> int:
+        fila = self._uno(
+            "SELECT COUNT(*) AS n FROM busquedas WHERE fecha > ?", (desde_iso,)
+        )
+        return int(fila["n"]) if fila else 0
 
     # ---------- lectura publica ----------
 

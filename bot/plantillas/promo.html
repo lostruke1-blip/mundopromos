@@ -48,7 +48,10 @@
     <p class="meta">Publicado el {{ fecha_legible }}{% if p.marca %} · {{ p.marca }}{% endif %}</p>
 
     {% if p.imagen %}
-    <img class="portada" src="{{ p.imagen }}" alt="{{ p.titulo }}" width="1200" height="800" loading="eager" fetchpriority="high">
+    <figure class="portada-caja">
+      <img class="portada" src="{{ p.imagen }}" alt="{{ p.titulo }}" width="1200" height="800" loading="eager" fetchpriority="high">
+      <figcaption class="portada-pista">Toca la imagen para verla completa</figcaption>
+    </figure>
     {% endif %}
 
     {{ p.cuerpo_html }}
@@ -99,6 +102,7 @@
 </footer>
 
 <script src="/comentarios.js" defer></script>
+<script src="/lupa.js" defer></script>
 <script src="/instagram.js" defer></script>
 </body>
 </html>
