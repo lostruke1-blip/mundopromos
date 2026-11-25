@@ -213,6 +213,20 @@ class Publicador:
                 trozos.append(archivo.read_bytes())
         trozos.append(self.sitio.encode())
         trozos.append(self.generador.api_comentarios.encode())
+        # Tambien los huecos de la portada: si cambia que promos entran en
+        # cada pestana, hay que volver a rellenarlos
+        for bloque in BLOQUES:
+            codigo = bloque["filtro"].__code__
+            trozos.append(
+                repr(
+                    (
+                        bloque["nombre"],
+                        bloque["cuantas"],
+                        codigo.co_names,
+                        codigo.co_consts,
+                    )
+                ).encode()
+            )
         return hashlib.sha256(b"|".join(trozos)).hexdigest()[:16]
 
     def _estaticos_desfasados(self, promos: list[dict]) -> dict[str, str]:
@@ -302,11 +316,21 @@ class Publicador:
 
         if not nuevas and not cambios:
             desfasados = self._estaticos_desfasados(publicables)
+            # La portada tambien: cambiar que promos van en cada pestana no
+            # traia promos nuevas, asi que sin esto no se enteraba nunca
+            desfasados.update(
+                self._inyectar_en_portada(
+                    sorted(publicables, key=lambda p: p.get("fecha") or "", reverse=True)
+                )
+            )
             if not desfasados:
                 log.info("Sin novedades")
                 return 0
-            sha = self.repo.commit(desfasados, "Actualiza " + ", ".join(desfasados))
-            log.info("Commit %s · %s al dia", (sha or "")[:7], ", ".join(desfasados))
+            nombres = ", ".join(sorted(desfasados)[:3]) + (
+                f" y {len(desfasados) - 3} mas" if len(desfasados) > 3 else ""
+            )
+            sha = self.repo.commit(desfasados, "Actualiza " + nombres)
+            log.info("Commit %s · %d archivos al dia", (sha or "")[:7], len(desfasados))
             return 0
 
         archivos: dict[str, bytes | str] = dict(self.generador.construir(publicables))
