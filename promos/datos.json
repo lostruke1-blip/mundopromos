@@ -1,6 +1,27 @@
 {
- "actualizado": "2026-11-25T11:03:47.232649+00:00",
+ "actualizado": "2026-11-27T08:19:55.583475+00:00",
  "promos": [
+  {
+   "id": "Mundopromosapp/1789",
+   "canal": "Mundopromosapp",
+   "numero": 1789,
+   "fecha": "2026-11-27T08:10:01+00:00",
+   "actualizado": "2026-11-27T08:19:51.736326+00:00",
+   "slug": "muestra-gratis-de-perfume-calvin-klein-en-redes-sociales-1789",
+   "titulo": "Muestra gratis de perfume Calvin Klein en redes sociales",
+   "titulo_seo": "Muestra gratis de perfume Calvin Klein: cómo conseguirla",
+   "descripcion": "Muestra gratis de perfume Calvin Klein sin enlace directo: hay que seguir a la marca en Facebook o Instagram para que aparezca el anuncio.",
+   "resumen": "Calvin Klein ofrece una muestra gratis de perfume, pero no hay enlace directo: el anuncio aparece al interactuar con sus perfiles oficiales en redes.",
+   "cuerpo_html": "<p>Calvin Klein tiene una muestra gratis de su perfume, pero no se pide desde un enlace directo. La forma de conseguirla es a través de sus redes sociales: tienes que interactuar con las cuentas oficiales de la marca para que el anuncio de la muestra aparezca mientras navegas.</p><p>Es una promoción algo más lenta que un formulario, así que conviene tener paciencia y no esperar que salga de inmediato.</p><h2>Cómo participar</h2><p>Esto es lo que hay que hacer para que te aparezca el anuncio:</p><ul><li><strong>Sigue a Calvin Klein</strong> en Facebook y/o en Instagram.</li><li><strong>Dale me gusta</strong> a sus publicaciones.</li><li><strong>Visita su perfil</strong> y su web oficial.</li><li><strong>Navega un rato</strong> después de interactuar: al ir entrando varias veces al perfil, el algoritmo es más probable que te muestre el anuncio antes.</li><li><strong>Pide la muestra</strong> desde el anuncio cuando aparezca en tu navegación.</li></ul>",
+   "categoria": "muestra",
+   "marca": "Calvin Klein",
+   "imagen": "/img/promos/muestra-gratis-de-perfume-calvin-klein-en-redes-sociales-1789.jpg",
+   "enlace": "https://www.facebook.com/CalvinKlein",
+   "enlaces_extra": [
+    "https://www.instagram.com/calvinklein?igsh=ZnFkaTllOGloN3J6"
+   ],
+   "estado": "activa"
+  },
   {
    "id": "OfertasSupermercadosES/2177",
    "canal": "OfertasSupermercadosES",
@@ -653,6 +674,11 @@
    "enlace": "https://www.tiktok.com/@jeanpaulgaultier?_r=1&_t=ZN-99iqc5WV5PD",
    "enlaces_extra": [],
    "estado": "activa"
+  },
+  {
+   "id": "OfertasSupermercadosES/2164",
+   "descartada": true,
+   "version": 2
   }
  ]
 }
