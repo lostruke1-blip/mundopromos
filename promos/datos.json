@@ -1,6 +1,25 @@
 {
- "actualizado": "2026-11-27T08:19:55.583475+00:00",
+ "actualizado": "2026-11-27T09:36:12.294212+00:00",
  "promos": [
+  {
+   "id": "OfertasSupermercadosES/2178",
+   "canal": "OfertasSupermercadosES",
+   "numero": 2178,
+   "fecha": "2026-11-27T09:34:30+00:00",
+   "actualizado": "2026-11-27T09:36:12.129195+00:00",
+   "slug": "ruleta-black-friday-en-la-app-de-dia-2178",
+   "titulo": "Ruleta Black Friday en la app de Dia",
+   "titulo_seo": "Ruleta Black Friday de Dia en la app (25-30 nov 2026)",
+   "descripcion": "Dia estrena una ruleta Black Friday en su app, activa del 25 al 30 de noviembre de 2026. Gira la ruleta y descubre tu premio, como el 15% en cereales y barritas.",
+   "resumen": "Dia lanza una ruleta Black Friday en su app, disponible del 25 al 30 de noviembre de 2026. Tienes una tirada y entre los premios hay un 15% en cereales y barritas.",
+   "cuerpo_html": "<p>Dia ha estrenado en su app una ruleta especial de Black Friday que estará activa del <strong>25 al 30 de noviembre de 2026</strong>. Es una ruleta de premios en la que puedes conseguir descuentos para tu compra.</p><p>Entre los premios aparece un <strong>15% en cereales y barritas</strong>. Cada usuario dispone de una tirada, así que conviene girarla dentro del plazo.</p><h2>Cómo participar</h2><p>Solo necesitas tener la app de Dia y entrar en la sección de la ruleta.</p><ul><li>Abre la app de Dia en tu móvil o descárgala si aún no la tienes.</li><li>Busca la ruleta Black Friday en el apartado de promociones.</li><li>Pulsa para girar y deja que la ruleta decida tu premio.</li><li>Revisa las bases o las condiciones de la promoción dentro de la app para saber cómo aplicar el premio.</li></ul>",
+   "categoria": "chollo",
+   "marca": "Dia",
+   "imagen": "/img/promos/ruleta-black-friday-en-la-app-de-dia-2178.jpg",
+   "enlace": null,
+   "enlaces_extra": [],
+   "estado": "activa"
+  },
   {
    "id": "Mundopromosapp/1789",
    "canal": "Mundopromosapp",
